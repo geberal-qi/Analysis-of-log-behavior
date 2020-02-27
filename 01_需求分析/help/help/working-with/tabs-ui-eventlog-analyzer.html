@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>标签介绍- EventLog Analyzer</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../working-with/ui-eventlog-analyzer.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../working-with/dashboard-views.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="ui-eventlog-analyzer.html"> 用户界面 </a> » 标签介绍</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>EventLog Analyzer客户端中的各个标签介绍</h1>
+            <hr />
+          <p>在EventLog Analyzer的客户端中有以下标签：</p>
+<ul>
+  <li><a href="#home" title="Home">主页</a></li>
+            <li><a href="#reports" title="Reports">报表</a></li>
+            <li><a href="#compliance" title="Compliance">合规性</a></li>
+            <li><a href="#search" title="Search">搜索</a></li>
+            <li><a href="#alerts" title="Alerts">告警</a></li>
+            <li><a href="#settings" title="Settings">设置</a></li>
+            <li><a href="#addTab" title="+ Add">+添加</a></li>
+            <li><a href="#searchBox" title="Search Box">搜索框</a> </li>
+        </ul>
+          <h2><a name="home" id="home"></a>主页</h2>
+          <p>主页标签中包括<strong>仪表板</strong>、<strong>主机</strong>和<strong>应用</strong>。</p>
+          <blockquote>
+            <p><strong>仪表板</strong></p>
+            <p>EventLog Analyzer仪表板包含很多有用的有用的图表部件，如：<strong>全部事件</strong>、<strong>告警</strong>、<strong>重要事件</strong>、<strong>事件分类</strong>、<strong>安全事件</strong>和<strong>日志趋势</strong>，各种网络事件的可见性更好。可以通过“定制”链接来添加或删除部件。使用拖拽可以在页面中直接更换部件的位置。可以定制某些主机组的仪表板“配置文件”。默认的仪表板是“所有组”，和用户创建的仪表板不同，默认仪表板是不能删除和编辑的。</p>
+            <p><strong>主机</strong></p>
+            <p>主机标签显示Evenglog Analyzer管理的所有系统（Windows、Linux、IBM AS/400、HP-UX等）和设备（路由、交换机等）的列表。用户可以通过在下拉菜单中选择主机组来显示部分主机（默认显示全部）。通过<strong>+主机</strong>按钮来添加新的主机，通过<strong>+报表</strong>按钮来添加新的报表。用户可以安装主机名或IP地址来<strong>搜索</strong>某个主机。可以<strong>删除</strong>一个或多个主机。<strong>禁用</strong>/<strong>启用</strong>一个或多个主机的日志收集。主机列表中还显示主机类型、事件汇总（错误、警告、失败、其他和全部）、连接状态、最后获取日志时间和所属主机组。当移动鼠标到某个主机所在行时，点击<img src="../images/last-ten-events.png" />图标来显示最近10个事件；点击<img src="../images/edit-host.png" />图标来编辑主机；点击<img src="../images/ping-host.png" />图标来ping该主机；点击<img src="../images/disable-host.png" />和<img src="../images/enable-host.png" />图标来启用/禁用日志收集。用户可以定制显示的字段，点击<img src="../images/column-selector.png" />图标来选择。在下拉列表中选择每页显示的主机数（最小5个，最多200）。 </p>
+            <p><strong>应用</strong></p>
+            <p>应用标签中提供了饼形图和导入/接收应用日志的主机，这些主机包括IIS W3C Web服务器、IIS W3C FTP服务器、MS SQL  Server、Oracle Live Audit、DHCP Windows/Linux、Apache Web服务器或打印机服务器。通过下拉列表选择要显示的<strong>应用类别</strong>（默认为全部应用）。通过<strong>动作</strong>下拉菜单中的<strong><a href="../configurations/import-logs.html">+导入</a></strong>选项来导入<a href="../getting-started/analyzing-application-logs.html">除了Oracle和打印服务的应用日志</a>。对于Oracle和打印服务器日志，当你在EventLog Analyzer中添加的Oracle服务器和打印服务器后，在<strong>动作</strong>下拉菜单中选择<strong><a href="../configurations/manage-applications.html#oracle_database_server" title="+ Oracle">+ Oracle</a></strong>或<strong><a href="../configurations/manage-applications.html#print_server" title="+ Print Server">+ 打印服务器</a></strong>，然后输入应用所在的主机的“主机名”。<br />
+应用主机列表中显示了主机名、应用类型、全部事件数、导入时间、开始和结束时间等信息。点击主机名，或者在饼形图中点击相应的部分来显示完整的应用日志，并生成相应的报表。通过点击<img src="../images/column-selector.png" />图标来选择要显示的字段。</p>
+          </blockquote>
+          <h2><a name="reports" id="reports"></a>报表</h2>
+          <p>报表标签中包括自定义的报表和系统预置的各种报表。在这里用户可以创建、修改、删除报表，设置报表计划，以xml文件格式来导入和导出报表配置文件。</p>
+          <p>可用的预置报表有：排行报表、用户活动报表、趋势报表、详细应用报表和详细主机报表。排行报表中包括用户访问排行、用户登录排行、交互登录排行、事件严重性排行和事件重要度排行。</p>
+          <h2><a name="compliance" id="compliance"></a>合规性</h2>
+          <p>合规性标签包含各种法案的合规性报表，如：PCI-DSS、FISMA、HIPAA、SOX和GLBA。法案中各个IT审计章节都有对应的报表。你可以修改现有的报表来满足你的需求，或者通过<strong>+ 添加</strong>来创建新的合规性报表。来满足其他的法案，如ISO 27001/2等等。</p>
+<h2><a name="search" id="search"></a>搜索</h2>
+          <p>搜索标签中提供了<strong>标准搜索</strong>和<strong>高级搜索</strong>。可以把搜索结果保存为PDF或CSV格式的报表，也可以创建计划报表，来定期发送报表给指定的邮件地址。如果用户要手动输入搜索条件，那么“基本搜索”，可以使用<a href="../search-logs/how-to-search.html">词组搜索、逻辑搜索、分组搜索和通配符搜索</a>。使用“告警搜索”中的条件创建向导来搜索添加，搜索条件可以分组，各组之间通过逻辑符连接起来。</p>
+          <p>在搜索结果中可以提取新的字段，创建正则表达式模式来轻松识别、分析和索引Eventlog Analyzer中新收到的日志。</p>
+<h2><a name="alerts" id="alerts"></a>告警</h2>
+          <p>在这里用户可以创建告警配置文件。当违反阈值、网络异常、用户活动异常或者违反合规性的时候生成告警并发送通知。这里列出全部的告警配置文件及其生成的告警，对于每个配置文件可以停用、修改或删除。告警配置文件可以以xml文件格式导出或导出。</p>
+          <h2><a name="settings" id="settings"></a>设置</h2>
+          <p>这里你可以按照你的实际情况对EventLog Analyzer进行配置。包括配置、管理设置和系统设置三个部分。</p>
+          <blockquote>
+            <p><strong>配置</strong></p>
+            <p>可配置项目有：管理主机、管理应用、导入、归档、报表配置文件、告警、数据库过滤、导入/导出配置文件、自定义模式、仪表板配置文件和问题对应。</p>
+            <p><strong>管理设置</strong></p>
+            <p>可以进行的管理操作有：安装代理、管理用户、数据库存储设置和外部认证设置。</p>
+            <p><strong>系统设置</strong></p>
+            <p>可以进行的系统设置有：工作时间配置、配置邮件和短信、日志分析仪配置、合规性管理、日志收集的告警、服务器诊断、访问数据库和换标。</p>
+            </blockquote>
+          <h2><a name="addTab" id="addTab"></a>+ 添加</h2>
+          <p>在这里你可以添加：</p>
+          <ul>
+            <li><strong>主机</strong></li>
+            <li><strong>告警</strong></li>
+            <li><strong>报表</strong></li>
+            <li><strong>过滤</strong></li>
+			<li><strong>导入日志</strong>          </li>
+</ul>
+<h2><a name="searchBox" id="searchBox"></a>搜索框</h2>
+          <p>使用“搜索框”来快速搜索日志。这将对EventLog Analyzer接收的原始日志进行“基本搜索”。</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>          <p class="marginTop10">&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../working-with/ui-eventlog-analyzer.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../working-with/dashboard-views.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

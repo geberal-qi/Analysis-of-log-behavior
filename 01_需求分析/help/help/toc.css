@@ -1,0 +1,39 @@
+/*=(===============================================================)*/
+
+/*=(===============================================================)*/
+/*=(Created with RoboEditor.)=======================================*/
+/*=(===============================================================)*/
+
+a:link,
+a:visited,
+a:active {
+	color: #000;
+}
+.navigator {
+	border-width: 0;
+	width: 100%;
+	padding:0px;
+}
+#clstree1_back{ margin-left:15px; overflow:hidden; overflow-y:auto;}
+#clstree1_back:hover{ overflow:auto;} 
+#clstree1_back div{ margin-bottom:10px;} 
+#clstree1_back>:first-child {line-height:36px; /*border-bottom:1px solid #CCC;*/}
+
+/*=(Generated Code)=================================================*/
+/*=(WARNING: DO NOT EDIT OR DELETE THIS SECTION!)===================*/
+/*begin!kadov{{=====================================================*/ 
+LI.kadov-Cnavigator {
+}
+/*}}end!kadov=======================================================*/ 
+ 
+ 
+.clsNode {
+	font: bold 12px Verdana, Geneva, sans-serif;
+	text-decoration: none;
+	cursor: hand;
+	color: 000;
+}
+
+.clsNode:hover {
+	/*color: #EC3F04;*/
+}

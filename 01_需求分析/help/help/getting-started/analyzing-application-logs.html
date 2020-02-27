@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>导入应用日志到EventLog Analyzer中</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../getting-started/adding-host.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../getting-started/configure-file-integrity-monitoring.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="get-the-log-data.html">开始使用</a> » 导入应用日志</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>导入应用日志</h1>
+            <hr />
+            <p>在EventLog Analyzer中，你要导入应用的日志。但是对于Oracle、打印机和IBM iSeries应用，你也可以实时获取日志。Evenglog Analyzer可以按照一定时间间隔自动导入应用的日志。另外一种做法是，使用FTP把日志传到Evenglog Analyzer监视的主机上，然后通过HTTP把该主机上的日志上传到EventLog Analyzer。EventLog Analyzer还可以导入那些文件名称周期性变化的应用日志。另外，你还可以把导入的日志关联到已经添加的主机中。</p>
+            <p>使用下面的菜单选项可以把应用日志导入到EventLog  Analyzer中:</p>
+            <ul>
+              <li><strong>主页</strong>标签 &gt; <strong>应用</strong> &gt; <strong>导入日志</strong></li>
+              <li><strong>主页</strong>标签 &gt; <strong>应用</strong> &gt; <strong>动作</strong> &gt;<strong> +导入</strong></li>
+              <li><strong>主页</strong>标签 &gt; <strong>应用</strong>  &gt; <strong>导入的日志</strong> &gt; <strong>导入日志文件</strong></li>
+              <li>下拉菜单：<strong>+添加</strong> &gt;<strong>导入日志</strong></li>
+<li><strong>设置</strong>标签 &gt; 配置： 管理应用：<strong> 其他应用</strong></li>
+              <li><strong>设置</strong>标签 &gt; 配置： 导入:<strong> 导入日志文件</strong></li>
+              <li><strong>设置</strong>标签 &gt; 配置： 导入:<strong> 导入的日志文件</strong> &gt; <strong>导入日志文件</strong></li>
+            </ul>
+<p><strong>导入日志文件</strong></p>
+            <p>&nbsp;</p>
+            <p align="center"><img src="../images/import-log-local.gif"  /></p>
+            <p>&nbsp;</p>
+            <p align="center"> </p>
+            <ol>
+              <li>
+                <p>选择<strong>本地主机</strong>选择来从本地机器导入日志，就是从你现在使用浏览器访问Evenglog Analyzer的主机。本地导入的日志文件最大为1GB。选择<strong>远程主机</strong>选项来从远程机器上导入日志。导入的日志文件最大为2GB。</p>
+              </li>
+              <li>
+                <p>选择你要导入的日志格式。这里除了应用日志，其他可以导入的日志格式也列出来了。这里还有一个自动识别日志格式的选项，如果列表中没有你要的日志格式，选择<strong>自动识别</strong>，该选项也可以识别已有的日志格式，包括<strong><a href="#windowseventlog">Windows事件日志</a>、<a href="#otherformats">IIS W3C Web服务器、IIS W3C FTP服务器、MS SQL服务器、DHCP服务器、DHCP Linux、Syslog、Apache访问、IBM Maximo、EventLog Analyzer归档</a>和<a href="#iseries">IBM iSeries (AS/400)</a></strong>。</p>
+                <div>
+                  <div> </div>
+                </div>
+              </li>
+              <li>点击<strong>导入</strong>按钮来开始导入日志。</li>
+            </ol>
+            <p><a name="windowseventlog" id="windowseventlog"></a></p>
+
+            <p>对于<strong>Windows事件日志</strong><strong></strong></p>
+            <p><strong>从本地主机一次性导入</strong></p>
+            <p>&nbsp;</p>
+            <p align="center"><img src="../images/import-log-local-once.png" /></p>
+            <p>&nbsp;</p>
+            <p></p>
+<p><strong>周期地导入</strong></p>
+            <p align="center"><img src="../images/import-event-log-local.gif" /></p>
+            <p>&nbsp;</p>
+            <ol type="a">
+              <li>
+                <p>选择导入日志的时间间隔。可以是一次导入、每小时导入、每天导入或者没&lt;xxx&gt;分钟导入一次。</p>
+              </li>
+              <li>
+                <p>如果你选择了<strong>本地主机</strong>，一次性导入（<strong>时间间隔</strong>：<strong>导入一次</strong>）选项可以让你从目前使用Web浏览器访问Eventlog Analyzer的位置导入本地日志文件。选择了&lsquo;导入一次&rsquo;后，提供了<strong>浏览</strong>按钮来选择日志文件或其所在的目录。<br />
+周期地导入日志文件（<strong>时间间隔</strong>- 每小时导一次、每天导一次或每&lt;xxx&gt;分钟）只有当日志文件位于运行Eventlog Analyzer的机器上时可用。这样的话，就不提供浏览按钮，你要手动指定位于Evenglog Analyzer服务器上的日志文件或其所在目录的完整路径。</p>
+              </li>
+            </ol>
+            <p><strong>从远程主机导入日志</strong></p>
+            <p align="center"><img src="../images/import-log-remote.png"  /></p>
+            <blockquote>
+              <p align="left">如果你选择了<strong>远程主机</strong>来从远程主机导入日志文件，对于每种<strong>时间间隔</strong>，都要手动输入远程主机日志文件或目录的位置。 或者，使用<strong>选择远程文件</strong>链接来获取文件或目录的位置。</p>
+            </blockquote>
+            <ol start="3" type="a">
+              <li>
+                <p>如果你要导入一定时间内的日志，选中&lsquo;<strong>是否指定时间范围</strong>&rsquo;选项。分布选择<strong>从</strong>、<strong>到</strong>的时间。这个选项只对导入Windows事件日志有效。</p>
+              </li>
+              <li>
+                <p>当在<strong>日志类型</strong>选择了<em>Windows  Event Log</em>格式后，提供了<strong>Application、Security、System、DNS Server、File Replication Service和Directory Service</strong>几种类别。</p>
+              </li>
+              <li>
+                <p>当选择了<strong>创建临时性的报表</strong>后，可以生成临时的报表。导入的日志文件将于2天后删除。</p>
+              </li>
+            </ol>
+            <p><a name="otherformats" id="otherformats"></a></p>
+            <p>对于<strong> IIS W3C Web服务器、IIS W3C FTP服务器、MS SQL服务器、DHCP Windows、DHCP Linux、Syslog、Apache Access、IBM Maximo、EventLog Analyzer归档</strong>日志格式</p>
+<p>&nbsp;</p>
+            <p align="center"><img src="../images/import-other-log-local.gif"  /></p>
+            <p>&nbsp;</p>
+            <ol type="a">
+              <li type="a">
+                <p>   选择导入日志的时间间隔。可以是一次导入、每小时导入、每天导入或者没&lt;xxx&gt;分钟导入一次。</p>
+              </li>
+              <li>
+                <p>如果你选择了<strong>本地主机</strong>，一次性导入（<strong>时间间隔</strong>：<strong>导入一次</strong>）选项可以让你从目前使用Web浏览器访问Eventlog Analyzer的位置导入本地日志文件。选择了&lsquo;导入一次&rsquo;后，提供了<strong>浏览</strong>按钮来选择日志文件或其所在的目录。<br />
+周期地导入日志文件（<strong>时间间隔</strong>- 每小时导一次、每天导一次或每&lt;xxx&gt;分钟）只有当日志文件位于运行Eventlog Analyzer的机器上时可用。这样的话，就不提供浏览按钮，你要手动指定位于Evenglog Analyzer服务器上的日志文件或其所在目录的完整路径。</p>
+              <p align="left">如果你选择了<strong>远程主机</strong>来从远程主机导入日志文件，对于每种<strong>时间间隔</strong>，都要手动输入远程主机日志文件或目录的位置。 或者，使用<strong>选择远程文件</strong>链接来获取文件或目录的位置。</p>
+			 </li>
+              <li >
+                <p>如果你要导入文件名称周期性更改的日志，选中<strong>是否定期修改文件名? </strong>，然后选择或输入文件名称模式。</p>
+              </li>
+              <li >
+                <p>如果你要把导入的日志关联到已有主机中，在&lsquo;<strong>关联主机</strong>&rsquo;中输入主机名称或者从<strong>已有的主机</strong>中选择。</p>
+              </li>
+            </ol>
+            <p><a name="iseries" id="iseries"></a></p>
+            <p>对于<strong>IBM iSeries (AS/400)</strong>日志格式<strong></strong></p>
+            <p>&nbsp;</p>
+            <p align="center"><img src="../images/import-as-400-logs.png"  /></p>
+            <p>&nbsp;</p>
+            <ol type="a">
+              <li type="a">
+                <p>对于IBM AS/400日志文件，选择日期格式（yyMMdd、MMddyy、ddMMyy）和分隔符（<strong>/</strong> <strong>.</strong> <strong>-</strong>）。</p>
+              </li>
+              <li type="a">
+                <p>   选择导入日志的时间间隔。可以是一次导入、每小时导入、每天导入或者没&lt;xxx&gt;分钟导入一次。</p>
+              </li>
+              <li type="a">
+                <p>如果你选择了<strong>本地主机</strong>，一次性导入（<strong>时间间隔</strong>：<strong>导入一次</strong>）选项可以让你从目前使用Web浏览器访问Eventlog Analyzer的位置导入本地日志文件。选择了&lsquo;导入一次&rsquo;后，提供了<strong>浏览</strong>按钮来选择日志文件或其所在的目录。<br />
+周期地导入日志文件（<strong>时间间隔</strong>- 每小时导一次、每天导一次或每&lt;xxx&gt;分钟）只有当日志文件位于运行Eventlog Analyzer的机器上时可用。这样的话，就不提供浏览按钮，你要手动指定位于Evenglog Analyzer服务器上的日志文件或其所在目录的完整路径。</p>
+              <p align="left">如果你选择了<strong>远程主机</strong>来从远程主机导入日志文件，对于每种<strong>时间间隔</strong>，都要手动输入远程主机日志文件或目录的位置。 或者，使用<strong>选择远程文件</strong>链接来获取文件或目录的位置。</p>
+              </li>
+              <li type="a">
+                <p>如果你要导入文件名称周期性更改的日志，选中<strong>是否定期修改文件名? </strong>，然后选择或输入文件名称模式。</p>
+              </li>
+              <li type="a">
+                <p>如果你要把导入的日志关联到已有主机中，在&lsquo;<strong>关联主机</strong>&rsquo;中输入主机名称或者从<strong>已有的主机</strong>中选择。</p>
+              </li>
+            </ol>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../getting-started/adding-host.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../getting-started/configure-file-integrity-monitoring.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

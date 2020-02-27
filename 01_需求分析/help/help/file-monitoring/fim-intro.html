@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Get the Files and Folder Changes - EventLog Analyzer</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+<style type="text/css">
+.style1 {font-style: italic}
+</style>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../file-monitoring/fim.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../working-with/ui-eventlog-analyzer.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+   	  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="fim.html">文件完整性监视</a> » 如何获取监控文件/文件夹的变化</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td width="1142"><h1>如何获取监控文件/文件夹的变化
+              </h1>
+            <hr />
+            <p>文件完整性监视可以帮助您监视你的Windows系统文件和文件夹任何更改如添加、删除或修改。</p>
+            <p><a href="#FIM_Reports_Schedule">生成和进度报表</a>呈现给你精确的完整细节。你也可以通过<a href="#FIM_Alert">设置告警配置文件</a>，配置在任何文件/文件夹的变化时触发一个告警。<br />
+            </p>
+            <p><strong>文件监视的必要条件</strong></p>
+            <ul>
+              <li>
+                <p>被监视的文件/文件夹所在的Windows机器必须是<a href="../getting-started/adding-host.html#windows" title="added as a host (Windows)">作为主机加入(Windows)</a>到EventLog Analyzer服务器。</p>
+              </li>
+              <li>
+                <p>代理应该安装该主机
+                </p>
+                <ul>
+                  <li>
+                    <p><strong>注意：</strong> 主机安装代理后也只是能监视该主机的文件/文件夹
+                    </p>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <h2><strong><a name="FIM_Configuration" id="FIM_Configuration"></a>配置文件完整性监视</strong></h2>
+<p>配置文件完整性监视：<br />
+</p>
+<blockquote>
+  <ul>
+    <li><strong>主页</strong> &gt; <strong>文件监视</strong> &gt; <strong>监视列表</strong> &gt; <strong>动作：添加、删除、禁用</strong></li>
+    <li><strong>设置</strong> &gt; <strong>配置</strong>:<strong> 文件监视</strong> &gt; <strong>添加</strong>
+      
+            <p align ="center"></p>
+           
+      <p>&nbsp;</p>
+      </li>
+  </ul>
+  <ol>
+    <li>
+      <p>对某些机器来说，如果有相同的文件或文件夹需要监视，那么这些相同的可以创建并分配给一个模版然后将这个模版再分配给主机。</p>
+    </li>
+    <li>      
+      <p>在<strong>分配主机</strong>的地方，你可以从自动完成列表中选择主机或被监视的文件/文件夹的主机名类型。你可以选择/输入多个主机(所有的主机的文件/文件夹都在同一个位置)
+      </p>
+    </li>
+    <li>
+      <p>在<strong>文件路径</strong>位置，输入要监视的文件/文件夹的位置(绝对路径)。或者你也可以导入一个文本文件(其中包含位置)    </p>
+    </li>
+  </ol>
+  <blockquote>
+    <p>点击<strong>导入</strong>，导入文本文件</p>
+    <p align="center"></p>
+    <ol type="i">
+      <li>
+        <p>浏览并选择文本文件,包含要监视的文件/文件夹的位置</p>
+        </li>
+      <li>                    点击<strong>导入</strong>按钮导入文本文件        </li>
+    </ol>
+    <p><div style="color: #000000">步骤3中，指定文件/文件夹的路径之后，如果想要使用引起所监视文件/文件夹产生关键变化的用户的名称，那么你需要启用用户名称。点击<strong>启用设置</strong>图标。 </p>
+    <blockquote>
+      <blockquote>
+        <p align="center"></p>
+      </blockquote>
+      </blockquote>
+    <p>在启用设置窗口中,单击“用户名”复选框x</p>
+    <blockquote>
+      <blockquote>
+        <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+          <tr>
+            <td width="5%" style="padding:5px"><span class="alertimg"></span></td>
+            <td width="95%" style="padding:10px"><strong>警告</strong>:启用用户名通过对象访问是一个资源密集型的过程。</td>
+            </tr>
+          </table>
+      </blockquote>
+      <p>&nbsp;</p>
+    </blockquote>
+    </blockquote>
+  <ol start="4">
+    <li>      
+      <p><strong>排除</strong>选项可以从监视中排除某些子文件夹(包含在以上指定的文件夹)，指定范围内从监视中排除的子文件夹的位置   </p>
+      </li>
+    <li>点击<strong>保存监视</strong>按钮保存监视配置      </li>
+  </ol>
+  </blockquote>
+<table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+  <tr>
+    <td width="5%" height="52" style="padding:5px"><span class="notesimg"></span></td>
+    <td width="95%" style="padding:10px"><p><strong>注意</strong>: <br />
+    </p>
+      <ul>
+        <li>如代理已经安装到所要监视的文件的主机上，那么文件监视将最大启动代理。构建#8050之前的版本，如果你已经拥有日志回收的代理，那么它将会被卸载而8050版本的代理将会被安装。</li>
+        <li>如果代理没有安装在您希望监视的文件的主机，代理将安装然后代理中的填补监视将会启用。</li>
+      </ul></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h2><strong><a name="FIM_Dashboard" id="FIM_Dashboard"></a>文件完整性监视仪表板</strong>
+</h2>
+            <p data-textformat="{'fw':'none','type':'text'}">一旦您已经配置了主机监视，在主页点击文件完整性监视，查看文件完整性监视仪表板。</p>
+          
+                    <p align ="center"></p>
+                    
+                  <p>概述图显示发生在监视文件和文件夹的总体变化</p>
+                    <p>                      仪表板的表格部分，显示主机监视文件/文件夹的变更                    
+                     
+            </p>
+                    <p align="center"></p>
+                  <p>使用<strong>添加告警</strong>选项，你可以在监视的文件/文件夹发生任何变化时都会触发一个警告。</p>
+                  </blockquote>
+                </blockquote>
+            </blockquote>
+            </blockquote>
+          <h2><strong><a name="FIM_Reports_Schedule" id="FIM_Reports_Schedule"></a>生成和调度监视报表文件</strong></h2>
+          <p>查看文件监视报表，点击需要查看报表的主机文件/文件夹，打开文件监视<strong>报表</strong>页面</p>
+         
+                  <p align ="center"></p>
+                 
+              <p>点击任意主机，你可以查看相应的文件完整性监事报表的直观仪表板以及FIM变化表。</p>
+              <ol>
+                <li>
+                  <p>任何时刻，主机的文件完整性监视报表都可以点击<strong>导出</strong>图标以PDF/CSV的格式导出。
+                  </blockquote>
+                  </p>
+                </li>
+                <li>
+                  <p>在标准部分有<strong>位置过滤器</strong>和<strong>保存报表</strong>两个选项。
+                  </p>
+                  <ol type="i">
+                    <li>
+                      <p>位置过滤器选项将允许更改被监视的文件/文件夹的位置</p>
+                    </li>
+                    <li>
+                      <p>任何时候都可以保存该主机的文件完整性监视报表以及定期的进度</p>
+                      <p align="center"></p>
+                      <blockquote>
+                        <ol type="a">
+                          <li>
+                            <p>提供报表的名称和报表保存的位置</p>
+                          </li>
+                          <li>
+                            <p>定期进度报表：
+                            </p>
+                            <ul>
+                              <li>指定报表的时间间隔<strong>一次或定期</strong>，如果你想定期产生报表,指定<strong> 时间间隔(每小时、每天、每周、每月)</strong> 来自动生成报表</li>
+                              <li>指定要生成报表的确切时间。如果该报表是按小时/每天，然后指定准确小时和分钟，该报表将产生。否则，如果该报表是预定的，然后指定一天、小时和分钟，该报表将生成。如果您已选定报表的每月时间表，则指定报表的日期、小时和分钟</li>
+                              <li>从列表中选择“生成”报表的时间段，选择时间段<strong>前一小时，最后60分钟，前一天，过去24小时，前一周，过去7天，前一个月和过去30天</strong>。利用<strong>时间过滤</strong>选项来选择报告所产生的时间范围。您可以选择<strong>工作时间</strong>或<strong>非工作时间</strong>范围。您还可以定义报表所生成的<strong>自定义时间范围</strong>。</li>
+                              <li>您也可以选择报表格式：PDF、CSV。</li>
+                              <li>通过电子邮件重新分配报表，点击<strong>发送邮件</strong>指定电子邮件ID。您可以指定多个电子邮件id(由逗号分隔)。 </li>
+                            </ul>
+                          </li>
+                        </ol>
+                      </blockquote>
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+              <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+                <tr>
+                  <td width="5%" height="52" style="padding:5px"><span class="notesimg"></span></td>
+                  <td width="95%" style="padding:10px"><p><strong>注意</strong>: <br />
+                  </p>
+                    <ul>
+                      <li>在<strong>设置面板</strong>更改工作和非工作事件设置</li>
+                      <li>在通过电子邮件重新分配报表之前，确保已经配置了邮件服务器</li>
+                  </ul>                  </td>
+                </tr>
+              </table>
+            <ol start="3">
+                <li>
+                  <p>图形仪表板展示事件计数对应的变化类型。你可以从这张图中深入探讨原始日志</p>
+                </li>
+                <li>
+                  <p>FIM报表提供了文件/文件夹变化的详细信息：文件位置,做更改的用户,更改了什么(文件创建、删除、修改、重命名)是和时间的变化。从这个报告探讨原始日志文件。</p>
+                </li>
+            </ol>
+          <h2 data-textformat="{'fw':'none','type':'text'}"><strong><a name="FIM_Alert" id="FIM_Alert"></a>设置完整性监视告警文件</strong></h2>
+          <p>在EventLog Analyzer中，你可以配置被监视文件/文件夹发生任何变化时触发告警。</p>
+         
+            <p align="center"></p>
+          </blockquote>
+          <ol>
+            <li>
+              <p>为告警配置文件提供一个惟一名称           </p>
+            </li>
+            <li>
+              <p>选择配置文件警告等级：<strong>High, Medium和Low</strong>       </p>
+            </li>
+            <li>
+              <p>文件完整性监视警告只能在已配置文件完整性监视的主机上设置。只有这些主机可供选择：<strong> '选择主机/组'</strong>。你可以选择Windows主机组对所有监视主机添加告警。另外，也可以根据你的要求选择单个主机        </p>
+            </li>
+            <li>              
+              <p>被监视的文件/文件夹的任意创建、删除、修改或重命名操作都会触发告警<strong>位置</strong>选项缩小了告警的标准。而不是生成所有文件/文件夹的 变化的警告。你可以通过指定它们的位置来指定警告触发的范围。</p>
+            </li>
+          </ol>
+          <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+            <tr>
+              <td width="5%" height="52" style="padding:5px"><span class="notesimg"></span></td>
+              <td width="95%" style="padding:10px"><p><strong>注意</strong>: <br />
+                </p>
+                <p>当您已设置多个主机的警报时，请确保您指定的文件/文件夹的位置存在并且所有主机是相同的。</p></td>
+              </tr>
+          </table>
+          <ol start="5">
+            <li>              
+              <p>触发的警告可以通过电子邮件和短信的方式通知用户。你也可以通过<strong>运行程序</strong>来修复告警状态。在设置警报通知之前，您需要<a href="../system-settings/configure-email-sms.html">配置邮件</a>和<a href="../system-settings/configure-email-sms.html">短信设置</a>。 </p>
+            </li>
+          </ol>
+          <p>点击<strong>添加警告配置文件</strong>按钮保存警告配置文件    </p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../file-monitoring/fim.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../working-with/ui-eventlog-analyzer.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016, <a href="http://www.zohocorp.com" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"<a href="http://www.manageengine.com" target=_blank>ManageEngine</div></div> </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer管理设置 - 安装代理</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../admin-settings/admin-settings-intro.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../admin-settings/manage-user.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="admin-settings-intro.html">管理设置</a> &gt; 安装代理</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>安装代理</h1>
+            <hr />
+            <p>EventLog Analyzer提供了用来收集Windows机器事件日志的代理工具。是否使用代理收集Windows事件日志是<strong>可选的</strong>。</p>
+            <ul>
+              <li><a href="#installAgent">如何安装代理？</a></li>
+              <li><a href="#agent_administration">如何编辑/删除、启动/停止代理？</a></li>
+              <li><a href="#agent_administration">代理管理</a></li>
+            </ul>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif" alt="Note" width="1" height="1" class="write" /></td>
+                <td width="95%" style="padding:10px"><strong>说明</strong>：<strong>使用代理收集日志是可选的</strong>，默认是使用WMI/DCOM的无代理方式收集。 对于那些在安全策略中禁用了WMI/DCOM的公司，可以选择使用代理方式。</td>
+              </tr>
+            </table>
+            <h2>&nbsp;</h2>
+            <h2><strong><a name="installAgent" id="installAgent"></a>如何安装Eventlog  Analyzer代理？</strong></h2>
+            <ul>
+              <li>在<strong>管理</strong>页签下选择&gt; 管理设置中的安装代理，然后点击<strong>安装代理</strong>链接。</li>
+            </ul>
+            <p>步骤如下：</p>
+            <p align="center"><strong> </strong><img src="../images/install-agent.png" alt="安装代理" /></p>
+            <ol>
+              <li>
+                <p>输入要安装代理的机器名称，多个名称使用英文逗号隔开。<strong>提示</strong>：你可以在一个文本工具中编辑好这些用英文逗号隔开的名称，然后复制到这里。</p>
+              </li>
+              <li>
+                <p>或者，使用<strong>选择主机</strong>链接来从Windows工作组/域中选择一个或多个主机。</p>
+              </li>
+              <li>
+                <p>域名字段是可选的。用来手动输入机器的域名。如果使用了<strong>选择主机</strong>，那么这个字段会自动填写。</p>
+              </li>
+              <li>
+                <p>输入可用的用户名和密码来安装代理。该用户应该有安装代理的管理权限。</p>
+              </li>
+              <li>
+                <p>使用<strong>验证登陆</strong>链接来验证凭证。如果选择了多个主机，确保该凭证多所有主机有效。</p>
+              </li>
+              <li>
+                <p>点击<strong>保存</strong>按钮来安装代理。</p>
+              </li>
+            </ol>
+            <h2><strong><a name="agent_administration" id="agent_administration"></a>如何编辑、删除、停止和启动代理？</strong></h2>
+            <p>在<strong>管理</strong>页签下选择&gt; 管理设置中的安装代理，然后点击<strong>编辑/删除/停止/开始</strong>链接，打开<strong>代理管理</strong>页面，这里列出了所有安装的代理。</p>
+            <p align="center"><img src="../images/edit-delete-agent.png"/></p>
+            <ol>
+              <li>
+                <p>点击<strong>+</strong>和<strong>-</strong>图标来展开或收起每个代理的主机列表。</p>
+              </li>
+              <li>
+                <p>使用编辑图标来编辑代理。</p>
+              </li>
+              <li>
+                <p>使用删除图标来删除代理。</p>
+              </li>
+              <li>
+                <p>如果代理服务正在运行，点击相应的链接来停止或重启代理。</p>
+              </li>
+              <li>
+                <p>使用“添加更多”链接来添加或删除代理中的主机。添加到代理的主机的日志，将先收集到代理中，然后传送给Evenglog Analyzer主机。安装代理之后，在“添加主机”中可以选择添加的主机是否通过代理来收集日志。</p>
+              </li>
+			   <li>
+                <p>如果代理安装失败，出现下载链接用来手动安装代理。下载<strong>EventLogAgent.msi</strong>到代理主机并手动安装。</p>
+              </li>
+            </ol>
+            <h2><strong>代理管理</strong></h2>
+            <p>在代理管理页面，提供了关闭/启动、编辑、删除选项，显示代理的状态和代理的IP地址。</p>
+          <p>&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../admin-settings/admin-settings-intro.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../admin-settings/manage-user.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

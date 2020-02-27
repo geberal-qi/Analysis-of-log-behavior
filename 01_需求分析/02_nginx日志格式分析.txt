@@ -1,0 +1,44 @@
+'"$http_x_forwarded_for" | "$server_addr,$server_name" | "$remote_addr" "-" "$remote_user" "[$time_local]" "$request" "$status" "$body_bytes_sent" "$http_referer" "$http_user_agent" $request_time $request_length'
+
+"117.23.115.179, 120.27.173.10" | "10.168.34.105,www.bxd365.com" | "10.158.20.2" "-" "-" "[15/Feb/2017:00:00:01 +0800]" "POST /site/getsmscode HTTP/1.0" "200" "1" "-" "Apache-HttpClient/UNAVAILABLE (java 1.4)" 0.147 544
+"183.22.32.147, 121.43.18.24" | "10.168.34.105,www.bxd365.com" | "10.158.19.14" "-" "-" "[15/Feb/2017:00:00:03 +0800]" "GET /static/v6/index/images/arrow1.png HTTP/1.0" "302" "163" "http://www.bxd365.com/" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36" 0.002 967
+目标：获取日志中的pv、uv、跳出率和转化率
+
+$remote_addr, $http_x_forwarded_for（反向） 记录客户端IP地址
+$remote_user 记录客户端用户名称
+$request 记录请求的URL和HTTP协议
+$status 记录请求状态
+$body_bytes_sent 发送给客户端的字节数，不包括响应头的大小； 该变量与Apache模块mod_log_config里的“%B”参数兼容。
+$bytes_sent 发送给客户端的总字节数。
+$connection 连接的序列号。
+$connection_requests 当前通过一个连接获得的请求数量。
+$msec 日志写入时间。单位为秒，精度是毫秒。
+$pipe 如果请求是通过HTTP流水线(pipelined)发送，pipe值为“p”，否则为“.”。
+$http_referer 记录从哪个页面链接访问过来的
+$http_user_agent 记录客户端浏览器相关信息
+$request_length 请求的长度（包括请求行，请求头和请求正文）。
+$request_time 请求处理时间，单位为秒，精度毫秒； 从读入客户端的第一个字节开始，直到把最后一个字符发送给客户端后进行日志写入为止。
+$time_iso8601 ISO8601标准格式下的本地时间。
+$time_local 通用日志格式下的本地时间。
+
+做网站时经常会用到remote_addr和x_forwarded_for这两个头信息来获取客户端的IP，
+然而当有反向代理或者CDN的情况下，这两个值就不够准确了，需要调整一些配置。
+
+什么是remote_addr
+remote_addr代表客户端的IP，但它的值不是由客户端提供的，而是服务端根据客户端的ip指定的，
+当你的浏览器访问某个网站时，假设中间没有任何代理，
+那么网站的web服务器（Nginx，Apache等）就会把remote_addr设为你的机器IP，
+如果你用了某个代理，那么你的浏览器会先访问这个代理，然后再由这个代理转发到网站，
+这样web服务器就会把remote_addr设为这台代理机器的IP。
+
+什么是x_forwarded_for
+正如上面所述，当你使用了代理时，web服务器就不知道你的真实IP了，
+为了避免这个情况，代理服务器通常会增加一个叫做x_forwarded_for的头信息，
+把连接它的客户端IP（即你的上网机器IP）加到这个头信息里，
+这样就能保证网站的web服务器能获取到真实IP
+
+HTTP_X_FORWARDED_FOR = 您的真实 IP ，经过多个代理服务器时的ID，
+这个值类似如下：118.168.8.66, 119.188.68.169, 119.188.68.231
+
+
+WWW.GUANGGAO.COM  <a  href="www.bxd365.com"> 

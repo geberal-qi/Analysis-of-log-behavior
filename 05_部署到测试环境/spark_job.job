@@ -1,0 +1,8 @@
+type=command
+command=/usr/local/spark-1.6.1-bin-hadoop2.6/bin/spark-submit \
+--class com.zhiyou100.LogApp \
+--master spark://hadoop01:7077 \
+--executor-memory 1G \
+--driver-memory  1G \
+--total-executor-cores 3 \
+/upload/log_app-1.0-SNAPSHOT.jar

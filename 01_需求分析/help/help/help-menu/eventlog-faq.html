@@ -1,0 +1,562 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer Support - Frequently Asked Questions</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../help-menu/help-intro.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../help-menu/eventlog-tips.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="help-intro.html" title="Help">帮助</a> &gt; 常见问题</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1><a name="faq" id="faq"></a>EventLog Analyzer - 
+			常见问题</h1>
+            <hr />
+            <h2>&nbsp;</h2>
+            <h2></h2>
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody>
+                <tr>
+                  <td><p><strong>常规信息</strong></p>
+                    <ol>
+                      <li>
+                        <p><a href="#2">免费版和专业版之间有什么区别？</a></p>
+                      </li>
+                      <li>
+                        <p><a href="#1">EventLog Analyzer有供评估使用的试用版本吗？</a></p>
+                      </li>
+                      <li>
+                        <p><a href="#1_1">试用版本有限制吗？</a></p>
+                      </li>
+                      <li>
+                        <p><a href="#3">当我想要从免费版转换为付费版时，我需要重新安装EventLog Analyzer吗？</a></p>
+                      </li>
+                      <li>
+                        <p><a href="#4">EventLog Analyzer可以从哪些主机中收集事件日志？</a></p>
+                      </li>
+                     <!-- <li>
+                        <p><a href="#5">I don't want to collect or report on actual                         event logs. Can I still use this product?</a></p>
+                      </li>-->
+                      <li>
+                        <p><a href="#6">产品支持多少用户同时进行访问？</a></p>
+                      </li>
+                      <li>
+                        <p><a href="#7">EventLog Analyzer客户端可以在web浏览器中打开，这是不是表示我可以从任何地方对它进行访问？</a></p>
+                      </li>
+                      <li>
+                        <p><a href="#9">怎么购买EventLog Analyzer？</a></p>
+                      </li>
+                      <li>
+                        <p><a href="#10">如果远程系统的DCOM被禁用了，此时EventLog Analyzer还能正常工作吗？</a></p>
+                      </li>
+                      <li>
+                        <p><a href="#10_1">在Linux版的EventLog Analyzer中怎么监视Windows的事件？</a></p>
+                      </li>
+                    </ol></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td><p><strong>安装</strong>                    </p>
+                    <ol>
+                      <li>
+                        <p><a href="#11">EventLog Analyzer所需的最小系统配置是什么？</a> </p>
+                      </li>
+                      <li>
+                        <p><a href="#13">我可以使用root用户来安装EventLog Analyzer吗？</a> </p>
+                      </li>
+                      <li>
+                        <p><a href="#14">当我尝试访问Web客户端时，另外一个界面打开了，这是为什么？</a> </p>
+                      </li>
+                      <li>
+                        <p><a href="#15">数据库备份重要吗，或EventLog Analyzer是否考虑到了这一点？</a> </p>
+                      </li>
+                      <li>
+                        <p><a href="#15_1">怎样执行数据库备份？</a> </p>
+                      </li>
+                      <li>
+                        <p><a href="#15_2">在安装之后，怎样将EventLog Analyzer配置为Windows服务？</a> </p>
+                      </li>
+                      <li>
+                        <p><a href="#15_3">在安装之后，怎样在Linux中将EventLog Analyzer配置为服务？</a> </p>
+                      </li>
+                  </ol></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td><p><strong>配置</strong>                    </p>
+                    <ol>
+                      <li>
+                        <p><a href="#18">我怎么在EventLog Analyzer中添加主机，以开始收集事件日志？</a></p>
+                      </li>
+                      <li>
+                        <p><a href="#16">我怎么查看所有注册到EventLog Analyzer的用户的登录信息？</a></p>
+                      </li>
+                      <li>
+                        <p><a href="#17">EventLog Analyzer数据库可以保存数据多长时间？</a></p>
+                      </li>
+                      <li>
+                        <p><a href="#17_1">怎样将EventLog Analyzer迁移到另一台机器/服务器？</a></p>
+                      </li>
+                      <li>
+                        <p><a href="#17_2">我怎么在EventLog Analyzer的数据库中为<em>root</em>用户指派密码？</a></p>
+                      </li>
+                  </ol></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td><p><strong>报表</strong>                    </p>
+                    <ol>
+                      <li>
+                        <p><a href="#20">为什么我会看到空的图表？</a></p>
+                      </li>
+                      <li>
+                        <p><a href="#21">我可以生成什么样的报表类型格式？</a></p>
+                      </li>
+                  </ol></td>
+                </tr>
+                <tr>
+                  <td height="35">如果在这里不包含您所遇到的问题，请联系我们的<a href="http://www.zohocorp.com.cn/zohocorp/contact.html" target="_new">支持团队</a>获取帮助。</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>&nbsp;</p>
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody>
+                <tr>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><h2><strong>常规信息</strong></h2>
+                    <p><a name="2" id="2"></a><strong>免费版和专业版之间有什么区别？</strong></p>
+                    <p>EventLog Analyzer<strong>免费版</strong>只能处理最大的主机数为5台，<strong>专业版</strong>可以处理的主机数没有限制。在特性和功能上，两个版本并没有差别。</p>
+                    <p><strong><a name="1" id="1"></a>EventLog Analyzer有供评估使用的试用版本吗？</strong></p>
+                    <p>有，您可以从<a href="http://www.zohocorp.com.cn/manageengine/products/eventlog/download-info.html" target="_new">这里</a>下载30天期限的免费试用版，30天试用期结束后，如果没有应用新的许可，它会自动转换为免费版。</p>
+                    <p><strong><a id="1_1" name="1_1"></a>试用版本有限制吗？</strong></p>
+                    <p>试用版包含EventLog Analyzer高级版的所有功能，当试用期结束后，EventLog Analyzer将自动转换为免费版。</p>
+                    <p><a name="3" id="3"></a><strong>当我想要从免费版转换为付费版时，我需要重新安装EventLog Analyzer吗？</strong></p>
+                    <p>不需要，您不需要重新安装或关闭服务器，您只需要<a href="../installation/licensing-eventlog-analyzer.html" target="_new">应用新的许可文件</a>即可。</p>
+                    <table border="0" cellpadding="1" cellspacing="0" width="100%">
+                      <tbody>
+                        <tr>
+                          <td align="right"><a href="#faq">页首</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p><strong><a name="4" id="4"></a>EventLog Analyzer可以从哪些主机中收集事件日志？</strong></p>
+                    <p>这个是基于EventLog Analyzer所安装的<a href="../installation/eventlog-system-requirements.html" target="_new">平台</a>的，如果安装在Windows机器上，那么EventLog Analyzer可以从<a href="../getting-started/adding-host.html">Windows和Unix主机</a>、<a href="../getting-started/adding-host.html">Cisco交换机和路由器</a>以及其他的syslog设备中收集事件日志和syslog。 
+					如果安装在Unix机器上，EventLog                       Analyzer将只能从<a href="../getting-started/adding-host.html">Unix主机</a>、<a href="../getting-started/adding-host.html">Cisco交换机和路由器</a>和其他syslog设备中收集syslog。</p>
+                    <!--<p><strong><a name="5" id="5"></a>I don't want to collect and report                       on actual event logs. Can I still use this product?</strong></p>
+                    <p>You can still use EventLog Analyzer to simulate event logs                       and see how reports will look like when real-time data is                       used. Click the <strong>Simulate</strong> link in the Settings                       tab to <a href="../getting-started/simulate-eventlogs.html">begin                       sending sample event logs</a> to EventLog Analyzer.</p>-->
+                    <p><a name="6" id="6"></a><strong>产品支持多少用户同时进行访问？</strong></p>
+                    <p>这个是基于EventLog Analyzer所安装在的<a href="../installation/eventlog-system-requirements.html">服务器的性能</a>的，EventLog 
+					Analyzer许可并没有限制用户访问应用的数量。</p>
+                    <table border="0" cellpadding="1" cellspacing="0" width="100%">
+                      <tbody>
+                        <tr>
+                          <td align="right"><a href="#faq">页首</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p><a name="7" id="7"></a><strong>EventLog Analyzer客户端可以在web浏览器中打开，这是不是表示我可以从任何地方对它进行访问？</strong></p>
+                    <p>是的，只要您的浏览器可以访问到EventLog Analyzer运行的服务器，则您可以在任何位置使用EventLog 
+					Analyzer。</p>
+                    <p><a name="9" id="9"></a><strong>怎么购买EventLog Analyzer？</strong></p>
+                    <p>您可以联系我们的<a href="http://www.zohocorp.com.cn/zohocorp/contact.html">销售团队</a>，进行咨询。</p>
+                    <p><a name="10" id="10"></a><strong>如果远程系统的DCOM被禁用了，此时EventLog Analyzer还能正常工作吗？</strong></p>
+                    <p>不能，EventLog Analyzer不能正常工作，如果远程系统禁用了DCOM。您需要在远程Windows系统中启用DCOM，以使EventLog                       Analyzer可以正常收集日志并显示数据。 </p>
+                    <p><a id="10_1" name="10_1"></a><strong>在Linux版的EventLog Analyzer中怎么监视Windows的事件？</strong></p>
+                    <p>要在Linux中监视Windows事件，您需要将Windows的事件消息转换为Syslog消息， 
+					要转换消息，您需要使用一个转换工具。</p>
+                    <table border="0" cellpadding="1" cellspacing="0" width="100%">
+                      <tbody>
+                        <tr>
+                          <td align="right"><a href="#faq">页首</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h2>安装</h2>
+                    <p><strong><a name="11" id="11"></a>EventLog Analyzer所需的最小系统配置是什么？</strong></p>
+                    <p> 我们推荐您将EventLog Analyzer安装到以下配置的机器上：</p>
+                    <ul>
+                      <li>处理器 - Pentium 4 - 1.5GHz<br />
+                      </li>
+                      <li>内存 - 2GB<br />
+                      </li>
+                      <li>磁盘空间 - 5GB</li>
+                      <li>操作系统 - Windows 7, 2000, XP, 2003, Linux Ubuntu 8.0/9.0</li>
+                      <li>Web浏览器 - Internet Explorer 6.0或Mozilla Firefox                         1.0及以上版本</li>
+                    </ul>
+                    <p>请参阅<a href="../installation/eventlog-system-requirements.html">系统需求</a>，来查看安装和运行EventLog 
+					Analyzer的最小配置要求。</p>
+                    <p><strong><a name="13" id="13"></a>我可以使用root用户来安装EventLog Analyzer吗？</strong></p>
+                    <p>EventLog Analyzer可以使用root用户启动，但是所有文件的权会被修改，之后您就不能再使用其他的用户来启动服务器了。</p>
+                    <p><strong><a name="14" id="14"></a>当我尝试访问Web客户端时，另外一个界面打开了，这是为什么？</strong></p>
+                    <p>您在安装时所设置的Web服务器端口可能被其他应用占用了，请配置那个应用，修改它的端口，或<a href="../installation/eventlog-prerequisites.html#change">变更EventLog Analyzer的Web服务器端口</a>。</p>
+                    <table border="0" cellpadding="1" cellspacing="0" width="100%">
+                      <tbody>
+                        <tr>
+                          <td align="right"><a href="#faq">页首</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p><strong><a name="15" id="15"></a>数据库备份重要吗，或EventLog Analyzer是否考虑到了这一点？</strong></p>
+                    <p>EventLog Analyzer的<a href="../configurations/archive-logs.html" title="归档功能">归档功能</a>可以自动将所有的事件日志压缩并存储。您可以根据需求配置归档设置，除此之外，如果您需要备份处理事件日志得来数据，您可以运行备份数据库工具：<strong>BackupDB.bat/.sh</strong>，它位于<em>&lt;EventLog Analyzer Home&gt;/troubleshooting</em>目录下。</p>
+                    <p><strong><a name="15_1" id="15_1"></a>怎样执行数据库备份？</strong></p>
+                    <p><strong>PostgreSQL数据库 - 适用于构建号8010及之后的产品</strong></p>
+					<p>请确保在执行备份之前，EventLog Analyzer服务器或服务未运行。对EventLog 
+					Analyzer现有的PostgreSQL数据库执行备份，压缩<em>&lt;EventLog Analyzer Home&gt;/pgsql</em> 
+					目录，并将其保存到其它位置即可。</p>
+					<p><strong>MySQL数据库 - 适用于构建号8000及之前的产品</strong></p>
+                    <p> 要对EventLog Analyzer的MySQL数据库进行备份，请确保EventLog Analyzer服务器或服务已停止，并压缩<em>&lt;EventLog Analyzer Home&gt;/mysql</em> 
+					目录内容并保存。</p>
+                    <p><strong>MSSQL数据库</strong></p>
+                    <p>执行MSSQL数据库备份的步骤：</p>
+                    <p>使用以下命令在数据库eventlog中找到数据文件和日志文件当前的位置：</p>
+                    <table border="1" cellpadding="5" cellspacing="0" width="20%">
+                      <tbody>
+                        <tr>
+                          <td>use eventlog <br />
+                            go<br />
+                            sp_helpfile<br />
+                            go </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p>使用以下命令分离数据库：</p>
+                    <table border="1" cellpadding="5" cellspacing="0" width="20%">
+                      <tbody>
+                        <tr>
+                          <td>use  master <br />
+                            go<br />
+                            sp_detach_db 'eventlog'<br />
+                            go </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p>从当前位置备份数据文件和日志文件(<em>&lt;MSSQL Home&gt;\data\</em><strong>eventlog.mdf</strong> 
+					和<em>&lt;MSSQL Home&gt;\data\</em><strong>attention-grabbing</strong>），可通过压缩并并保存文件进行备份。</p>
+                    <p><strong><a name="15_2" id="15_2"></a>在安装之后，怎样将EventLog Analyzer配置为Windows服务？</strong></p>
+                    <p>正常情况下，EventLog Analyzer会作为服务进行安装，如果您将其安装为应用，那么您可以在安装后的任何时候，将它配置为服务。 
+					配置步骤如下： </p>
+                    <ul>
+                      <li>停止EventLog Analyzer。</li>
+                      <li> 打开一个命令行，跳转至目录&lt;EventLog Analyzer Home&gt;\bin，执行下面的命令：</li>
+                    </ul>
+                    <blockquote>
+                      <p>service. bat -i </p>
+                    </blockquote>
+                    <ul>
+                      <li>启动EventLog Analyzer服务。</li>
+                    </ul>
+                    <p><strong><a name="15_3" id="15_3"></a>在安装之后，怎样在Linux中将EventLog Analyzer配置为服务？</strong></p>
+                    <p>正常情况下，EventLog Analyzer会作为服务进行安装，如果您将其安装为应用，那么您可以在安装后的任何时候，将它配置为服务。 
+					配置步骤如下： </p>
+                    <ul>
+                      <li>停止EventLog Analyzer。</li>
+                      <li> 执行以下命令：</li>
+                    </ul>
+                    <blockquote>
+                      <p>sh configureAsService. sh -i</p>
+                    </blockquote>
+                    <ul>
+                      <li>启动EventLog Analyzer服务。</li>
+                    </ul>
+                    <p><strong>EventLog Analyzer服务命令的使用</strong></p>
+                    <p><em>&lt;EventLog Analyzer Home&gt;/bin</em> <strong># /etc/init.d/eventloganalyzer </strong></p>
+                    <p><strong>命令帮助：</strong> <em>/etc/init.d/eventloganalyzer { console | start | stop | restart | status | dump }</em></p>
+                    <h2>配置</h2>
+                    <p><strong><a name="18" id="18"></a>我怎么在EventLog Analyzer中添加主机，以开始收集事件日志？</strong></p>
+<p>对于<a href="../getting-started/adding-host.html">Windows主机</a>，输入主机名称和凭证信息，然后添加即可。对于<a href="../getting-started/adding-host.html">Unix主机</a>，输入主机的名称，以及syslog服务的端口号，然后添加主机。（请确保<a href="../getting-started/adding-host.html#syslog">syslog服务正在运行</a>，且它使用的端口号正是这里设置的端口号）</p>
+                    <p><strong><a name="16" id="16"></a>我怎么查看所有注册到EventLog Analyzer的用户的登录信息？</strong></p>
+                    <p>用户的登录信息可以从用户管理界面进行查看，点击相应用户对应的<strong>查看</strong>链接，可以查看当前用户的历史信息。</p>
+                    <p><strong><a id="17_1" name="17_1"></a>怎样将EventLog Analyzer迁移到另一台机器/服务器？</strong></p>
+                    <p>请参阅以下的步骤，将现有的EventLog Analyzer服务器移动到新的机器/服务器：</p>
+                    <p><strong>PostgreSQL数据库 - 适用于构建号8010及之后的产品</strong></p>
+                     <ol>
+                      <li>
+					<p>停止现有的EventLog Analyzer服务器/服务。</p> </li>
+
+					<li><p>打开任务管理器，确认<strong>java.exe</strong>、<strong>postgres.exe</strong>和<strong>SysEvtCol.exe</strong>进程已停止，如果这些进程未停止，请停止后继续以下步骤。</p> </li>
+
+					<li><p>为防止意外出现，请将以下全部的文件夹（包括文件以及子文件夹）复制到另一个驱动器，或一个映射的网络驱动器。这样做，可以在迁移出现问题时，帮助恢复原有的设置和数据。</p> </li>
+
+                        <ul>
+                          <li>
+							<p><strong>pgsql</strong>文件夹，位于<em>&lt;EventLog Analyzer Home&gt;\</em> 
+							目录 </p>
+							</li>
+							<li>
+							<p><strong>Archive</strong>文件夹，位于<em>&lt;EventLog Analyzer Home&gt;\archive</em> 
+							目录 </p>
+							</li>
+							<li>
+							<p><strong>Indexes</strong>文件夹，位于<em>&lt;Eventlog Analyzer Home&gt;\server\default</em> 
+							目录</p>
+							</li>
+                        </ul>
+                        <li><p>请下载和安装最新的Eventlog Analyzer。</p> </li>
+
+					<li><p>不要启动新安装的EventLog Analyzer服务器/服务。</p> </li>
+
+					<li><p>在新安装EventLog Analyzer的机器/服务器上，重命名<em>&lt;EventLog Analyzer Home&gt;\</em>目录下的文件夹<strong>pgsql</strong>。</p> </li>
+
+					<li><p>从旧的机器/服务器复制<em>&lt;EventLog Analyzer Home&gt;\</em>下的<strong>pgsql</strong>文件夹（包括所有的文件和子文件夹）到新安装的Eventlog 
+						Analyzer 机器/服务器。<br />
+					<strong>注意：</strong>请确保在执行此操作时，无论是新的EventLog Analyzer，还是旧的都没有运行。</p> </li>
+
+					<li><p>在新的机器上启动EventLog Analyzer，检查数据和配置是否恢复成功。</p></li></ol>
+					<p><strong>MySQL数据库 - 适用于构建号8000及之前的产品</strong></p>
+                    <ol>
+                      <li>
+                        <p>停止现有的EventLog Analyzer服务器/服务。</p>
+                      </li>
+                      <li>
+                        <p>打开任务管理器，确认<strong>java.exe</strong>、<strong>mysqld-nt.exe</strong>和<strong>SysEvtCol.exe</strong>进程已停止，如果这些进程未停止，请停止后继续以下步骤。</p>
+                      </li>
+                      <li>
+                        <p>为防止意外出现，请将以下全部的文件夹（包括文件以及子文件夹）复制到另一个驱动器，或一个映射的网络驱动器。这样做，可以在迁移出现问题时，帮助恢复原有的设置和数据。</p>
+                        <ul>
+                          <li>
+                            <p><strong>MySQL</strong>文件夹，位于<em>&lt;EventLog Analyzer Home&gt;\</em> 
+							目录 </p>
+                          </li>
+                          <li>
+                            <p><strong>Archive</strong>文件夹，位于<em>&lt;EventLog Analyzer Home&gt;\archive</em> 
+							目录 </p>
+                          </li>
+                          <li>
+                            <p><strong>Indexes</strong>文件夹，位于<em>&lt;Eventlog Analyzer Home&gt;\server\default</em> 
+							目录</p>
+                          </li>
+                        </ul>
+                        <blockquote>
+                          <p>如果在旧服务器中，MySQL设置了密码</p>
+                        </blockquote>
+                        <ul>
+                          <li>
+                            <p><strong>startDB.bat</strong>和<strong>configureODBC.vbs</strong>，位于<em>&lt;Eventlog Analyzer Home&gt;\bin</em> 
+							目录</p>
+                          </li>
+                          <li>
+                            <p><strong>myodbc3.dll</strong>和<strong>myodbc3s.dll</strong>，位于<em>&lt;Eventlog Analyzer Home&gt;\lib</em> 
+							目录</p>
+                          </li>
+                          <li>
+                            <p><strong>mysql-ds.xml</strong>，位于<em>&lt;Eventlog Analyzer Home&gt;\server\default\deploy</em>目录</p>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <p>请下载和安装最新的Eventlog Analyzer。</p>
+                      </li>
+                      <li>
+                        <p>不要启动新安装的EventLog Analyzer服务器/服务。</p>
+                      </li>
+                      <li>
+                        <p>在新安装EventLog Analyzer的机器/服务器上，重命名<em>&lt;EventLog Analyzer Home&gt;\</em>目录下的文件夹<strong>MySQL</strong>。</p>
+                      </li>
+                      <li>
+                        <p>从旧的机器/服务器复制<em>&lt;EventLog Analyzer Home&gt;\</em>下的<strong>MySQL</strong>文件夹（包括所有的文件和子文件夹）到新安装的Eventlog 
+						Analyzer 机器/服务器。<br />
+                          <strong>注意：</strong>请确保在执行此操作时，无论是新的EventLog Analyzer，还是旧的都没有运行。</p>
+                      </li>
+                      <li>
+                        <p>在新的机器上启动EventLog Analyzer，检查数据和配置是否恢复成功。</p>
+                      </li>
+                    </ol>
+                    <p><strong>MSSQL数据库</strong></p>
+                    <ol>
+                      <li>
+                        <p>停止现有的EventLog Analyzer服务器/服务。</p>
+                      </li>
+                      <li>
+                        <p>下载和安装最新的Eventlog Analyzer。</p>
+                      </li>
+                      <li>
+                        <p>不要启动新安装的EventLog Analyzer服务器/服务，如果您已经启动了，请停止后执行以下步骤。</p>
+                      </li>
+                      <li>
+                        <p>请参照<a href="../additional-utilities/configure-mssql-database.html"><strong>MSSQL数据库的配置</strong></a>中的描述，配置旧EventLog Analyzer的MSSQL服务器凭证。</p>
+                      </li>
+                      <li>
+                        <p>在新的机器上启动EventLog Analyzer，检查数据和配置是否恢复正确。</p>
+                      </li>
+                    </ol>
+                    <p>一旦在以上步骤执行中遇到问题，请立即联系我们的<a href="http://www.zohocorp.com.cn/zohocorp/contact.html" target="_new">支持团队</a>获取支持与帮助。</p>
+                    <table border="0" cellpadding="1" cellspacing="0" width="100%">
+                      <tbody>
+                        <tr>
+                          <td align="right"><a href="#faq">页首</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p><strong><a name="17" id="17"></a>EventLog Analyzer数据库可以保存数据多长时间？</strong></p>
+                    <p>使用设置页签下的<strong>数据库存储设置</strong>，您可以配置数据库存储的天数，在此之后，数据将会被删除。默认值是<strong>32天</strong>，也就是说，在32天之后，除各报表中的值之外，其他的数据都将会被清除。</p>
+                    <p><strong><a name="17_2" id="17_2"></a>我怎么在EventLog Analyzer的数据库中为<em>root</em>用户指派密码？</strong></p>
+                    <p><strong>为Eventlog Analyzer的MySQL数据库设置密码的步骤，此步骤适用于Eventlog 
+					Analyzer版本6.0到构建号8000及之间的版本</strong></p>
+                    <ol>
+                      <li>
+                        <p>停止EventLog Analyzer 服务器/服务。</p>
+                      </li>
+                      <li>
+                        <p>点击 <strong>开始 &gt; 控制面板 &gt; 管理工具  &gt; 数据源 (ODBC) &gt; 用户DSN &gt; 选择名称CherrySADSN</strong>，然后<strong>移除</strong>它。<br clear="none" />
+                        </p>
+                      </li>
+                      <li>
+                        <p>重命名文件 <strong>&lt;EventLog Analyzer Home&gt;\bin\configureODBC.vbs</strong>为configureODBC<strong>_old.</strong>vbs 
+						，以及<strong>&lt;EventLog Analyzer Home&gt;\lib\myodbc3.dll </strong>
+						为myodbc3<strong>_old</strong>.dll<br clear="none" />
+                        </p>
+                      </li>
+                      <li>
+                        <p>现在，从以下链接下载 *.zip文件，将其放置到以下位置<br clear="none" />
+                          <strong><a linkindex="173" shape="rect" href="http://bonitas.zohocorp.com/patches/cherry/15Sep2009/Mysql_Password_Set_ELA_6.zip" target="_new">http://bonitas.zohocorp.com/patches/cherry/15Sep2009/Mysql_Password_Set_ELA_6.zip</a></strong><br clear="none" />
+                          <br clear="none" />
+                        </p>
+                        <ol type="a">
+                          <li>
+                            <p><strong> configureODBC.vbs</strong> &gt; <em>&lt;EventLog Analyzer Home&gt;\bin</em> 
+							文件夹<br clear="none" />
+                              <strong>注意：</strong> 请基于Eventlog 
+							Analyzer的安装平台，使用正确的configureODBC.vbs（32位或64位）文件。<br clear="none" />
+                            </p>
+                          </li>
+                          <li>
+                            <p><strong> myodbc3.dll</strong> 和 <strong>myodbc3s.dll</strong> &gt; <em>&lt;EventLog Analyzer Home&gt;\lib</em> 
+							文件夹<br clear="none" />
+                            </p>
+                          </li>
+                          <li> 
+                            <p><strong>MysqlPwdSet.bat</strong> &gt; <em>&lt;EventLog Analyzer Home&gt;\mysql\bin</em> 
+							文件夹<br clear="none" />
+                              <br clear="none" />
+                            </p>
+                          </li>
+                        </ol>
+                      </li>
+                      <li>
+                        <p>打开一个命令行窗口，跳至文件夹&lt;EventLog Analyzer Home&gt;\bin 
+						，运行命令<strong>startDB.bat</strong>来启动数据库</p>
+                      </li>
+                      <li>
+                        <p>在命令行窗口，跳转至文件夹&lt;EventLog Analyzer Home&gt;\mysql\bin 
+						，并执行<strong>MysqlPwdSet.bat</strong> ，如下所示：<br clear="none" />
+                          <em>&lt;EventLog Analyzer Home&gt;\mysql\bin&gt;</em><strong>MysqlPwdSet.bat &lt;mysql的密码&gt;</strong><br clear="none" />
+                        </p>
+                      </li>
+                      <li>
+                        <p>在命令行窗口，跳至&lt;EventLog Analyzer Home&gt;\tools文件夹，执行<strong>changeDBServer.bat</strong>，在密码字段提供 <strong>&lt;mysql的密码&gt;</strong> 
+						，点击<strong>Test</strong>，如果连接成功建立，则点击<strong>Save</strong>。<strong>请忽略消息“database 
+						already exists” </strong>。<br clear="none" />
+                        </p>
+                      </li>
+                      <li>
+                        <p> 编辑（文本编辑器）&lt;EventLog Analyzer Home&gt;\bin文件夹下的<strong>stopDB.bat</strong>，如下所示，此条目仅用于停止当前的mysql数据库实例。 <br clear="none" />
+                          <br clear="none" />
+                          <strong>旧条目：</strong><br clear="none" />
+                          set PASSWORD=%4<br clear="none" />
+                          <strong>新条目：</strong><br clear="none" />
+                          set PASSWORD=&lt;mysql的密码&gt;<br clear="none" />
+                          <br clear="none" />
+                        </p>
+                      </li>
+                      <li>
+                        <p>在命令行中，跳至文件夹&lt;EventLog Analyzer Home&gt;\bin，执行命令<strong>stopDB.bat</strong>来停止数据库。</p>
+                      </li>
+                      <li>
+                        <p> 编辑（使用文本编辑器）<strong>stopDB.bat</strong>， 重新修改以上的变更。<br clear="none" />
+                          <br clear="none" />
+                          <strong>旧条目：</strong><br clear="none" />
+                          set PASSWORD=&lt;mysql的密码&gt;<br clear="none" />
+                          <strong>新条目：</strong><br clear="none" />
+                          set PASSWORD=%4<br clear="none" />
+                          <br clear="none" />
+                        </p>
+                      </li>
+                      <li>
+                        <p> 重启EventLog Analyzer服务器/服务。</p>
+                      </li>
+                    </ol>
+                    <p><strong>此步骤仅适用于Eventlog Analyzer版本6.0之前的版本</strong></p>
+                    <p><span zid="2">指派/修改MySQL数据库的密码，请参阅以下步骤：</span></p>
+                    <ul>
+                      <li> <span zid="1">连接到EventLog Analyzer的MySQL，跳转至&lt;<em zid="14">EventLog   Analyzer Home&gt;/mysql</em> 
+						目录，执行以下命令：</span></li>
+                    </ul>
+                    <blockquote> <em zid="23"><span zid="24">./bin/mysql -u root- h localhost--   port=33335 -D EVENTLOG </span></em></blockquote>
+                    <ul>
+                      <li> 在数据库中执行以下查询语句</li>
+                    </ul>
+                    <blockquote>
+                      <p><em zid="43"><span zid="44">USE mysql</span></em></p>
+                      <p><em zid="48"><span zid="49">update user set password=password ('<strong zid="51">New Password</strong>') where user = 'root';</span></em></p>
+                      <p><em zid="54"><span zid="55">FLUSH PRIVILEGES;</span></em></p>
+                    </blockquote>
+                    <ul>
+                      <li> <span zid="67">停止EventLog Analyzer。</span></li>
+                      <li> <span zid="73">跳转至&lt;<em zid="74">EventLog Analyzer Home&gt;/data</em> 
+						目录，编辑<strong zid="75">dbparam.conf</strong></span> 文件<span zid="81">，将密码修改为新的密码。</span></li>
+                      <li> <span zid="87">重启EventLog Analyzer。</span></li>
+                    </ul>
+                    <h2>报表</h2>
+                    <p> <strong><a name="20" id="20"></a>为什么我会看到空的图表？</strong>                    </p>
+                    <p>在无数据可用的情况下，图表会显示为空。如果您是第一次启动服务，请等待几分钟，图表会在数据收集后生成。</p>
+                    <p><strong><a name="21" id="21"></a>我可以生成什么样的报表类型格式？</strong></p>
+                    <p>报表可以生成为HTML、CSV和PDF格式，在web浏览器中所有的报表视图为HTML格式，您可以将其导出为CSV或PDF格式。但是，计划运行的报表或自动通过邮件发送的报表，只能生成为PDF格式。</p>
+                    <table border="0" cellpadding="1" cellspacing="0" width="100%">
+                      <tbody>
+                        <tr>
+                          <td align="right"><a href="#faq">页首</a></td>
+                        </tr>
+                      </tbody>
+                  </table></td>
+                </tr>
+              </tbody>
+            </table></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top"><p>&nbsp;</p></td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../help-menu/help-intro.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../help-menu/eventlog-tips.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

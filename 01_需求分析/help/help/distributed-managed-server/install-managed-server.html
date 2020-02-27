@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer Distributed Edition - Managed Server - Install and Uninstall</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../distributed-managed-server/distributed-managed-server-intro.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../distributed-managed-server/managed-server-faq.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="distributed-managed-server-intro.html" title="EventLog Analyzer - Distributed Edition - Managed Server">EventLog Analyzer - 
+				分布式版本 - 被管服务器</a> &gt; 安装被管服务器</p>
+				</td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>EventLog Analyzer 分布式版本 - 被管服务器的安装与卸载</h1>
+            <hr />
+            <ul>
+              <li><strong><a href="#installManageServer" title="安装被管服务器">
+				安装被管服务器</a></strong></li>
+              <li><strong><a href="#uninstallManageServer" title="卸载被管服务器">卸载被管服务器</a></strong></li>
+            </ul>
+            <h2><strong><a name="installManageServer" id="installManageServer"></a>安装被管服务器</strong></h2>
+            <p>如果您要在Windows系统中安装EventLog Analyzer，执行<strong>ManageEngine_EventLogAnalyzer.exe</strong>文件，如果在Linux系统中进行安装，则执行<strong>ManageEngine_EventLogAnalyzer.bin</strong>文件。</p>
+            <p>如果您要在Windows系统中安装64位的EventLog Analyzer，执行<strong>ManageEngine_EventLogAnalyzer_64bit.exe</strong>文件，如果在Linux系统中进行安装，则执行<strong>ManageEngine_EventLogAnalyzer_64bit.bin</strong>文件。</p>
+            <p>这里有两种安装选项：</p>
+            <ul>
+              <li>一键安装</li>
+              <li>高级安装</li>
+            </ul>
+            <strong>一键安装</strong>不能用来将产品安装为被管服务器。<p>选择<strong>高级安装</strong>选项，可以自定义产品的安装，向导将会指引您完成安装。</p>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif" alt="Note" width="1" height="1" class="write" /></td>
+                <td width="95%" style="padding:10px"><p><strong>注意</strong>：</p>
+                  <ol>
+                    <li>请确保您要将安装的被管服务器，连接到的分布式版本管理服务器正在运行。</li>
+                    <li>
+					请确保在安装被管服务器过程中设置的管理服务器明细正确无误，否则，被管服务器安装会无法完成。管理服务器明细会在安装过程结束时进行验证。</li>
+                  </ol></td>
+              </tr>
+            </table>
+            <p>高级安装概述</p>
+            <ul>
+              <li>同意许可协议的条款和条件，您可以将其打印出来以备离线查看。</li>
+              <li>选择要安装的版本，可选择的版本包括<strong>独立安装版（Standalone）</strong>、<strong>分布式版本（Distributed）</strong>和<strong>免费版（Free）</strong>
+                <blockquote>
+                  <p><strong>独立安装版</strong> - 
+                    如果您要对在单独地理位置下的小型或中型业务进行管理，监视的设备和/或应用数量少于600，那么您可以选用这个版本。</p>
+                  <p><strong>分布式版本</strong> - 
+                    如果您要对在分散的地理位置环境下的大型业务进行管理，监视的设备和/或应用数量少于12000，那么您需要选用分布式版本。</p>
+                  <p><strong>免费版</strong> - 如果您要对微型业务或SOHO（Small Office and Home 
+					Office， 即小型办公室和家庭办公室）进行管理，监视的主机数不超过5台，您可以下载ManageEngine_EventLogAnalyzer独立安装版的exe或bin文件，将其安装为免费版。</p>
+                </blockquote>
+              </li>
+              <li>选择<strong>分布式版本</strong>和<strong>被管服务器</strong>，在被管服务器配置窗口，输入<strong>管理服务器主机</strong>，保留或修改<strong>管理服务器端口</strong>，如果管理服务器使用安全通信（HTTPS），则可选择<strong>使用HTTPS</strong>，或者您也可以不选这个选项。</li>
+            </ul>
+            <ul>
+              <li>如果被管服务器需要使用代理服务器，请在代理服务器配置窗口，配置<strong>代理服务器主机</strong>、<strong>代理服务器端口</strong>、<strong>代理服务器用户名</strong>和<strong>用户密码</strong>信息。</li>
+            </ul>
+            <ul>
+              <li>使用<strong>浏览</strong>按钮，选择产品的安装目录，默认的安装目录为<em>C:\ManageEngine\EventLog</em>。如果新目录或默认目录不存在，它将会自动进行创建，然后开始进行安装。</li>
+            </ul>
+            <ul>
+              <li>输入Web服务器端口，默认端口为8400，您也可以指定一个其它的端口，请确保默认端口或您指定的端口没有被其它应用占用。<br />
+                选择语言（简体中文-Simplified Chinese、繁体中文-Traditional Chinese、英文-English、日文-Japanese或其它O-thers），请确保您所使用的浏览器支持您所选择的语言。<br />
+                选择Web协议（HTTP/HTTPS），使用非安全通信协议HTTP或安全通信协议HTTPS。</li>
+            </ul>
+            <ul>
+              <li>选择<strong>将EventLog Analyzer安装为服务</strong>选项，可以将产品安装为Windows或Linux服务。默认此选项被选中，您可以取消此选项将产品安装为应用，之后您也可以将其变更为服务，我们推荐您将其安装为服务。</li>
+            </ul>
+            <ul>
+              <li>输入产品在程序文件夹中显示的文件夹名称，默认它为<strong>ManageEngine EventLog Analyzer x</strong>文件夹。 </li>
+            </ul>
+            <ul>
+              <li>输入您的个人信息以便获取帮助和支持</li>
+            </ul>
+            <p>在安装结束的时候，向导将会显示自述文件，并启动EventLog Analyzer服务器。<br />
+              至此，EventLog Analyzer产品已安装完成。</p>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif" alt="Note" width="1" height="1" class="write" /></td>
+                <td width="95%" style="padding:10px"><strong>说明</strong>：在Linux系统上进行安装时，如果您的到一个错误消息，显示缓存文件夹没有足够的空间，请尝试执行这个命令 -is:tempdir <em>&lt;directory_name&gt;</em> 
+				选项，<em>&lt;directory_name&gt;</em> 表示现有目录的绝对路径。 ./<em>&lt;file_name&gt;</em>Bin                   -is:tempdir &lt;<em>directory_name&gt;</em></td>
+              </tr>
+            </table>
+            <p> </p>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif" alt="Note" width="1" height="1" class="write" /></td>
+                <td width="95%" style="padding:10px"><strong>说明</strong>：EventLog Analyzer支持3中语言，即英文、中文和日文，同时还有第四个选项，其它（<strong>Other</strong>）。如果用户希望 EventLog Analyzer支持双字节（<strong>UTF-8</strong>）的语言，那么用户可以在安装时选择Other选项。</td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+            <h2><strong><a name="uninstallManageServer" id="uninstallManageServer"></a>卸载被管服务器</strong> </h2>
+            <p>卸载64位和32位版本的EventLog Analyzer是一样的。</p>
+            <p><strong>Windows：</strong></p>
+            <ol>
+              <li> 定位到EventLog Analyzer安装到的程序文件夹，<strong>开始 &gt; 所有程序 &gt; ManageEngine EventLog       Analyzer</strong>。</li>
+              <li> 选择卸载选项 <strong>Uninstall EventLog Analyzer</strong>. </li>
+              <li> 确认您的操作，继续进行卸载。</li>
+            </ol>
+            <p><strong>Linux：</strong></p>
+            <ol>
+              <li> 定位到 <em>&lt;EventLog Analyzer Home&gt;/server/_uninst</em> 
+				目录。</li>
+              <li> 执行命令 ./uninstaller.bin </li>
+              <li> 确认您的操作，继续进行卸载。</li>
+            </ol>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif" alt="Note" width="1" height="1" class="write" /></td>
+                <td width="95%" style="padding:10px"><strong>说明</strong>：在卸载完成之后，卸载反馈表格页面将会打开，我们诚请您提供您卸载产品的原因，帮助我们提升产品的质量。</td>
+              </tr>
+            </table>
+          <p>&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../distributed-managed-server/distributed-managed-server-intro.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../distributed-managed-server/managed-server-faq.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

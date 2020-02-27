@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer Additonal Utilities - Migrate data from MSSQL to MySQL database</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../additional-utilities/migrate-data-mysql-mssql.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../additional-utilities/move-database-different-directory.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> »  <a href="additional-utils-intro.html" title="Additonal Utilities">附加工具</a> &gt;把数据从SQL Server迁移到MySQL</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>将EventLog Analyzer数据从MSSQL迁移到MySQL数据库</h1>
+            <hr />
+            <p>注意：此部分的信息，仅适用于EventLog Analyzer版本8.0（构建号8000）及之前的产品，对于之后的产品，我们将不再提供对此功能的支持。</p>
+            <p>EventLog Analyzer支持用户将MSSQL数据库中现有的EventLog Analyzer数据移动到MySQL数据库。</p>
+            <p>要迁移数据库库，请参阅以下步骤：</p>
+            <ol start="1" type="1">
+              <li>
+                <p>停止Eventlog Analyzer服务器/服务。</p>
+              </li>
+              <li>
+                <p>在命令行中调用<em>&lt;Eventlog Analyzer Home&gt;\tools\</em><strong>backUpDatabase.bat</strong> 
+				，它用于备份MSSQL数据库中现有可用的数据，请等待数据备份进程结束。默认备份文件将会存储在<em>&lt;Eventlog Analyzer Home&gt;\backup</em> 
+				目录下，文件名称将会表示为<strong>backup_eventlog_&lt;Build_Number&gt;_MM_DD_YYYY_hh_mm.data</strong>。</p>
+              </li>
+              <li>
+                <p>在命令行中运行 <em>&lt;Eventlog Analyzer Home&gt;\bin\</em><strong>startDB.bat</strong> 
+				。</p>
+              </li>
+              <li>
+                <p>在命令行中调用<em>&lt;Eventlog Analyzer Home&gt;\tools\</em><strong>changeDBServer.bat</strong> 
+				，它用于配置MySQL服务器的凭证信息，如主机名称、端口、用户名和密码。</p>
+              </li>
+              <li>
+                <p><strong>数据库设置向导</strong> 窗口打开。</p>
+              </li>
+              <li>
+                <p>在向导窗口，选择<strong>服务器类型</strong>为<em>Mysql</em>服务器。</p>
+              </li>
+              <li>
+                <p>输入MySQL服务器的<strong>主机名</strong>和<strong>端口</strong>。</p>
+              </li>
+              <li>
+                <p>输入<strong>用户名</strong>和<strong>密码</strong>。</p>
+              </li>
+            </ol>
+            <ol start="9" type="1">
+              <li>
+                <p>点击<strong>测试（Test）</strong>按钮检查凭证是否正确，如果测试失败，那么表示输入的凭证可能错误，请检查后再次输入并测试。</p>
+              </li>
+              <li>
+                <p>点击<strong>保存（Save）</strong>按钮来保存MySQL服务器配置，这需要几分钟来配置MySQL数据库的设置，请耐心等待。</p>
+              </li>
+              <li>
+                <p>在命令行中运行 <em>&lt;Eventlog Analyzer Home&gt;\bin\</em><strong>stopDB.bat</strong>。</p>
+              </li>
+              <li>
+                <p>在命令行中运行 <em>&lt;Eventlog Analyzer Home&gt;\bin\</em><strong>run.bat</strong> 
+				，启动Eventlog Analyzer服务器。</p>
+              </li>
+              <li>
+                <p>在服务器完全启动之后，在命令行中终止 <strong>run.bat</strong> 以停止服务器，或调用 <em>&lt;Eventlog Analyzer Home&gt;\bin\</em><strong>shutdown.bat</strong>。</p>
+              </li>
+              <li>
+                <p>调用<em>&lt;Eventlog Analyzer Home&gt;\tools\</em><strong>restoreDatabase.bat</strong>，浏览并选择创建的备份文件，点击<strong>确定（OK）</strong> 
+				并等待数据库完全恢复。 </p>
+              </li>
+            </ol>
+            <p align="center"><img src="../images/restore-data.jpg"  alt="Restore data" /></p>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="4%" style="padding:5px"><img src="../images/spacer.gif" alt="Warning" width="1" height="1" class="tips" /></td>
+                <td width="96%" style="padding:10px"><p>执行<strong>restoreDatabase.bat</strong>将会删除现有的数据。</p>
+				</td>
+              </tr>
+            </table>
+            <ol start="15" type="1">
+              <li>
+                <p>启动Eventlog Analyzer服务器/服务。</p>
+              </li>
+            </ol>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif" alt="Note" width="1" height="1" class="write" /></td>
+                <td width="95%" style="padding:10px"><strong>说明</strong>：您也可以修改备份的目录，只需在命令行中执行备份数据库的批处理文件时，将备份文件要存储到的位置的绝对路径作为参数即可，例如：<br />
+                <em>&lt;Eventlog Analyzer Home&gt;\tools:\&gt;</em><strong>backUpDatabase.bat</strong> <strong><em>D:\Mysql</em></strong></td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+          <p>&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../additional-utilities/migrate-data-mysql-mssql.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../additional-utilities/move-database-different-directory.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

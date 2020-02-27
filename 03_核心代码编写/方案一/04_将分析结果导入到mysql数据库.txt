@@ -1,0 +1,48 @@
+ val resultRDD = sc.parallelize(List((uv, vCount, pv, change, changeRange, totalTime, avgTime, avgPageCount, jumpRange)))
+
+    //通过StructType直接指定每个字段的schema
+    val resultSchema = StructType(
+      List(
+        StructField("uv_", IntegerType, true),
+        StructField("vCount_", IntegerType, true),
+        StructField("pv_", IntegerType, true),
+        StructField("change_", IntegerType, true),
+        StructField("changeRange_", DoubleType, true),
+        StructField("totalTime_", DoubleType, true),
+        StructField("avgTime_", DoubleType, true),
+        StructField("avgPageCount_", IntegerType, true),
+        StructField("jumpRange_", DoubleType, true),
+        StructField("log_data", DateType, true),//是哪一天日志分析出来的结果
+        StructField("create_time", TimestampType, true)//分析结果的创建时间
+      )
+    )
+    //将RDD映射到rowRDD
+    val resultRowRDD = resultRDD.map(p => Row(
+      p._1.toInt,
+      p._2.toInt,
+      p._3.toInt,
+      p._4.toInt,
+      p._5.toDouble,
+      p._6.toDouble,
+      p._7.toDouble,
+      p._8.toInt,
+      p._9.toDouble,
+      new Date(cal.getTimeInMillis),//是哪一天日志分析出来的结果
+      new Timestamp(new java.util.Date().getTime)
+    ))
+    //将schema信息应用到rowRDD上
+    val resultDataFrame = sqlContext.createDataFrame(resultRowRDD, resultSchema)
+    //注册表
+    resultDataFrame.registerTempTable("t_result_log")
+    //执行SQL
+    val df = sqlContext.sql("select * from t_result_log")
+    df.show()
+
+    //将结果写入到mysql
+    val prop = new java.util.Properties();
+    prop.put("user", "root")
+    prop.put("password", "123456")
+    //将dataFrame中的数据写入到关系型数据库
+    df.write.mode("append").jdbc("jdbc:mysql://hadoop01:3306/hibernate", "t_log", prop)
+    sc.stop()
+  }

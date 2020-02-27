@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer System Settings - Configure Email, SMS</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../system-settings/working-hour-settings.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../system-settings/ela-configurations.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="system-settings-intro.html" title="System Settings">系统设置</a> &gt; 配置邮件及短信</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>配置邮件及短信</h1>
+            <hr />
+            <p>EventLog Analyzer使用电子邮件将计划的、自动生成的报表分发到用户，通过邮件或短信来通知用户。</p>
+            <ul>
+              <li><a href="#configureEmail" title="Email Settings">邮件设置</a></li>
+              <li><a href="#sms_settings" title="SMS Settings">短信设置</a></li>
+            </ul>
+            <p><a name="configureEmail" id="configureEmail"></a></p>
+            <h2><strong>邮件设置</strong></h2>
+            <p>              访问邮件设置页面，可使用以下菜单实现：</p>
+            <ul>
+              <li><strong>设置</strong>页签 &gt; 系统设置：配置邮件及短信 &gt;<strong> 邮件</strong></li>
+            </ul>
+            <p><strong>怎样配置邮件设置？</strong></p>
+            <p align="center"><img src="../images/mail-server-settings.png"  alt="Mail server settings" /></p>
+            <ol>
+              <li>
+                <p>输入发信箱服务器地址</p>
+              </li>
+              <li>
+                <p>输入发信箱服务器地址的端口</p>
+              </li>
+              <li>
+                <p>如果选择<strong>每次登录时验证</strong>，邮件服务器将会在每次登录时询问认证信息</p>
+              </li>
+              <li>
+                <p>输入邮件服务器的用户名和密码</p>
+              </li>
+              <li>
+                <p>要确保邮件通信是安全的，请选择<strong>TLS</strong>选项，如果已选择，那么将会使用传输层安全（<strong>TLS</strong>）协议来发送邮件</p>
+              </li>
+              <li>
+                <p>输入EventLog Analyzer发送报表、告警通知到的邮件地址，使用<strong>发送测试信息</strong>按钮，验证邮件服务器设置是否正确 </p>
+              </li>
+            </ol>
+            <p>点击<strong>保存</strong>按钮来完成邮件服务器的设置</p>
+            <p>如果邮件服务器未配置，EventLog Analyzer将会在您创建报表配置文件或告警配置文件时，提示您对邮件服务器进行配置。</p>
+            <p><a name="sms_settings" id="sms_settings"></a> </p>
+            <h2><strong>SMS设置 </strong></h2>
+            <p>              要访问短信设置页面，可通过以下菜单实现：</p>
+            <ul>
+              <li><strong> 设置</strong>页签<strong> </strong>&gt; 系统设置：配置邮件及短信 &gt;
+				<strong>短信 </strong>            </li>
+            </ul>
+            <p><strong>怎样配置短信设置？</strong></p>
+            <p align="center"><img src="../images/sms-settings.png"  alt="SMS settings" /></p>
+            <ol>
+              <li>
+                <p>在EventLog Analyzer的短信设置页面，输入硬件接入的端口，使用<strong>测试端口</strong>按钮来验证设备的可用性以及功能。 
+				当点击了测试端口按钮后，这里将会弹出一个窗口，在这里输入要接收短信的手机号码，注意需要加上国家代码（例 + 86 
+				186XXXXXXXX）。如要输入多个手机号码，请使用逗号隔开。</p>
+              </li>
+              <li>
+                <p>点击<strong>保存变更</strong>按钮完成短信设置。</p>
+              </li>
+            </ol>
+            <p>如果这里没有配置短信设置，那么EventLog Analyzer将会在您创建告警配置文件时，提示您进行设置。</p>
+<p>&nbsp;</p>
+          <p>&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../system-settings/working-hour-settings.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../system-settings/ela-configurations.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

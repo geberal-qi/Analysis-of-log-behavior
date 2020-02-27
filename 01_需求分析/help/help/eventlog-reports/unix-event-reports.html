@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer - Host Reports</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../eventlog-reports/windows-event-reports.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../eventlog-reports/application-event-reports.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="eventlog-reports-intro.html"> 事件报表</a> »  Unix事件报表</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1> Unix事件报表</h1>
+            <hr />
+            <p>EventLog Analyzer提供了以下Unix事件不同类别的头报表：       </p>
+            <p><strong>Unix</strong></p>
+            <ul>
+              <li>Unix登录报表<br />
+              </li>
+              <li>Unix登出报表<br />
+              </li>
+              <li>Unix登录失败报表<br />
+              </li>
+              <li>Unix用户账户管理<br />
+              </li>
+              <li>Unix可移动磁盘审计<br />
+              </li>
+              <li>SU命令<br />
+              </li>
+              <li>Unix邮箱服务器报表<br />
+              </li>
+              <li>Unix威胁<br />
+              </li>
+              <li>Unix NFS事件<br />
+              </li>
+              <li>Unix其它事件<br />
+              </li>
+              <li>Unix FTP服务器报表<br />
+              </li>
+              <li>Unix系统事件<br />
+              </li>
+              <li>Unix严重性报表<br />
+              </li>
+              <li>Unix关键报表<br />
+              </li>
+              <li>VMWare登入/登出<br />
+              </li>
+              <li>VMWare系统事件<br />
+              </li>
+              <li>VMWare服务器事件<br />
+              </li>
+              <li>IBM iSeries (AS/400)报表</li>
+            </ul>
+            <p>&nbsp;</p>
+            <ul>
+              <li>Unix登录报表
+                <ul>
+                  <li>用户登录<br />
+                    </li>
+                  <li>SU登录<br />
+                    </li>
+                  <li>SSH登录<br />
+                    </li>
+                  <li>FTP或SFTP登录<br />
+                    </li>
+                  <li>登录概览<br />
+                    </li>
+                  <li>基于用户的登录<br />
+                    </li>
+                  <li>基于主机的登录<br />
+                    </li>
+                  <li>基于远程主机的登录<br />
+                    </li>
+                  <li>Unix登录方法<br />
+                    </li>
+                  <li>登录趋势</li>
+                </ul>
+              </li>
+              <li>Unix登出报表
+                <ul>
+                  <li>用户登出<br />
+                    </li>
+                  <li>SU登出<br />
+                    </li>
+                  <li>SSH登出<br />
+                    </li>
+                  <li>FTP或SFTP登出<br />
+                    </li>
+                  <li>登出概览</li>
+                </ul>
+              </li>
+              <li>Unix登录失败概览
+                <ul>
+                  <li>用户登录失败<br />
+                    </li>
+                  <li>SU登录失败<br />
+                    </li>
+                  <li>SSH登录失败<br />
+                    </li>
+                  <li>FTP或SFTP登录失败<br />
+                    </li>
+                  <li>登录失败概览<br />
+                    </li>
+                  <li>基于用户登录失败<br />
+                    </li>
+                  <li>基于主机登录失败<br />
+                    </li>
+                  <li>基于远程主机登录失败<br />
+                    </li>
+                  <li>失败的登录方法<br />
+                    </li>
+                  <li>登录失败的趋势<br />
+                    </li>
+                  <li>重复验证失败<br />
+                    </li>
+                  <li>无效的用户登录尝试<br />
+                    </li>
+                  <li>长密码登录不成功<br />
+                    </li>
+                  <li>基于远程主机重复登录失败<br />
+                    </li>
+                  <li>基于远程主机重复验证失败</li>
+                </ul>
+              </li>
+              <li>Unix用户账户管理             </li>
+            
+              <ul>
+                <li>添加用户账户<br />
+                  </li>
+                <li>删除用户账户<br />
+                  </li>
+                <li>重命名用户账户<br />
+                  </li>
+                <li>添加组<br />
+                  </li>
+                <li>删除组<br />
+                  </li>
+                <li>重命名组<br />
+                  </li>
+                <li>更改密码<br />
+                  </li>
+                <li>密码更改失败<br />
+                  </li>
+                <li>添加用户失败<br />
+                  </li>
+                <li>Unix账户管理事件</li>
+              </ul>
+              <li>Unix可移动磁盘审计
+                <ul>
+                  <li>插入USB<br />
+                    </li>
+                  <li>拔出USB</li>
+                </ul>
+              </li>
+              <li>SUDO命令
+                <ul>
+                  <li>SUDO命令执行<br />
+                    </li>
+                  <li>SUDO命令执行失败<br />
+                    </li>
+                  <li>SUDO命令执行排行<br />
+                    </li>
+                  <li>SUDO命令执行失败排行</li>
+                </ul>
+              </li>
+              <li>Unix邮件服务器报表
+                <ul>
+                  <li>邮箱发送概述<br />
+                    </li>
+                  <li>邮箱接收概述<br />
+                    </li>
+                  <li>基于发送方发送邮件<br />
+                    </li>
+                  <li>基于远程主机邮件发送<br />
+                    </li>
+                  <li>收到远程主机邮件<br />
+                    </li>
+                  <li>发送方域<br />
+                    </li>
+                  <li>收件人域<br />
+                    </li>
+                  <li>邮件发送趋势报表<br />
+                    </li>
+                  <li>邮件接收趋势报表<br />
+                    </li>
+                  <li>发送方邮件拒绝<br />
+                    </li>
+                  <li>接收方拒绝邮件<br />
+                    </li>
+                  <li>邮件拒绝错误<br />
+                    </li>
+                  <li>拒绝域<br />
+                    </li>
+                  <li>邮件拒绝概述<br />
+                    </li>
+                  <li>邮箱无效<br />
+                    </li>
+                  <li>存储不足<br />
+                    </li>
+                  <li>命令的次序错误<br />
+                    </li>
+                  <li>电子邮件地址错误<br />
+                    </li>
+                  <li>不存在远程电子邮件地址<br />
+                    </li>
+                  <li>邮件错误<br />
+                    </li>
+                  <li>基于发送方邮件错误<br />
+                    </li>
+                  <li>邮件交付失败</li>
+                </ul>
+              </li>
+              <li>Unix威胁
+                <ul>
+                  <li>反向查找错误<br />
+                    </li>
+                  <li>主机配置错误<br />
+                    </li>
+                  <li>ISP错误<br />
+                    </li>
+                  <li>远程主机无效连接<br />
+                    </li>
+                  <li>拒绝服务攻击</li>
+                </ul>
+              </li>
+              <li>Unix NFS事件
+                <ul>
+                  <li>成功的NFS挂载<br />
+                    </li>
+                  <li>拒绝NFS挂载<br />
+                    </li>
+                  <li>基于用户的否认NFS挂载<br />
+                    </li>
+                  <li>基于远程主机成功的NFS挂载<br />
+                    </li>
+                  <li>基于远程主机拒绝NFS挂载</li>
+                </ul>
+              </li>
+              <li>Unix其它事件
+                <ul>
+                  <li>Cron作业<br />
+                    </li>
+                  <li>Cron编辑<br />
+                    </li>
+                  <li>Cron作业开始<br />
+                    </li>
+                  <li>Cron作业终止<br />
+                    </li>
+                  <li>软件连接失败<br />
+                    </li>
+                  <li>接收识别字符串<br />
+                    </li>
+                  <li>会话连接<br />
+                    </li>
+                  <li>会话断开连接<br />
+                    </li>
+                  <li>停用服务<br />
+                    </li>
+                  <li>不受支持的协议版本<br />
+                    </li>
+                  <li>加载日志超时<br />
+                    </li>
+                  <li>更新失败<br />
+                    </li>
+                  <li>主机名不匹配<br />
+                    </li>
+                  <li>主机地址不匹配<br />
+                    </li>
+                  <li>基于用户cron作业</li>
+                </ul>
+              </li>
+              <li>Unix FTP服务器报表
+                <ul>
+                  <li>文件下载<br />
+                    </li>
+                  <li>文件上传<br />
+                    </li>
+                  <li>数据传输摊位超时<br />
+                    </li>
+                  <li>登录超时<br />
+                    </li>
+                  <li>会话空闲超时<br />
+                    </li>
+                  <li>没有传输超时<br />
+                    </li>
+                  <li>连接超时<br />
+                    </li>
+                  <li>FTP报表概览<br />
+                    </li>
+                  <li>基于用户的FTP操作<br />
+                    </li>
+                  <li>基于远程主机FTP操作</li>
+                </ul>
+              </li>
+              <li>Unix系统事件
+                <ul>
+                  <li>Syslog服务停止<br />
+                    </li>
+                  <li>Syslog服务重启<br />
+                    </li>
+                  <li>低磁盘空间<br />
+                    </li>
+                  <li>系统关机<br />
+                    </li>
+                  <li>Yum安装<br />
+                    </li>
+                  <li>Yum更新<br />
+                    </li>
+                  <li>Yum卸载</li>
+                </ul>
+              </li>
+              <li>Unix严重性报表
+                <ul>
+                  <li>紧急事件<br />
+                    </li>
+                  <li>告警事件<br />
+                    </li>
+                  <li>临界事件<br />
+                    </li>
+                  <li>错误事件<br />
+                    </li>
+                  <li>警告事件<br />
+                    </li>
+                  <li>注意事件<br />
+                    </li>
+                  <li>信息事件<br />
+                    </li>
+                  <li>调试事件</li>
+                </ul>
+              </li>
+              <li>Unix关键报表
+                <ul>
+                  <li>关键级的事件<br />
+                    </li>
+                  <li>基于事件的重要报表<br />
+                    </li>
+                  <li>基于主机的关键事件<br />
+                    </li>
+                  <li>基于远程主机的关键事件<br />
+                    </li>
+                  <li>关键事件的趋势<br />
+                    </li>
+                  <li>关键事件概述</li>
+                </ul>
+              </li>
+              <li>VMWare登入/登出
+                <ul>
+                  <li>用户登录<br />
+                    </li>
+                  <li>SU登录<br />
+                    </li>
+                  <li>SSH登录<br />
+                    </li>
+                  <li>SFTP登录<br />
+                    </li>
+                  <li>登录概览<br />
+                    </li>
+                  <li>基于用户的登录<br />
+                    </li>
+                  <li>基于远程主登录<br />
+                    </li>
+                  <li>登录失败<br />
+                    </li>
+                  <li>SU登录失败<br />
+                    </li>
+                  <li>SSH登录失败<br />
+                    </li>
+                  <li>FTP或SFTP登录失败<br />
+                    </li>
+                  <li>登录失败概览<br />
+                    </li>
+                  <li>基于用户登录失败<br />
+                    </li>
+                  <li>基于远程主机登录失败<br />
+                    </li>
+                  <li>用户登出<br />
+                    </li>
+                  <li>SU登出<br />
+                    </li>
+                  <li>SSH登出<br />
+                    </li>
+                  <li>SFTP登出<br />
+                    </li>
+                  <li>登出概览</li>
+                </ul>
+              </li>
+              <li>VMWare系统事件
+                <ul>
+                  <li>用户帐户添加<br />
+                    </li>
+                  <li>用户帐户删除<br />
+                    </li>
+                  <li>用户帐户重命名<br />
+                    </li>
+                  <li>组添加<br />
+                    </li>
+                  <li>组删除<br />
+                    </li>
+                  <li>组重命名<br />
+                    </li>
+                  <li>密码修改<br />
+                    </li>
+                  <li>密码修改失败<br />
+                    </li>
+                  <li>用户添加失败<br />
+                    </li>
+                  <li>Syslog服务停止<br />
+                    </li>
+                  <li>Syslog服务重启<br />
+                    </li>
+                  <li>低磁盘空间<br />
+                    </li>
+                  <li>系统关闭</li>
+                </ul>
+              </li>
+              <li>VMWare服务器事件
+                <ul>
+                  <li>客户端登录虚拟机<br />
+                    </li>
+                  <li>VM创建<br />
+                    </li>
+                  <li>VM删除<br />
+                    </li>
+                  <li>VM状态改变<br />
+                    </li>
+                  <li>VM变化排行<br />
+                    </li>
+                  <li>VM事件概览</li>
+                </ul>
+              </li>
+              <li>AS400报表
+                <ul>
+                  <li>登录<br />
+                    </li>
+                  <li>登录失败<br />
+                    </li>
+                  <li>登出<br />
+                    </li>
+                  <li>授权失败<br />
+                    </li>
+                  <li>授权更改<br />
+                    </li>
+                  <li>用户配置文件更改<br />
+                    </li>
+                  <li>对象删除<br />
+                    </li>
+                  <li>工作转换 <br />
+                    </li>
+                  <li>所有权更改<br />
+                    </li>
+                  <li>由于无效的密码登录失败<br />
+                    </li>
+                  <li>系统值变化报表<br />
+                    </li>
+                  <li>成功开始工作<br />
+                    </li>
+                  <li>成功结束工作<br />
+                    </li>
+                  <li>工作日志<br />
+                    </li>
+                  <li>设备配置<br />
+                    </li>
+                  <li>系统事件变化<br />
+                    </li>
+                  <li>子系统激活工作站<br />
+                    </li>
+                  <li>达到ASP存储阈值<br />
+                    </li>
+                  <li>超过ASP存储限制<br />
+                    </li>
+                  <li>磁盘单位错误<br />
+                    </li>
+                  <li>过期系统ID报表<br />
+                    </li>
+                  <li>无法编写审计记录<br />
+                    </li>
+                  <li>由于最大数量的登录尝试禁用用户的资料<br />
+                    </li>
+                  <li>弱电池报表<br />
+                    </li>
+                  <li>电池故障报表<br />
+                    </li>
+                  <li>系统密码旁路周期结束<br />
+                    </li>
+                  <li>达到存储目录阈值<br />
+                    </li>
+                  <li>严峻储存条件报表<br />
+                    </li>
+                  <li>电池缓存到期报表<br />
+                    </li>
+                  <li>i5宽限到期报表<br />
+                    </li>
+                  <li>临时IO处理器错误<br />
+                    </li>
+                  <li>系统处理器失败<br />
+                    </li>
+                  <li>硬件错误<br />
+                    </li>
+                  <li>基于用户登录<br />
+                    </li>
+                  <li>基于用户登录失败<br />
+                    </li>
+                  <li>基于用户的工作的排行</li>
+                </ul>
+              </li>
+            </ul>
+            <p>&nbsp;</p>
+            <p><br />
+            </p>
+          <p align="left">&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../eventlog-reports/windows-event-reports.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../eventlog-reports/application-event-reports.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016, <a href="http://www.zohocorp.com" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"<a href="http://www.manageengine.com" target=_blank>ManageEngine</div></div> </body>
+</html>

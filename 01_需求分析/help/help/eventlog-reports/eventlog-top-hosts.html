@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer - View Top Hosts Reports</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../eventlog-reports/application-log-reports.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../eventlog-reports/eventlog-puma-reports.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="eventlog-reports-intro.html">事件报表</a> » 查看主机排行报表</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>查看主机排行报表</h1>
+            <hr />
+            <p>要查看主机排行报表，可通过以下菜单实现：</p>
+            <ul>
+              <li><strong>报表</strong>页面 &gt; <strong>排行报表</strong></li>
+            </ul>
+<p>在<strong>报表</strong>页面下的<strong>排行报表</strong>部分，包含了主机排行、用户排行、按事件重要度的进程排行等。您可以点击查看全部链接，查看此部分的所有报表。</p>
+            <ul>
+              <li><a href="#host_user_access" title="Top Hosts by User Access">主机排行 - 用户访问</a></li>
+              <li><a href="#user_login" title="Top Users by Login">用户排行 - 登录</a></li>
+              <li><a href="#interactive_login" title="Top Interactive Login">交互登录排行</a></li>
+              <li><a href="#host_event_severity" title="Top Hosts by Event Severity">主机排行 - 事件的重要度</a></li>
+              <li><a href="#process_event_severity" title="Top Processes by Event Severity">进程排行 - 事件的重要度</a></li>
+            </ul>
+            <p><a name="host_user_access" id="host_user_access"></a></p>
+            <h3>主机排行 - 用户访问</h3>
+            <p>这个报表显示了按用户登录成功或失败的主机排行。</p>
+            <p align="center"><img src="../images/top-n-host-user.png"  alt="Top N Reports - Host User Access" /></p>
+            <p>前者对于追踪主机的使用趋势非常有用，而后者则可用于分析主机的安全需求。</p>
+            <p>您可以使用这些报表，来决定是否针对某些主机，更改安全策略，或提高网络安全措施。</p>
+<p><a name="user_login" id="user_login"></a> </p>
+            <h3>用户排行 - 登录</h3>
+            <p>这个报表显示了按用户登录成功或失败的用户排行。</p>
+            <p align="center"><img src="../images/top-n-user-login.png"  alt="Top N Reports - User Login" /></p>
+            <p>
+			这个报表可以告诉您，哪些用户使用密码登录到哪些主机的状态，是成功的或是失败的。如果一个用户使用用户名、密码访问了多个主机，那么这个报表将显示出他使用过哪些主机，以及使用的时间。如果用户尝试多次登录，但都是失败的，那么这个报表将显示此用户失败登录的次数，以及所使用的主机，操作的时间。</p>
+<p>您可以使用这个报表来识别您网络中的临时用户，并设置策略追踪这些用户。</p>
+            <p><a name="interactive_login" id="interactive_login"></a> </p>
+            <h3>交互登录排行</h3>
+            <p>在这里，交互登录仅仅通过用户界面完成。 
+			此报表显示成功登陆次数最多的用户，及登录尝试失败次数最多的用户。这个报表将告诉您哪个用户登录了哪台主机，以及是否登录成功。</p>
+            <p align="center"><img src="../images/top-n-interactive-login.png"  alt="Top N Reports - Interactive User Login" /></p>
+            <p>
+			如果一个用户使用用户名、密码访问了多个主机，那么这个报表将显示出他使用过哪些主机，以及使用的时间。如果用户尝试多次登录，但都是失败的，那么这个报表将显示此用户失败登录的次数，以及所使用的主机，操作的时间。</p>
+            <p>您可以使用这个报表来识别您网络中的临时用户，并设置策略追踪这些用户。</p>
+            <p><a name="host_event_severity" id="host_event_severity"></a> </p>
+            <h3>主机排行 - 事件的重要度</h3>
+            <p>此报表根据重要度显示主机的排行，并显示所有事件。这就是说，您可以一眼看出主机的关键事件，告警事件，等等。默认情况下，<strong>查看重要度</strong>的值设置为全部，任何重要度的事件都会被显示出来。</p>
+            <p align="center"><img src="../images/top-n-host-severity.png"  alt="Top N Reports - Host Event Severity" /></p>
+            <p>您可以使用这个报表快速识别哪些主机出现了常见的问题，并快速进行故障排除。</p>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif" alt="Note" width="1" height="1" class="write" /></td>
+                <td width="95%" style="padding:10px"><strong>说明</strong>：某些事件重要度仅适用于Unix主机。</td>
+              </tr>
+            </table>
+            <h3>&nbsp;</h3>
+            <h3><a name="process_event_severity" id="process_event_severity"></a></h3>
+            <h3>进程排行 - 事件的重要度</h3>
+            <p>
+			此报表按照运行在所有主机的进程排列事件日志，并显示每个重要度的最高值。您一眼就能够看出主机生成的关键事件，告警事件等等。默认情况下，<strong>查看重要度</strong>的值设置为全部，任意重要度的事件都会被显示。</p>
+            <p align="center"><img src="../images/top-n-process-severity.png"  alt="Top N Reports - Process Event Severity" /></p>
+<p>使用这个报表，您就可以对关键主机进行调查是否存在可疑的行为，确定在网络中是否存在蠕虫或者病毒攻击，您也可以看到哪些主机受影响，从而减少网络的受影响事件。</p>
+            <p>&nbsp;</p>
+            </td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../eventlog-reports/application-log-reports.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../eventlog-reports/eventlog-puma-reports.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

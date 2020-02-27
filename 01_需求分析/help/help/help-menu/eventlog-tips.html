@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer Support - Troubleshooting Tips</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../help-menu/eventlog-faq.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../help-menu/eventlog-opm-plugin-tips.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="help-intro.html" title="Help">帮助</a> &gt; 故障排除</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1><a name="faq" id="faq"></a>EventLog Analyzer - 
+			故障排除</h1>
+            <hr />
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+                <td><p><strong>常规</strong></p>
+                  <ol start="1" type="1">
+                    <li title="EventLog Analyzer Log File Location">
+                      <p><a href="#q1">我在那里可以找到需要发送给EventLog Analyzer支持团队的日志文件呢？</a></p>
+                    </li>
+                    <li title="EventLog Analyzer Crashing">
+                      <p><a href="#8">我发现EventLog Analyzer一直崩溃或突然停止收集日志，这是为什么？</a></p>
+                    </li>
+                    <li title="EventLog Analyzer Support Information File">
+                      <p><a href="#8_1">如果我不能在Web客户端创建<strong>SIF</strong>（支持信息文件），那么我需要怎么做呢？ </a></p>
+                    </li>
+                    <li title="Register Unavailable Message Files">
+                      <p><a href="#8_2">当事件源的信息文件无效时，怎么注册<strong>dll</strong>？</a></p>
+                    </li>
+                  </ol>
+                  <p><strong>安装</strong></p>
+                  <ol start="1" type="1">
+                    <li title="License Error Display">
+                      <p><a href="#2">EventLog Analyzer在安装时显示需要有效的许可文件消息</a></p>
+                    </li>
+                    <li title="Server Interface Error">
+                      <p><a href="#2_1">不能将EventLog Analyzer服务器绑定到指定的接口</a></p>
+                    </li>
+                  </ol></td>
+              </tr>
+              <tr>
+                <td><p><strong>启动和关闭</strong></p>
+                  <ol start="1" type="1">
+                    <li>
+                      <p><a href="#3">Windows机器上与MySQL相关的错误</a></p>
+                    </li>
+                    <li>
+                      <p><a href="#4">当尝试启动EventLog Analyzer服务器时，显示“EventLog Analyzer所需使用的端口8400端口已被其它应用占用，请释放端口并重启服务器”信息</a></p>
+                    </li>
+                    <li>
+                      <p><a href="#4_1">当登录用户界面时EventLog Analyzer显示“不能绑定端口”</a></p>
+                    </li>
+                    <li>
+                      <p><a href="#4_4">当应用启动后，<strong>configureODBC.vbs</strong>抛出脚本错误，或打开了另外一个应用。怎么解决这个问题？</a></p>
+                    </li>
+                </ol></td>
+              </tr>
+              <tr>
+                <td><p><strong>配置</strong></p>
+                  <ol start="1" type="1">
+                    <li>
+                      <p><a href="#4_2">当添加主机时， <strong>验证账号</strong>动作提示<strong>RPC服务器无效错误。</strong></a></p>
+                    </li>
+                    <li>
+                      <p><a href="#4_3">当添加主机时，<strong>验证登录</strong>动作抛出“拒绝访问”的错误。</a></p>
+                    </li>
+                    <li>
+                      <p><a href="#q4_4">当在Windows Server 2003中使用WBEM测试失败时，抛出<strong>80041010</strong>错误。</a></p>
+                    </li>
+                    <li>
+                      <p><a href="#q4_5">怎样在Linux操作系统中启用<strong>对象访问</strong>的记录？</a></p>
+                    </li>
+                    <li>
+                      <p><a href="#q4_6">在<strong>Solaris 10</strong>中，启动和停止<strong>Syslog守护进程</strong>的命令是什么？</a></p>
+                    </li>
+                </ol></td>
+              </tr>
+              <tr>
+                <td><p><strong>日志收集和报表</strong></p>
+                  <ol start="1" type="1">
+                    <li>
+                      <p><a href="#5">我已经添加了一台主机，但是EventLog Analyzer不能收集它的事件日志。</a></p>
+                    </li>
+                    <li>
+                      <p><a href="#6">当我点击<strong>登录</strong>时，出现禁止访问错误，但是我已经给出了正确验证信息。</a></p>
+                    </li>
+                    <li>
+                      <p><a href="#7">我已经添加并启用了一个自定义告警配置文件，但是在主机事件出现后，EventLog Analyzer没有生成对应的告警信息。</a></p>
+                    </li>
+                    <li>
+                      <p><a href="#7_1">当我创建了一个自定义报表后，并没有获得在信息过滤器中设置的报表信息。</a></p>
+                    </li>
+                    <li>
+                      <p><a href="#q7_2">EventLog Analyzer的MS SQL数据库服务器宕机</a></p>
+                    </li>
+                    <li>
+                      <p><a href="#q7_3">我成功配置了Oracle主机，但是却得不到对应的数据</a></p>
+                    </li>
+                </ol></td>
+              </tr>
+              <tr>
+                <td><p>如果在这里不包含您所遇到的问题，请联系我们的<a href="http://www.zohocorp.com.cn/zohocorp/contact.html" target="_new">支持团队</a>获取帮助。</p></td>
+              </tr>
+            </table>
+            <h2>&nbsp;</h2>
+            <h2>常规</h2>
+            <p><strong><a name="q1" id="q1"></a>我在那里可以找到需要发送给EventLog Analyzer支持团队的日志文件呢？</strong><br />
+            EventLog Analyzer的日志文件位于<em>&lt;EventLogAnalyzer_Home&gt;/server/default/log</em>目录下，当您的EventLog Analyzer运行出现问题时，您需要将此目录下的<strong>serverout.txt</strong>文件发送给EventLog Analyzer获取支持。</p>
+            <p><br />
+              <a name="8" id="8"></a><strong>我发现EventLog Analyzer一直崩溃或突然停止收集日志，这是为什么？</strong><br />
+            EventLog Analyzer内建的MySQL数据库可能会因为其他进程访问EventLog Analyzer的安装目录而崩溃，请将ManageEngine安装目录从以下操作中排除：<br />
+            </p>
+            <ul>
+              <li>防病毒扫描</li>
+              <li>自动备份软件</li>
+              <li>VMware虚拟机的快照保存路径</li>
+            </ul>
+            <p>请确保当产品在虚拟机中运行时，虚拟机不存在任何的快照。<br />
+<br />
+              <a name="8_1" id="8_1"></a><strong>如果我不能在Web客户端创建SIF（支持信息文件），那么我需要怎么做呢？ </strong><br />
+            SIF可以帮助我们快速分析您遇到的问题并提出一个解决方案，如果您不能从客户端创建SIF，您可以压缩<em>C:\ManageEngine\Eventlog\server\default\log</em>（默认的日志保存路径）下的所有日志文件，通过此FTP链接将它们发送给我们： <a href="http://bonitas.zohocorp.com/upload/index.jsp?to=eventloganalyzer-support@manageengine.com" target="_new">http://bonitas.zohocorp.com/upload/index.jsp?to=eventloganalyzer-support@manageengine.com</a>&nbsp;</p>
+            <p><br />
+              <a name="8_2" id="8_2"></a><strong>当事件源的信息文件无效时，怎么注册dll？</strong><br />
+              要注册dll，请参阅此链接中的相关表述：<a href="http://ss64.com/nt/regsvr32.html" target="_new">http://ss64.com/nt/regsvr32.html</a><br />
+            </p>
+            <h2>安装</h2>
+            <p><a name="2" id="2"></a><strong>EventLog Analyzer在安装时显示需要有效的许可文件消息</strong><br />
+              这个消息可能在以下两种情况下出现：</p>
+			<p><strong>情况1：</strong>您的系统日期与当前的日期不符，在这种情况下，请卸载EventLog Analyzer，重新设置系统日期为当前的日期和时间，然后重新安装EventLog Analyzer。<br />
+  			<strong>情况2：</strong>您可能提供了一个不正确或过期的许可文件，请验证您应用的许可文件是否从ZOHO公司获得。<br />
+            如果以上情况不符合您遇到的情形，请联系我们的支持团队<a href="mailto:support.list@zohocorp.com.cn" target="_new">support.list@zohocorp.com.cn</a>，以获取支持。 </p>
+            <p><br />
+              <a name="2_1" id="2_1"></a><strong>不能将EventLog Analyzer服务器绑定到指定的接口</strong><br />
+              要将EventLog Analyzer服务器绑定到指定的接口，请参阅以下的步骤：<br />
+              <strong>Eventlog Analyzer作为应用运行</strong>： </p>
+            <ul type="disc">
+              <li>打开<strong>runSEC.bat/sh</strong>文件。</li>
+              <li>在<strong>%*</strong>或 <strong>$*</strong>之前的任意位置，添加参数： bin\SysEvtCol.exe       -loglevel 3 -port 513 514 %*</li>
+            </ul>
+            <p>-bindip &lt;EventLog Analyzer要绑定到的接口的IP地址&gt; <br />
+              示例：<br />
+              bin\SysEvtCol.exe -loglevel 3 <strong>-bindip 192.168.111.153</strong> -port  513 514 %*<br />
+  			<strong>Eventlog Analyzer作为服务运行：</strong></p>
+            <ul type="disc">
+              <li>停止Eventlog Analyzer服务。</li>
+              <li>打开<em>&lt;Eventlog Analyzer Home&gt;\bin</em>目录下的<strong>startDB.bat</strong>文件，在mysqld启动命令（以@start开始）中添加<strong>--bind-address=&lt;ip-address&gt;</strong>项。</li>
+              <li>打开<em>&lt;Eventlog Analyzer Home&gt;\bin</em>目录下的<strong>stopDB.bat</strong>文件，将<strong>-h &lt;ip-address&gt;</strong>添加到命令参数，保存文件。<br />
+                在修改完之后，命令行如下：<strong><br />set commandArgs=-P %PORT% -u %USER_NAME%       -h &lt;ip-address&gt;</strong>&nbsp;</li>
+              <li>打开<em>&lt;Eventlog Analyzer Home&gt;\server\default\conf</em>目录下的<strong>wrapper.conf</strong>文件，并执行以下操作：<br />
+                取消注释第二应用参数“<strong>wrapper.app.parameter.2=-L../lib/AdventNetDeploymentSystem.jar</strong>”。&nbsp;<br />
+                添加以下新的应用参数<strong><br />
+                  <strong>wrapper.app.parameter.3=-c default&nbsp;</strong><br />
+                  <strong>wrapper.app.parameter.4=-b       &lt;ip-address&gt;&nbsp;</strong><br />
+                  <strong>wrapper.app.parameter.5=-Dspecific.bind.address=&lt;ip-address&gt;&nbsp;</strong></strong><br />
+                保存文件。<br />
+                <strong>说明</strong>： 可通过移除<strong>.conf</strong>文件中的<strong>#</strong>标记执行取消注释操作。</li>
+            </ul>
+            <ul type="disc">
+              <li>打开<em>&lt;Eventlog Analyzer Home&gt;\server\default\deploy</em>目录下的<strong>mysql-ds.xml</strong>文件，替换<strong>connection-url</strong>标签下的<em>localhost</em>，将其修改为您要绑定的IP地址，并保存文件。</li>
+              <li>启动Eventlog Analyzer服务。</li>
+              <li>在命令提示符中执行<em>netstat -ano</em>来验证设置。</li>
+            </ul>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+                <td><p align="right"><a href="#faq">页首</a></p></td>
+              </tr>
+            </table>
+            <h2>启动与关闭</h2>
+            <p><a name="3" id="3"></a><strong>Windows机器上与MySQL相关的错误</strong><br />
+              <strong>可能的原因：</strong> 机器上已经运行了一个MySQL实例<br />
+              <strong><em>解决方案：</em></strong>关掉所有MySQL实例，然后再启动EventLog Analyzer服务器。<br />
+              <strong>可能的原因：</strong> 端口33335被占用<br />
+              <strong><em>解决方案：</em></strong> 关掉占用33335端口的应用，如果您能释放此端口，请修改EventLog 
+			Analyzer使用的<a href="../installation/eventlog-prerequisites.html">MySQL端口</a>。</p>
+            <p><a name="4" id="4"></a><strong>当尝试启动EventLog Analyzer服务器时，显示“EventLog Analyzer所需使用的端口8400端口已被其它应用占用，请释放端口并重启服务器”信息</strong><br />
+              <strong>可能的原因：</strong> EventLog Analyzer的Web服务器端口被占用 <br />
+              <strong><em>解决方案：</em></strong> </p>
+            <p>关掉占用8400端口的应用，执行下面的步骤：
+            </p>
+            <ul>
+              <li>停止EventLog Analyzer服务 </li>
+              <li>打开<em>&lt;EventLog Analyzer   Home&gt;\server\default\conf</em>文件夹下的<strong>wrapper.conf</strong>文件。</li>
+              <li>在<strong># Java Additional Parameters</strong>部分添加以下内容： </li>
+            </ul>
+            <blockquote>
+              <p class="codefont">wrapper.java.additional.21=-Djava.net.preferIPv4Stack=true
+              </p>
+            </blockquote>
+            <ul>
+              <blockquote>
+                <p><strong>添加之前</strong>：</p>
+                <p class="codefont">wrapper.java.additional.20=-Dorg.tanukisoftware.wrapper.WrapperManager.mbean=false</p>
+                <p><strong>添加之后</strong>：</p>
+                <p class="codefont">wrapper.java.additional.20=-Dorg.tanukisoftware.wrapper.WrapperManager.mbean=false            <br />
+                  wrapper.java.additional.21=-Djava.net.preferIPv4Stack=true
+                </p>
+              </blockquote>
+              <li>启动EventLog Analyzer服务</li>
+            </ul>
+            <p>如果您不能释放此端口，请修改EventLog Analyzer使用的<a href="../installation/eventlog-prerequisites.html">Web服务器端口</a>。</p>
+            <p><a name="4_1" id="4_1"></a><strong>当登录用户界面时EventLog Analyzer显示“不能绑定端口”</strong><br />
+              <strong>可能的原因：</strong>EventLog Analyzer的<a href="../installation/eventlog-prerequisites.html">syslog端口</a>被占用<br />
+              <strong><em>解决方案：</em></strong></p>
+            <ul type="disc">
+              <li>使用<strong>netstat       -anp -pudp</strong>，检查是否存在进程占用了<a href="../installation/eventlog-prerequisites.html">syslog端口</a>。如果存在，请尝试释放此端口。</li>
+              <li>如果您使用的是Linux服务器，请使用<strong>root</strong>用户启动服务器。</li>
+              <li>或，修改EventLog       Analyzer的<a href="../installation/eventlog-prerequisites.html">syslog端口</a>，您需要确保所有的主机都会将syslog发送到新配置的syslog端口。</li>
+            </ul>
+            <p><a name="4_4" id="4_4"></a><strong>当应用启动后，configureODBC.vbs抛出脚本错误，或打开了另外一个应用。怎么解决这个问题？</strong><br />
+              <span id="a3-d"><strong>可能的原因： （文件被其他程序打开）</strong><strong>configureODBC.vbs</strong>文件可能设置使用<strong>wscript.exe</strong>（位于<em>WINDOWS\system32</em>文件夹）之外的程序打开，如记事本，因此，此文件不能在应用启动时执行。</span><br />
+              <span id="a3-d"><strong><em>解决方案：</em></strong></span></p>
+            <ul type="disc">
+              <li>停止Eventlog Analyzer服务器/服务 。</li>
+              <li>打开Eventlog Analyzer安装文件夹：&lt;EventLog Analyzer Home&gt;\bin（默认路径），并右击<strong>configureODBC.vbs</strong>文件，选择打开（或选择打开程序），从您的<em>Windows\System32</em>文件夹选择windows程序<strong>wscript.exe</strong>。</li>
+              <li>启动Eventlog Analyzer服务器/服务 。</li>
+            </ul>
+            <p><span id="a3-d"><strong>可能的原因： （文件没有执行权限）</strong> <strong>configureODBC.vbs</strong>文件可能没有执行权限。</span><br />
+              <span id="a3-d"><strong><em>解决方案：</em></strong></span></p>
+            <ul type="disc">
+              <li>停止Eventlog Analyzer服务器/服务 。</li>
+              <li>打开Eventlog Analyzer安装文件夹：&lt;EventLog Analyzer Home&gt;\bin（默认路径），并右击<strong>configureODBC.vbs</strong>文件，修改文件的权限。</li>
+              <li>启动Eventlog Analyzer服务器/服务 。</li>
+            </ul>
+            <h2 id="4_2" name="4_2">配置</h2>
+            <p name="4_2"><a name="4_2" id="4_2"></a><strong>当添加主机时， <strong>验证账号</strong>动作提示<strong>RPC服务器无效错误。</strong></strong><br />
+              可能的原因和解决方案：<br />
+  <strong>可能的原因：</strong> 主机的RPC（Remote Procedure  Call）端口被其它防火墙阻止访问。 <br />
+  <strong>解决方案：</strong> 配置防火墙，使RPC端口允许访问。</p>
+            <p name="4_2"><a name="4_3" id="4_3"></a><strong>当添加主机时，<strong>验证登录</strong>动作抛出“拒绝访问”的错误。</strong>&nbsp;<br />
+              可能的原因和解决方案： <br />
+              <strong>可能的原因：</strong> 主机从EventLog Analyzer机器不可达。<br />
+              <strong>解决方案：</strong> 使用Ping命令检查主机和EventLog Analyzer服务器之间的网络连接。<br />
+              <strong>可能的原因：</strong> 主机的系统防火墙，且REMOTEADMIN服务器被禁用。<br />
+              <strong>解决方案：</strong> 
+			检查主机中的系统防火墙是否在运行，如果系统防火墙在运行，那么请在此系统中打开一个命令行窗口，执行以下命令：<br />
+              netsh firewall set service  type=REMOTEADMIN mode=ENABLE profile=all </p>
+            <p><a name="q4_4" id="q4_4"></a><strong>当在Windows Server 2003中使用WBEM测试失败时，抛出<strong>80041010</strong>错误。</strong></p>
+<span id="a5-c">可能的原因和解决方案： <br />
+              <br />
+              <strong>可能的原因：</strong> 默认设置下，WMI组件没有安装在Windows 2003服务器上。<br />
+              <br />
+              <strong>解决方案：</strong> 在Windows Server 2003上，默认未安装Win32_Product类包，要添加此类，请参阅下面的步骤：<br />
+              <br />
+            </span>
+            <ol>
+              <li>
+                <p><span id="a5-c">打开添加或移除程序窗口，点击<strong>添加/移除 Windows组件</strong>。</span></p>
+              </li>
+              <li>
+                <p><span id="a5-c">在Windows组件向导窗口，选择<strong>管理和监视工具</strong>，然后点击<strong>详细信息</strong>。</span></p>
+              </li>
+              <li>
+                <p><span id="a5-c">在管理和监视工具对话框，选择<strong>WMI Windows Installer提供程序</strong>，点击<strong>确定</strong>。</span></p>
+              </li>
+              <li>
+                <p><span id="a5-c">点击<strong>下一步</strong>。</span></p>
+              </li>
+            </ol>
+<p><span onclick="SpanOpen(this,'a5-d')"><a name="q4_5" id="q4_5"></a><strong>怎样在Linux操作系统中启用<strong>对象访问</strong>的记录？</strong></span></p>
+<span id="a5-d">可能的原因和解决方案： <br />
+              <br />
+              <strong>可能的原因：</strong> 在Linux系统中未启用对象访问记录。<br />
+              <br />
+              <strong>解决方案：</strong>在Linux系统中启用对象访问记录，请参阅以下步骤：<br />
+              <br />
+			打开文件<strong>/etc/xinted.d/wu-ftpd</strong>，编辑服务器参数，如下所示： <br />
+<br />
+<strong>server_args = -i -o -L </strong></span>
+            <p><span id="q5-e2" onclick="SpanOpen(this,'a5-e')"><a name="q4_6" id="q4_6"></a><strong>在<strong>Solaris 10</strong>中，启动和停止<strong>Syslog守护进程</strong>的命令是什么？</strong></span></p>
+<span id="a5-e">可能的原因和解决方案： <br />
+              <br />
+              <strong>可能的原因：</strong> 不能在Solaris 10中启动或停止Syslog守护进程<br />
+              <br />
+              <strong>解决方案：</strong> 在Solaris 10中停止或启动syslogd守护进程的命令为：<br />
+              <br />
+              <strong># svcadm disable svc:/system/system-log:default</strong><br />
+              <br />
+              <strong># svcadm enable svc:/system/system-log:default</strong><br />
+              <br />
+&nbsp;在Solaris 10中重启syslogd守护进程，并强制重读<strong>/etc/syslog.conf</strong>:<br />
+<br />
+<strong># svcadm refresh svc:/system/system-log:default</strong><br />
+			或<br />
+<strong># svcadm -v restart svc:/system/system-log:default</strong></span>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+                <td><div align="right"><br />
+                  <a href="#faq">页首</a></div></td>
+              </tr>
+            </table>
+            <h2>日志收集和报表</h2>
+            <p><a name="5" id="5"></a><strong>我已经添加了一台主机，但是EventLog Analyzer不能收集它的事件日志。</strong><br />
+              <strong>可能的原因：</strong>主机从EventLog Analyzer机器不可达。<strong><em><br />
+                <strong>解决方案：</strong></em></strong>使用Ping命令检查主机是否响应，如果无响应，那么表示主机不可达。要收集事件日志，主机必须对EventLog Analyzer服务器可达。 <br />
+              <strong>可能的原因：</strong>您在主机上没有管理权限。<br />
+              <strong><em>解决方案：</em></strong> 编辑主机明细，输入主机的管理员登录凭证，点击<strong>验证登录</strong>，检查是否登录是否成功。</p>
+            <p><a name="6" id="6"></a><strong>当我点击<strong>登录</strong>时，出现禁止访问错误，但是我已经给出了正确验证信息。</strong><br />
+              <strong>可能的原因：</strong> 可能出现其它的原因导致访问被拒。 <br />
+              <strong><em>解决方案： </em></strong>请参考下表中的错误代码、错误原因及解决方案。</p>
+            <table width="90%" border="1" cellspacing="0" cellpadding="0">
+              <tr> 
+                <th>错误编码</th>
+                <th>原因</th>
+                <th>解决方案</th>
+              </tr>
+              <tr> 
+                <td rowspan="4" valign="top">0x80070005</td>
+                <td colspan="2" valign="top">Windows工作站扫描失败可以归于以下几个原因：</td>
+              </tr>
+              <tr> 
+                <td valign="top">用于扫描的登录用户名和密码无效。</td>
+                <td>检查用户名或密码是否正确。</td>
+              </tr>
+              <tr> 
+                <td valign="top">在远端工作站远程DCOM选项被禁止。</td>
+                <td>在远程工作站检查远程DCOM是否启用。如果禁止，则使用下面的方法启用：
+                  <ol>
+                    <li>选择<strong>开始 &gt;运行 </strong></li>
+                    <li>打开<code>dcomcnfg</code>并点击<strong>确定</strong></li>
+                    <li>选择<strong>默认属性</strong>标签</li>
+                    <li>选择<strong>在这台主机启动分布式COM</strong>复选框</li>
+                    <li>点击<strong>确定</strong></li>
+                  </ol>
+                  <p>在Windows XP主机启动DCOM:</p>
+                  <ol>
+                    <li>选择 <strong>开始 &gt;运行 </strong></li>
+                    <li>打开<code>dcomcnfg</code>并点击<strong>确定</strong></li>
+                    <li>在<strong>服务组件&gt;计算机&gt;我的电脑</strong></li>
+                    <li>右击选择<strong>属性</strong></li>
+                    <li>选择<strong>默认属性</strong>标签</li>
+                    <li>选择<strong>在这主机上启动分布式COM</strong>复选框</li>
+                    <li>点击<strong>确定</strong></li>
+                  </ol>
+                </td>
+              </tr>
+              <tr> 
+                <td valign="top">远程主机上用户账号无效</td>
+                <td>
+                  <p>通过执行下面命令在远程主机上检查用户账号是否有效：</p>
+                  <p><code>net use \\&lt;RemoteComputerName&gt;\C$ /u:<em>&lt;DomainName\UserName</em>&gt; 
+					&quot;&lt;<em>password</em>&gt;&quot;</code><br>
+                    <code>net use \\&lt;RemoteComputerName&gt;\ADMIN$ /u:<em>&lt;DomainName\UserName</em>&gt; 
+					&quot;<em>&lt;password</em>&gt;&quot; </code><br>
+                    <br>
+                    如果这使用这些命令之后仍然有错误，那么可能是在目的主机上提供的是用户账号和密码有误。</p>
+                </td>
+              </tr>
+              <tr> 
+                <td valign="top">0x80041003</td>
+                <td valign="top">用户没有扫描操作的访问权限。可能用户并不属于这台主机的管理员组。</td>
+                <td>添加用户到管理组或者使用管理员（拥有更高权限）的账号。</td>
+              </tr>
+              <tr> 
+                <td valign="top">0x800706ba</td>
+                <td valign="top">在远端主机上开启了防火墙。像这样的异常一般发生在Windows 
+				XP(sp2)系统上，因为此系统的防火墙默认是开启的。</td>
+                <td>
+                  <ol>
+                    <li>禁用默认防火墙在Windows XP主机上: 
+                      <ol>
+                        <li>选择 <strong>开始 &gt; 运行</strong></li>
+                        <li>打开<code> Firewall.cpl</code>并点击<strong>确定</strong></li>
+                        <li>在<strong>常规</strong>标签,点击<strong>禁用</strong></li>
+                        <li>点击<strong>确定</strong></li>
+                      </ol>
+                    </li>
+                    <li>如果防火墙不能禁用，使用管理员账号远程登录主机执行下面命令：<br>
+                      <code>netsh firewall set service RemoteAdmin</code> <br>
+                      <br>
+                      描述结束之后，执行下面命令，您可以禁用管理员远程访问：<br>
+                      <code>netsh firewall set service RemoteAdmin disable</code></li>
+                  </ol>
+                </td>
+              </tr>
+              <tr> 
+                <td valign="top">0x80040154</td>
+                <td valign="top">
+                  <ol>
+                    <li>远程Windows工作站WMI无效，这在<strong>Windows NT</strong>上可能发生。如果WMI组件没有正确注册，这种错误也可发生在高版本的Windows系统上。</li>
+                    <li>没有注册WMI组件</li>
+                  </ol>
+                </td>
+                <td>
+                  <ol>
+                    <li>在远端工作上安装WMI核心组件。您可以从 <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=C174CFB1-EF67-471D-9277-4C2B1014A31E&displaylang=en" target="_blank">
+					Microsoft 网站</a>上下载得到。</li>
+                    <li>在命令窗口，执行下面命令注册WMI DLL文件:<br>
+                      <code>winmgmt /RegServer </code></li>
+                  </ol>
+                </td>
+              </tr>
+              <tr> 
+                <td valign="top">0x80080005</td>
+                <td valign="top">这可能是运行WMI服务(<strong>winmgmt.exe</strong>)的主机内部错误。主机上的的WMI仓库最后更新失败。 </td>
+                <td>
+                  <p>在远程工作站上重启WMI 服务：</p>
+                  <ol>
+                    <li>选择 <strong>开始 &gt; 运行</strong></li>
+                    <li>打开 Services.msc 并点击 <strong>确定</strong></li>
+                    <li>Windows服务窗口将会打开, 选择 <strong>Windows Management 
+					Instrumentation </strong>服务。</li>
+                    <li>右击并选择<strong>重启</strong></li>
+                  </ol>
+                </td>
+              </tr>
+              <tr> 
+                <td colspan="3" valign="top">更多错误代码信息，请参阅<a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/adsi/adsi/win32_error_codes_for_adsi_2_0.asp" target="_blank">
+				MSDN知识库</a></td>
+              </tr>
+            </table>
+            <p><a name="7" id="7"></a><strong>我已经添加并启用了一个自定义告警配置文件，但是在主机事件出现后，EventLog Analyzer没有生成对应的告警信息。</strong><br />
+              <strong>可能的原因：</strong> 告警条件可能没有正确定义<br />
+              <strong>解决方案：</strong>请确保<a href="../alerts/create-alert-profile.html">告警配置文件</a>中所需的字段定义正确，检查邮件地址和<a href="../system-settings/configure-email-sms.html">邮件服务器</a>是否配置正确。</p>
+            <p><a name="7_1" id="7_1"></a><strong><span onclick="SpanOpen(this,'a4-e')" id="q4-e">当我创建了一个自定义报表后，并没有获得在信息过滤器中设置的报表信息。</span></strong><br />
+              <span id="a4-e"><strong>可能的原因：</strong> 信息过滤条件未正确定义</span><br />
+              <span id="a4-e"><strong><em>解决方案：</em></strong>当您在<strong>信息过滤</strong>中输入条件来匹配日志消息时，确保您复制/输入的字段是Windows事件查看器中看到的字段。<br />
+               例如：<strong>Logon Name:John </strong></span></p>
+            <p><span id="q4-f2" onclick="SpanOpen(this,'a4-f')"><strong><a name="q7_2" id="q7_2"></a>EventLog Analyzer的MS SQL数据库服务器宕机</strong></span></p><span id="a4-f"><strong>可能的原因：</strong> MS SQL的事务日志可能已满。</span>            <br />
+            <span id="a4-f"><em><strong>解决方案：</strong></em> 如果EventLog Analyzer MS SQL数据库事务日志已满，请执行以下的步骤：<br />
+            <br />
+            </span>
+            <ul>
+              <li>				停止<strong>Eventlog Analyzer服务器/服务</strong>（在Eventlog 
+								Analyzer服务器机器的任务管理器上确认，进程<em>SysEvtCol.exe</em>和<em>Java.exe</em>没有运行） 
+												</li>
+              <li>连接MS 
+				SQL客户端（使用<strong>Microsoft SQL Server Management Studio</strong>），并执行以下查询：<br />
+              
+                <strong>sp_dboption 'eventlog', 'trunc. log on chkpt.', 'true'</strong>      <br />                        </li>
+              <li>
+				执行完以上命令后，选择以下命令，并执行：<br />
+                <br />
+                <strong>DBCC SHRINKDATABASE (eventlog)</strong></li><br />
+             <strong>注意</strong>：基于EventLog 
+				Analyzer数据库的大小这个过程可能会需要一些时间，请耐心等待。<br />
+				
+                <br />
+              
+              <li>启动<strong>Eventlog 
+				Analyzer</strong></li>
+            </ul>
+<p><strong><a name="q7_3" id="q7_3"></a>我成功配置了Oracle主机，但是却得不到对应的数据</strong></p>
+           			<p>
+			如果Oracle主机是Windows操作系统，请在那台机器上打开事件查看器，在应用类型下查看Oracle源日志，如果是Linux，请检查相应的Oracle日志的文件。如果执行的文件中有Oracle日志，但是ELA仍然无法收集到日志数据，请联系我们的<a href="mailto:support.list@zohocorp.com.cn">支持团队</a>。 </p>
+			
+            <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <table border="0" cellspacing="0" cellpadding="0" width="100%">
+            <tr>
+              <td><div align="right"><br />
+                <a href="#faq">页首</a></div></td>
+            </tr>
+          </table>
+          <p>&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../help-menu/eventlog-faq.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../help-menu/eventlog-opm-plugin-tips.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

@@ -1,0 +1,176 @@
+1.创建一个分区表，在hive命令窗口执行
+create table if not exists t_nginx_logs(
+    http_x_forwarded_for string,
+    server_addr string,
+    server_name string,
+    remote_addr string,
+    blank       string,
+    remote_user string,
+    time_local  string,
+    request     string,
+    status      int,
+    body_bytes_sent double,
+    http_referer string,
+    http_user_agent string,
+    request_time double,
+    request_length double
+)  partitioned by (datetime string) row format delimited fields terminated by '\t';
+
+2.使用flume采集数据
+# Name the components on this agent
+a1.sources = r1
+a1.sinks = k1
+a1.channels = c1
+# Describe/configure the source
+a1.sources.r1.type = spooldir
+a1.sources.r1.spoolDir = /logs
+a1.sources.r1.fileHeader = true
+# Describe the sink
+a1.sinks.k1.type = hdfs
+a1.sinks.k1.channel = c1
+a1.sinks.k1.hdfs.path = /nginx/logs/%Y-%m-%d/
+a1.sinks.k1.hdfs.filePrefix = access_
+a1.sinks.k1.hdfs.round = true
+a1.sinks.k1.hdfs.roundValue = 10
+a1.sinks.k1.hdfs.roundUnit = minute
+a1.sinks.k1.hdfs.rollInterval = 30
+a1.sinks.k1.hdfs.rollSize = 0
+a1.sinks.k1.hdfs.rollCount = 0
+a1.sinks.k1.hdfs.batchSize = 1
+a1.sinks.k1.hdfs.useLocalTimeStamp = true
+#生成的文件类型，默认是Sequencefile，可用DataStream，则为普通文本
+a1.sinks.k1.hdfs.fileType = DataStream
+# Use a channel which buffers events in memory
+a1.channels.c1.type = memory
+a1.channels.c1.capacity = 1000
+a1.channels.c1.transactionCapacity = 100
+# Bind the source and sink to the channel
+a1.sources.r1.channels = c1
+a1.sinks.k1.channel = c1
+
+执行命令:
+cd /usr/local/flume-1.7.0/
+bin/flume-ng agent -c ./conf -f ./conf/flume_nginx_log.conf -n a1 -Dflume.root.logger=INFO,console
+
+3.使用spark创建rdd读取flume采集到hdfs系统的日志文件
+  将日志文件内容格式化后再保存到hdfs新的目录
+    object LogApp_hive {
+      def main(args: Array[String]): Unit = {
+        val dateFormat = new SimpleDateFormat("yyyy-MM-dd")
+        var cal = Calendar.getInstance()
+        val currentday = dateFormat.format(cal.getTime())
+        cal.add(Calendar.DATE, -1)
+        var yesterday = dateFormat.format(cal.getTime())
+        //println(yesterday)
+        //1.创建SparkConf()并设置App名称
+        //setMaster("local")本地模式
+        val conf = new SparkConf().setAppName("log-app").setMaster("local")
+        //2.SparkContext
+        val sc = new SparkContext(conf)
+        //3.创建一个RDD
+        val logRDD = sc.textFile("hdfs://hadoop01:9000/nginx/logs/"+currentday).map(line => {
+          val pattern = new Regex("\".*?\"")
+          val str = (pattern findAllIn line).mkString("\t").replace("\"", "").trim +
+            "\t" + line.substring(line.lastIndexOf("\"") + 1, line.length).trim.split(" ").mkString("\t").trim
+          val $http_x_forwarded_for = str.substring(0, str.indexOf("\t")).split(",")(0).trim
+          val other_str = str.replace(str.substring(0, str.indexOf("\t")), "").trim
+          val $server = other_str.substring(0, other_str.indexOf("\t")).replace(",", "\t").trim
+          val other_sub_str = other_str.substring(other_str.indexOf("\t"), other_str.length).trim
+          $http_x_forwarded_for + "\t" + $server + "\t" + other_sub_str
+        }).saveAsTextFile("hdfs://hadoop01:9000/nginx/result/"+yesterday)
+
+	//4.1 用spark on hive将数据加载到hive表
+	val hiveContext = new HiveContext(sc)
+	val load_sql = "load data  inpath 'hdfs://hadoop01:9000/nginx/result/2017-02-27/part-*' overwrite into table t_nginx_logs partition (datetime='2017-02-27')"
+	hiveContext.sql(load_sql)
+        sc.stop()
+      }
+    }
+要求：做一个job任务 job1.job
+type=command
+command=/usr/local/spark-1.6.1-bin-hadoop2.6/bin/spark-submit \
+--class com.zhiyou100.LogApp_hive \
+--master spark://hadoop01:7077 \
+--executor-memory 1G \
+--driver-memory  1G \
+--total-executor-cores 3 \
+/upload/log_app-1.0-SNAPSHOT.jar
+===========================================
+
+4.使用hive命令加载数据到指定分区
+   做一个任务job2.job
+创建一个load.sql脚本内容入下：
+load data  inpath 'hdfs://hadoop01:9000/nginx/result/2017-02-27/part-*' overwrite into table t_nginx_logs partition (datetime='2017-02-27');
+type=command
+command=hive -f '/upload/load.sql'
+===========================================
+3和4是两种数据加载方案
+
+5.统计分析（job3）
+//1.创建SparkConf()并设置App名称
+//setMaster("local")本地模式
+val conf = new SparkConf().setAppName("log-app").setMaster("local")
+//2.SparkContext
+val sc = new SparkContext(conf)
+//3.sqlContext
+val sqlContext = new SQLContext(sc)
+
+//统计分析
+
+6.保存结果
+方案一：在spark内存计算的结果直接保存到mysql
+方案二：将spark或hive统计出来的结果保存到新的hive表，在使用sqool将数据导入到mysql（job4.job）
+
+将
+job1.job
+job2.job
+job3.job
+job4.job 串联执行
+
+
+
+# job1.job
+type=command
+command=/usr/local/spark-1.6.1-bin-hadoop2.6/bin/spark-submit \
+--class com.zhiyou100.LogApp_Step01 \
+--master spark://hadoop01:7077 \
+--executor-memory 1G \
+--driver-memory  1G \
+--total-executor-cores 3 \
+/upload/log_app-1.0-SNAPSHOT.jar
+
+
+# job2.job(可选)
+type=command
+dependencies=job1
+command=hive -f '/upload/load.sql'
+
+# job3.job(可选)
+type=command
+dependencies=job1或job2
+command=/usr/local/spark-1.6.1-bin-hadoop2.6/bin/spark-submit \
+--class com.zhiyou100.LogApp_Step02 \
+--master spark://hadoop01:7077 \
+--executor-memory 1G \
+--driver-memory  1G \
+--total-executor-cores 3 \
+/upload/log_app-1.0-SNAPSHOT.jar
+
+
+# job4.job(可选)
+type=command
+dependencies=job3
+command=（路径）./sqoop import \
+--connect jdbc:mysql://hadoop01:3306/test \
+--username root \
+--password 123456 \
+--table t_hive1 \
+--m 1 \
+--incremental append \
+--check-column id \
+--last-value 3 \
+--split-by id \
+--fields-terminated-by '\t' 
+
+
+

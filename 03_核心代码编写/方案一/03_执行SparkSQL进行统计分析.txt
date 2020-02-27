@@ -1,0 +1,78 @@
+//注册表
+    logDataFrame.registerTempTable("t_log")
+
+    //统计访客数(UV)
+    //访客数就是指一天之内到底有多少不同的用户访问了你的网站 按ip分组
+    val uvDataFrame = sqlContext.sql("select count(distinct remote_addr) remote_addr from t_log")
+    val uv = uvDataFrame.first()(0).toString.toInt
+    //println("访客数:" + uv)
+    //
+    //访问次数
+    //访问次数是指访客完整打开了网站页面进行访问的次数
+    val vCountDataFrame = sqlContext.sql("select count(status) from t_log where status=200 ")
+    val vCount = vCountDataFrame.first()(0).toString.toInt
+    //println("访问次数 : " + vCount)
+
+    //浏览量(PV)
+    //浏览量和访问次数是呼应的。用户访问网站时每打开一个页面，就记为1个PV
+    val pvDataFrame = sqlContext.sql("select count(*) from t_log")
+    val pv = pvDataFrame.first()(0).toString.toInt
+    //println("浏览量(PV):" + pv)
+
+    //转化次数
+    //潜在用户在我们的网站上完成一次我们期望的行为，就叫做一次转化。
+    //期望的行为：用户成功访问主页一次 ：server_addr = "www.bxd365.com"
+    //用户成功访问一个页面，定义为一次转化 status=200
+    val changeDataFrame = sqlContext.sql("select count(*) from t_log where server_name = \"www.bxd365.com\" and status=200")
+    //changeDataFrame.show()
+    val change = changeDataFrame.first()(0).toString.toInt
+    //println("转化次数:" + change)
+
+    //转化率　
+    //转化率=转化次数/访问次数。
+    val changeRange = (change.toDouble / vCount.toDouble)
+    //println("转化率:" + changeRange)
+
+    //平均访问时长
+    //平均访问时长是用户访问网站的平均停留时间。
+    //平均访问时长=总访问时长/访问次数
+    //总访问时长
+    val totalTimeDataFrame = sqlContext.sql("select sum(request_time) from t_log")
+    //changeDataFrame.show()
+    val totalTime = totalTimeDataFrame.first()(0).toString.toDouble
+    //println("总请求响应时长:" + totalTime)
+    //平均访问时长
+    val avgTime = totalTime / vCount
+    //println("平均响应时长:" + avgTime)
+
+    //什么叫平均访问页数
+    //平均访问页数也是衡量网站的用户体验的指标
+    //平均访问页数是用户访问网站的平均浏览页数。
+    //平均访问页数=浏览量(PV)/访问次数
+    val avgPageCount = pv.toDouble / vCount
+    //println("平均访问页数:" + avgPageCount)
+
+
+    //跳出率
+    //跳出率=只访问一个页面就离开网站的访问次数/总访问次数，
+    //select remote_addr from t_log group by remote_addr having count(remote_addr)<=1
+
+    val vOnceDataFrame = sqlContext.sql("select remote_addr,count(server_name) s_count from t_log group by remote_addr having s_count<=1")
+
+    //vOnceDataFrame.show()
+    //跳出率
+    val vOnceCount = vOnceDataFrame.count()
+    val jumpRange = vOnceCount.toDouble / vCount
+    //println(vOnceCount + "-" +  vCount )
+    //println("跳出率:" + jumpRange)
+
+
+    println("访客数:" + uv)
+    println("访问次数 : " + vCount)
+    println("浏览量(PV):" + pv)
+    println("转化次数:" + change)
+    println("转化率:" + changeRange)
+    println("总请求响应时长:" + totalTime)
+    println("平均响应时长:" + avgTime)
+    println("平均访问页数:" + avgPageCount)
+    println("跳出率:" + jumpRange)

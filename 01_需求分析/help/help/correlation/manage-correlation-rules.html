@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer - Create New Compliance Reports</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../correlation/correlation-intro.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../correlation/session-activity.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="correlation-intro.html"> 实时事件相关性</a> » 管理相关规则</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>管理相关规则</h1>
+            <hr />
+            <h2><a name="correlation_rules" id="correlation_rules"></a>即用相关性规则</h2>
+            <p>EventLog Analyzer提供了超过50多个不同类别的预定义的规则：文件管理、组织管理、用户管理、设备管理、身份验证、Windows防火墙规则、授权、审计政策和软件管理。 </p>
+            <p><strong>规则概览</strong>窗口提供了：</p>
+            <ul>
+              <ul>
+                <li>相关规则的<strong>直观探讨图形指示板</strong></li>
+                <li><strong>规则面板</strong>提供的预定义列表相关规则、事件计数和最近发生的事件。</li>
+                <li>用户还可以从这个窗口配置,设置通知,启用/禁用的规则。 </li>
+                <li>通过点击相应的事件计数规则,你可以深度探讨任何特定的规则的原始日志</li>
+              </ul>
+            </ul>
+            <blockquote>
+              <p><strong>分类/规则视图</strong></p>
+              <p>查看基于特定分类的规则，点击顶部的<strong>分类视图</strong>链接</p>
+              <p align="center"></p>
+              <p>查看没有基于类别的分类整个规则列表，点击<strong>规则视图</strong>链接</p>
+              <p align="center"></p>
+              <p><strong>启用/禁用规则</strong></p>
+              <p>默认情况下，添加到EventLog Analyzer服务器的所有日志数据资源的所有预定义规则都是启用的。如果你想要仅用一条规则/一组规则：</p>
+              <p align="center"></p>
+              <ol>
+                <li>
+                  <p>选择你需要禁用的规则/规则组</p>
+                </li>
+                <li>                  <strong>规则设置</strong>选项将出现在规则表的顶部                </li>
+              </ol>
+              <blockquote>
+                <p>点击<strong>禁用</strong></p>
+                <p>同样的，启用已禁用的规则，用户可以选择规则/规则组并点击<strong>启用</strong>来激活规则</p>
+              </blockquote>
+              <p><strong>规则报表</strong></p>
+              <p>获取相关规则的报表,点击该规则。</p>
+              <p><strong>规则报表</strong>页面为你提供了事件计数和目的地主机的直观图形指示板。</p>
+              <p>规则报表明细包括了<strong>主机类型、目标/源主机、用户来源,发生时间的事件,消息,登录类型,登录ID,</strong>已经更多的相关规则。</p>
+              <p align="center"></p>
+            </blockquote>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><span class="notesimg"></span></td>
+                <td width="95%" style="padding:10px"><strong>注意：</strong>报表视图中，用户可以在<strong>列表</strong>和<strong>表格</strong>之间相互切换</td>
+              </tr>
+            </table>
+            <blockquote>
+              <p>EventLog Analyzer启用了用户对相关规则执行搜索原始日志的交互式<strong>搜索窗口</strong></p>
+              <p align="center"></p>
+              <ol>
+                <li>
+                  <p>从现有列表中选择搜索条件(主机类型、目的地主机源用户登录类型和更多)</p>
+                </li>
+                <li>
+                  <p>选择关系操作符</p>
+                </li>
+                <li>
+                  <p>提供指定标准的搜索值</p>
+                </li>
+                <li>                  使用多个标准和相关布尔操作符搜索               </li>
+              </ol>
+            </blockquote>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><span class="notesimg"></span></td>
+                <td width="95%" style="padding:10px"><strong>注意：</strong>您可以以报表的形式保存搜索结果并调度它们 </td>
+              </tr>
+            </table>
+            <blockquote>
+              <p><strong>保存和调度规则报表</strong></p>
+              <p align="center"></p>
+              <ol>
+                <ol>
+                  <ol>
+                    <li>
+                      <p>在任何时候你也可以通过点击相应的图标以PDF和CSV格式直接导出报表</p>
+                    </li>
+                    <li>点击<strong>保存报表</strong>保存和进度报表/搜索结果的规则                     </li>
+                  </ol>
+                </ol>
+                <blockquote>
+                  <p><strong>调度规则报表</strong></p>
+                </blockquote>
+              </ol>
+              <p align="center"></p>
+              <blockquote>
+                <ol>
+                  <li>
+                    <p>提供报表的名称</p>
+                  </li>
+                  <li>
+                    <p>你可以通过指定包含/排除标准改善你的规则报表</p>
+                  </li>
+                </ol>
+                <blockquote>
+                  <ol>
+                    <ol type="i">
+                      <li>
+                        <p>从现有列表选择搜索条件(主机类型、目的地主机源用户登录类型和更多)</p>
+                      </li>
+                      <li>
+                        <p>选择关系操作符</p>
+                      </li>
+                      <li>
+                        <p>提供指定标准的搜索值</p>
+                      </li>
+                      <li>                        使用多个标准和相关布尔操作符搜索                      </li>
+                    </ol>
+                  </ol>
+                </blockquote>
+                <ol start="3">
+                  <li>
+                    <p>以<strong>每小时/每日/每周/每月</strong>的基础生成调度报表。 如果你想在指定时间生成报表一次，选择<strong>只一次</strong>选项</p>
+                  </li>
+                  <li>
+                    <p>指定生成报表的日期和时间</p>
+                  </li>
+                  <li>
+                    <p>选择生成报表的时间段</p>
+                  </li>
+                  <li>
+                    <p>选择报表的格式 (PDF/CSV)</p>
+                  </li>
+                  <li>
+                    <p>你也可以通过电子邮件重新分配报告。提供要发送报告的电子邮件。 指定多个电子邮件id(由逗号分隔)</p>
+                  </li>
+                </ol>
+              </blockquote>
+            </blockquote>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><span class="notesimg"></span></td>
+                <td width="95%" style="padding:10px"><strong>注意：</strong></strong>如果你没有配置邮件服务器或如果你想重新配置，点击<strong>配置或重新配置</strong>链接</td>
+              </tr>
+            </table>
+            <h2>&nbsp;</h2>
+            <h2>&nbsp;</h2>
+            <h2><a name="Add_New_Rule" id="Add_New_Rule"></a>添加新规则</h2>
+            <p>您可以添加一个新的相关规则。 </p>
+            <p align="center"></p>
+            <p>点击<strong>添加新规则</strong>链接</p>
+            <p>遵循以下给定程序添加一个新的关联规则：</p>
+            <p align="center"></p>
+            <ol>
+              <li>
+                <p>为新规则输入一个名称</p>
+              </li>
+              <li>
+                <p>添加一个新规则的描述</p>
+              </li>
+              <li>
+                <p>搜索和选择或选择现有的规则或类别</p>
+              </li>
+              <li>
+                <p>添加一个在多少时间之内发生多少次事件相关的标准</p>
+              </li>
+              <li>
+                <p>点击<strong>下一步</strong>按钮</p>
+              </li>
+              <li>
+                <p>添加一个源用户</p>
+              </li>
+              <li>
+                <p>添加一个源主机,或者从列表中选择一个主机</p>
+              </li>
+              <li>
+                <p>添加一个目的地主机,或者从列表中选择一个主机</p>
+              </li>
+              <li>
+                <p>点击<strong>应用</strong>按钮完成新规则的添加</p>
+              </li>
+            </ol>
+            <p align="left">&nbsp;</p>
+            <p align="left">&nbsp;</p>
+            <h2><a name="configure_rule_filters" id="configure_rule_filters"></a>配置规则过滤器</h2>
+            <blockquote>
+              <p>使用EventLog Analyzer，用户可以使用过滤器和定制现有的相关规则来满足他们的内部安全政策。配置规则过滤器，点击<strong>配置</strong>图标选择需要应用过滤器相应的规则。</p>
+              <p align="center"></p>
+              <p><strong>配置规则过滤窗口</strong>有规则描述以及为用户提供选项来排除用户,源和目标主机。</p>
+              <ol>
+                <li>
+                  <p>指定被排除在处理相关规则之外的源用户</p>
+                </li>
+                <li>
+                  <p>指定被排除在处理相关规则之外的源主机</p>
+                </li>
+                <li>指定被排除在处理相关规则之外的目的主机              </li>
+              </ol>
+            </blockquote>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><span class="notesimg"></span></td>
+                <td width="95%" style="padding:10px"><p><strong>注意：</strong></p>
+                  <ul>
+                    <li>指定已经添加到EventLog Analyzer服务器的主机</li>
+                    <li>点击<strong>选择主机</strong>从服务器中选择主机</li>
+                    <li>指定多个用户/主机名(由逗号分隔)</li>
+                  </ul>
+                <p><strong>源主机</strong>意味着事件原始的机器</p>
+                <p><strong>目的主机</strong>意味着这台机器的起源事件应该发生</p></td>
+              </tr>
+            </table>
+            <ol start="4">
+              <ol start="4">
+                <li>点击<strong>应用</strong>配置指定的规则过滤器</li>
+              </ol>
+              <blockquote>
+                <p>&nbsp;</p>
+              </blockquote>
+            </ol>
+            <h2><a name="rule_notification" id="rule_notification"></a>规则通知</h2>
+            <blockquote>
+              <p>EventLog Analyzer的主动实时警报通知帮助你减轻安全威胁。EventLog Analyzer的实时关联引擎为您提供了两个警报通知机制</p>
+              <ul>
+                <li>
+                  <p>通过电子邮件通知</p>
+                </li>
+                <li>
+                  <p>             通过短信发出通知              </p>
+                </li>
+              </ul>
+              <p>除了这些警报机制，EventLog Analyzer还提供了<strong>自动警报补救</strong>方法：触发纠正警报条件脚本/程序(由用户指定) </p>
+            </blockquote>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><span class="notesimg"></span></td>
+                <td width="95%" style="padding:10px"><p><strong>注意：</strong>每个规则都可以有单独的警报通知机制。您还可以为一个特定的规则或一组规则配置警报机制：</p>
+                  <ul>
+                    <li>选择你需要配置警报机制的规则</li>
+                    <li>从规则表顶部的<strong>通知设置链接</strong>中选择适当的通知机制(电子邮件、短信、自动警报修复)</li>
+                </ul>                </td>
+              </tr>
+            </table>
+            <blockquote>
+              <p><strong>配置电子邮件通知</strong></p>
+              <p>配置电子邮件通知的设置，点击您需要配置电子邮件警报的相应规则的<strong>电子邮件</strong>图标。您还可以通过点击规则概览窗口选择相应的规则/规则组的<strong>通知设置链接</strong>，选择<strong>电子邮件</strong>来配置电子邮件设置。</p>
+              <p align="center"></p>
+              <ol>
+                <li>
+                  <p>指定警报发送的电子邮件id。如果你想输入多个电子邮件id，电子邮件id用逗号分开</p>
+                </li>
+                <li>
+                  <p>指定电子邮件的主题</p>
+                </li>
+                <li>
+                  <p>点击下拉箭头从预定义列表信息中选择<strong>信息</strong>，以电子邮件形式发送警报</p>
+                </li>
+                <li>
+                  <p>               点击<strong>应用</strong>为选定的规则设置电子邮件警报通知                </p>
+                </li>
+              </ol>
+              <p><strong>配置短信通知</strong></p>
+              <p>配置短信通知设置，点击您需要配置短信警报的相应规则的<strong>SMS </strong>图标。您还可以通过点击规则概览窗口选择相应的规则/规则组的<strong>通知设置链接</strong>，选择<strong>SMS</strong>来配置SMS设置。</p>
+              <p align="center"></p>
+              <ol>
+                <li>
+                  <p>指定短信发送至的号码</p>
+                </li>
+                <li>
+                  <p>点击下拉箭头从预定义列表信息中选择<strong>信息</strong>，以信息的形式发送警报</p>
+                </li>
+                <li>
+                  <p> 点击<strong>应用</strong>为选定的规则设置SMS警报通知  </p>
+                </li>
+              </ol>
+              <p><strong>配置自动警报补救</strong></p>
+              <p>配置自动警报修复脚本，点击需要纠正自动警报相应规则的<strong>自动警报补救</strong>图标。您还可以通过点击规则概览窗口选择相应的规则/规则组的<strong>通知设置链接</strong>，选择<strong>运行程序选项</strong>来配置自动警报补救设置。</p>
+              <p align="center"> </p>
+              <ol>
+                <li>
+                <p>使用<strong>选择文件</strong>按钮浏览和加载程序/脚本,可以纠正警报条件</p>
+                </li>
+                <li>
+                  <p>点击下拉箭头选择需要被传递的参数</p>
+                </li>
+                <li>
+                  <p>点击<strong>应用</strong>选择规则设置自动提醒补救机制</p>
+                </li>
+              </ol>
+            </blockquote>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><span class="notesimg"></span></td>
+                <td width="95%" style="padding:10px"><p><strong>注意：</strong>特定规则或一组规则的警告通知可以启用/禁用：</p>
+                  <ul>
+                    <li>选择必须启用/禁用警告通知的规则</li>
+                    <li><strong>通知设置 </strong>链接将会出现在规则表的顶部</li>
+                    <li>按您的需求点击启用/禁用链接</li>
+                </ul></td>
+              </tr>
+            </table>
+            <blockquote>
+              <p><strong>删除规则通知</strong></p>
+              <p>删除特定的规则或一组规则的通知： </p>
+              <p align="center"></p>
+              <ol>
+                <li>
+                  <p>选择要删除的规则</p>
+                </li>
+                <li>
+                  <p>通知设置链接将出现在规则表的顶部。选择<strong>删除</strong>链接删除对应的规则的通知                </p></li>
+              </ol>
+            </blockquote></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../correlation/correlation-intro.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../correlation/session-activity.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016, <a href="http://www.zohocorp.com" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"<a href="http://www.manageengine.com" target=_blank>ManageEngine</div></div> </body>
+</html>

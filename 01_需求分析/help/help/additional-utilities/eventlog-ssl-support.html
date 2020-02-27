@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer Additonal Utilities - Working with SSL</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../additional-utilities/additional-utils-intro.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../additional-utilities/configure-mssql-database.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> »  <a href="additional-utils-intro.html" title="Additonal Utilities">附加工具</a> &gt; 使用SSL</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>使用SSL </h1>
+            <hr />
+            <ul><li><a href="#build8010">对于EventLog Analyzer版本8.0（构建号8010）及之后的产品</a></li>
+                <li><a href="#build8000">对于EventLog Analyzer版本8.0（构建号8000）及之前的产品</a></li>
+			</ul>
+            <p><strong>怎样找到构建号？</strong></p>
+			<p>在EventLog Analyzer web客户端，点击页面右上角的<strong>帮助</strong> &gt; <strong>关于</strong>链接，您可以上述提到的产品的构建号，此构建号就是当前EventLog 
+			Analyzer的构建号。 </p>
+			<p><strong>配置安全通信 - SSL </strong></p>
+            <p>SSL协议提供了多种功能，确保Web传输的安全性。这些功能包括，数据加密、服务器认证和消息完整性。</p>
+            <p>您可以使用SSL在Web客户端与EventLog  Analyzer服务器之间建立安全通信。</p>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif" alt="Note" width="1" height="1" class="write" /></td>
+                <td width="95%" style="padding:10px"><strong>说明</strong>：我们这里提供的步骤仅表述如何启用SSL功能和生成证书，根据您的网络配置和安全性需求，您可能需要参考其他的文档资料。 
+				对于高级配置的问题，请在<a href="http://www.apache.org" target="_new" linkindex="5">http://www.apache.org</a>和<a href="http://www.modssl.org" target="_new" set="yes" linkindex="6">http://www.modssl.org</a>站点查阅SSL相关主题。</td>
+              </tr>
+            </table>
+            <p><a name="build8010"></a><strong>对于EventLog Analyzer版本8.0（构建号8010）及之后的产品</strong></p>
+              <ul type="disc">
+              <li><a href="#Generating_valid_certificate8010"><strong>生成一个有效的证书</strong></a></li>
+              <li><strong><a href="#Disabling_HTTP8010">禁用HTTP</a></strong></li>
+              <li><strong><a href="#Enabling_HTPPS_SSL8010">启用HTPPS (SSL)</a></strong></li>
+              <li><strong><a href="#Verifying_SSL_Setup8010">验证SSL步骤</a></strong></li>
+              <li><strong><a href="#Configuring_HTTPS_Parameters_64_128_bit_encrypt8010">配置HTTPS 64位/128位加密参数</a></strong></li>
+              <li><strong><a href="#Use_existing_SSL_certificate8010">使用已有的SSL证书</a></strong></li>
+              <li><strong><a href="#ssl2">怎样为EventLog Analyzer安装证书</a></strong></li>
+            </ul>
+            <p>&nbsp;</p>
+            <h3><a name="Generating_valid_certificate8010" id="Generating_valid_certificate8010"></a>生成一个有效的证书</h3>
+            <p>如果服务器正在运行，请首先停止服务器。</p>
+			<p>参阅以下的说明来启用SSL。</p>
+            <p>如果您有一个keystore文件来使用HTTPS，请将其放置在<em>&lt;EventLog  Analyzer Home&gt;\server\default\conf</em> 
+			目录下并重命名为<strong>chap8.keystore</strong></p>
+            <h3><a name="Disabling_HTTP" id="Disabling_HTTP8010"></a>禁用HTTP</h3>
+            <p>当您启用SSL后，HTTP将还会使用web服务器端口，要禁用HTTP请参阅以下步骤：</p>
+            <ol start="1" type="1">
+              <li>编辑<em>&lt;EventLog Analyzer Home&gt;</em>/conf目录下的<strong>server.xml</strong>文件。</li>
+              <li>在以下内容的开始部分添加&lt;!-- 标记，在结尾部分添加 --&gt;       标记，注释掉HTTP的连接参数：</li>
+            </ol>
+            <table width="93%" border="1" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td><p><font face="Courier New, Courier, monospace">&lt;Connector 
+				port=&quot;8400&quot; SSLEnabled=&quot;false&quot; acceptCount=&quot;100&quot; 
+				address=&quot;0.0.0.0&quot; clientAuth=&quot;false&quot; compressableMimeType=&quot;text/html,text/xml&quot; 
+				compression=&quot;force&quot; compressionMinSize=&quot;1024&quot; connectionTimeout=&quot;20000&quot; 
+				disableUploadTimeout=&quot;true&quot; enableLookups=&quot;false&quot; 
+				maxSpareThreads=&quot;75&quot; maxThreads=&quot;150&quot; minSpareThreads=&quot;25&quot; 
+				noCompressionUserAgents=&quot;gozilla, traviata&quot; protocol=&quot;HTTP/1.1&quot; 
+				scheme=&quot;http&quot; secure=&quot;false&quot; URIEncoding=&quot;UTF-8&quot;/&gt; </font></p></td>
+              </tr>
+            </table>
+            <h3>&nbsp;</h3>
+            <h3><a name="Enabling_HTPPS_SSL8010" id="Enabling_HTPPS_SSL8010"></a>启用 HTPPS (SSL)</h3>
+            <ul type="disc">
+              <li>在同一文件中，启用HTTPS连接参数，请移除以下内容中的&lt;!-- 标记和       --&gt; 标记：</li>
+            </ul>
+            <table border="1" cellspacing="0" cellpadding="0" width="94%">
+              <tr>
+                <td><p><font face="Courier New, Courier, monospace">&lt;!--<br />
+				&lt;Connector port=&quot;8400&quot; SSLEnabled=&quot;true&quot; acceptCount=&quot;100&quot; 
+				address=&quot;0.0.0.0&quot; clientAuth=&quot;false&quot; compressableMimeType=&quot;text/html,text/xml&quot; 
+				compression=&quot;force&quot; compressionMinSize=&quot;1024&quot; connectionTimeout=&quot;20000&quot; 
+				disableUploadTimeout=&quot;true&quot; enableLookups=&quot;false&quot; keystoreFile=&quot;./conf/chap8.keystore&quot;
+				<strong>keystorePass</strong>=&quot;eventlog&quot; maxSpareThreads=&quot;75&quot; 
+				maxThreads=&quot;150&quot; minSpareThreads=&quot;25&quot; noCompressionUserAgents=&quot;gozilla, 
+				traviata&quot; protocol=&quot;HTTP/1.1&quot; scheme=&quot;https&quot; secure=&quot;true&quot; 
+				sslProtocol=&quot;TLS&quot; URIEncoding=&quot;UTF-8&quot;/&gt;<br />
+				--&gt;</font></p></td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif" alt="Note" width="1" height="1" class="write" /></td>
+                <td width="95%" style="padding:10px"><strong>说明</strong>：当创建keystore文件时，您可以根据自身需求输入密码，但是您需要确保此密码也配置在了<strong>server.xml</strong>文件中，示例密码默认配置为<strong>eventlog</strong>。</td>
+              </tr>
+            </table>
+            <h3>&nbsp;</h3>
+            <h3><a name="Verifying_SSL_Setup8010"></a>验证SSL设置</h3>
+            <ol start="1" type="1">
+              <li>重新启动EventLog Analyzer服务器。</li>
+              <li>在EventLog Analyzer应用启动后，在命令窗口检查以下信息是否出现：</li>
+            </ol>
+            <table border="1" cellspacing="0" cellpadding="0" width="92%">
+              <tr>
+                <td><p class="codefont">Server started.<br />
+                Please connect your client at https://localhost:8400</p></td>
+              </tr>
+            </table>
+            <ol start="3">
+              <li>在浏览器中输入https://<em>&lt;hostname&gt;</em>:8400 ，其中<em>&lt;hostname&gt;</em>即运行服务器的机器的名称，验证是否可以打开客户端。</li>
+            </ol>
+<h3><a name="Configuring_HTTPS_Parameters_64_128_bit_encrypt8010" id="Configuring_HTTPS_Parameters_64_128_bit_encrypt8010"></a>
+配置HTTPS  64位/128位加密参数</h3>
+            <p>如果您想要配置HTTPS使用64位/128位加密参数，请在SSL/TLS连接器标记的结尾部分添加以下参数：<br />
+              SSLCipherSuite=&quot;SSL_RSA_WITH_3DES_EDE_CBC_SHA&quot;</p>
+            <table border="1" cellspacing="0" cellpadding="0" width="92%">
+              <tr>
+                <td><p class="codefont">&lt;!-- SSL/TLS Connector configuration 
+				using the admin devl guide keystore --&gt;<br />
+				&lt;Connector port=&quot;8400&quot; SSLEnabled=&quot;true&quot; acceptCount=&quot;100&quot; 
+				address=&quot;0.0.0.0&quot; clientAuth=&quot;false&quot; compressableMimeType=&quot;text/html,text/xml&quot; 
+				compression=&quot;force&quot; compressionMinSize=&quot;1024&quot; connectionTimeout=&quot;20000&quot; 
+				disableUploadTimeout=&quot;true&quot; enableLookups=&quot;false&quot; keystoreFile=&quot;./conf/chap8.keystore&quot; 
+				keystorePass=&quot;eventlog&quot; maxSpareThreads=&quot;75&quot; maxThreads=&quot;150&quot; 
+				minSpareThreads=&quot;25&quot; noCompressionUserAgents=&quot;gozilla, traviata&quot; 
+				protocol=&quot;HTTP/1.1&quot; scheme=&quot;https&quot; secure=&quot;true&quot; sslProtocol=&quot;TLS&quot; 
+				URIEncoding=&quot;UTF-8&quot; <strong>SSLCipherSuite=&quot;SSL_RSA_WITH_3DES_EDE_CBC_SHA&quot;</strong>/&gt;</p></td>
+              </tr>
+            </table>
+            <h3>&nbsp;</h3>
+            <h3><a name="Use_existing_SSL_certificate8010" id="Use_existing_SSL_certificate8010"></a><strong>
+			使用已有的SSL证书</strong></h3>
+            <ul type="disc">
+              <li>您可以将通配符证书导出为一个<strong>.pfx</strong>文件，然后在EventLog 
+				Analyzer中执行以下配置</li>
+              <li>停止ManageEngine EventLog Analyzer服务</li>
+              <li>将<strong>.pfx</strong>文件复制到<em>&lt;EventLog Analyzer Home&gt;\server\conf</em>目录下</li>
+              <li>使用文本编辑器打开目录<em>&lt;EventLog Analyzer Home&gt;\</em>conf下的文件<strong>server.xml</strong>，找到以下内容：</li>
+            </ul>
+            <table border="1" cellspacing="0" cellpadding="0" width="92%">
+              <tr>
+                <td><p class="codefont">&lt;!-- SSL/TLS Connector configuration 
+				using the admin devl guide keystore --&gt;<br />
+				&lt;Connector port=&quot;8400&quot; SSLEnabled=&quot;true&quot; acceptCount=&quot;100&quot; 
+				address=&quot;0.0.0.0&quot; clientAuth=&quot;false&quot; compressableMimeType=&quot;text/html,text/xml&quot; 
+				compression=&quot;force&quot; compressionMinSize=&quot;1024&quot; connectionTimeout=&quot;20000&quot; 
+				disableUploadTimeout=&quot;true&quot; enableLookups=&quot;false&quot; keystoreFile=&quot;./conf/chap8.keystore&quot; 
+				keystorePass=&quot;eventlog&quot; maxSpareThreads=&quot;75&quot; maxThreads=&quot;150&quot; 
+				minSpareThreads=&quot;25&quot; noCompressionUserAgents=&quot;gozilla, traviata&quot; 
+				protocol=&quot;HTTP/1.1&quot; scheme=&quot;https&quot; secure=&quot;true&quot; sslProtocol=&quot;TLS&quot; 
+				URIEncoding=&quot;UTF-8&quot;<br />
+				SSLCipherSuite=&quot;SSL_RSA_WITH_3DES_EDE_CBC_SHA&quot;/&gt;</p></td>
+              </tr>
+            </table>
+            <ul type="disc">
+              <li>将文件名<em>chap8.keystore</em>替换为pfx文件的名称（<strong>&lt;pfx file name&gt;.pfx</strong>），并在文件名后输入<strong>keystoreType=&quot;pkcs12&quot;</strong> 
+				，同时将<strong>keystorePass</strong>的值“eventlog”修改为 <strong>.pfx</strong> 
+				文件的密码。</li>
+            </ul>
+            <ul type="disc">
+              <li>所需修改内容示例如下：</li>
+            </ul>
+            <table border="1" cellspacing="0" cellpadding="0" width="92%">
+              <tr>
+                <td><p class="codefont">&lt;!-- SSL/TLS Connector configuration 
+				using the admin devl guide keystore --&gt;<br />
+				&lt;Connector port=&quot;8443&quot; address=&quot;${jboss.bind.address}&quot;<br />
+				maxThreads=&quot;100&quot; minSpareThreads=&quot;5&quot; maxSpareThreads=&quot;15&quot;<br />
+				scheme=&quot;https&quot; secure=&quot;true&quot; clientAuth=&quot;false&quot;<br />
+				keystoreFile=&quot;${jboss.server.home.dir}/conf/<strong>&lt;pfx file 
+				name&gt;.pfx</strong>&quot; <strong>keystoreType=&quot;pkcs12&quot;</strong><br />
+				
+				keystorePass=&quot;&lt;<strong>password for the .pfx file</strong>&gt;&quot; 
+				sslProtocol = &quot;TLS&quot;<br />
+				SSLCipherSuite=&quot;SSL_RSA_WITH_3DES_EDE_CBC_SHA&quot;/&gt;</p></td>
+              </tr>
+            </table>
+            <ul type="disc">
+              <li>重启EventLog Analyzer服务</li>
+            </ul>
+            <h3><a name="ssl2"></a></h3>
+            <h2>怎样为EventLog Analyzer安装证书            </h2>
+            <p>请参阅以下有关SSL的安装说明。<br />
+              <br />
+            <strong>步骤1：创建一个新的Keystore文件</strong></p>
+            <ol start="1" type="1">
+              <li>您需要使用keytool命令来创建和管理您的新Keystore文件，当您准备好创建您的keystore文件时，请打开您计划用来管理您的Keystore和证书的目录（<em>&lt;EventLog Analyzer Home&gt;\jre\bin\</em>），输入以下命令：</li>
+            </ol>
+            <blockquote>
+              <p><strong>keytool -genkey -alias  &lt;our_alias_name&gt; or [Domain Name] -keyalg RSA -keystore chap8.keystore</strong><br />
+                <strong>（例如：keytool -genkey -alias tomcat  -keyalg RSA -keystore chap8.keystore）</strong></p>
+            </blockquote>
+            <ol start="2" type="1">
+              <li>
+				它会提示您为您的keystore设置一个密码，以及您的组织信息，当它要求您输入您的名字信息时，请不要输入您自己的名字，在这里输入您所要保护的网站的全称域名，如helpdesk.yourdomain.com。如果您订购了一个通配符证书，这里必须以 * 
+				字符开始，如*.yourdomain.com。</li>
+              <li>在您完成所需的信息后，它会提示您确认信息的正确性，输入“y”或“yes”表示确定。 
+				下一步，它会要求您确认您的密码，确保您已经记住了密码。您的创建的keystore文件将会被命名为<strong>chap8.keystore</strong>，并存储在您当前的工作目录中。</li>
+            </ol>
+            <p><strong>步骤2：创建CSR</strong></p>
+            <ol start="1" type="1">
+              <li>接下来，您需要使用keytool来创建证书签名请求（CSR），请输入以下命令：</li>
+            </ol>
+            <blockquote>
+              <p><strong>keytool -certreq -alias &lt;your_alias_name&gt;  or [Domain Name] -file csr.txt -keystore chap8.keystore</strong><br />
+                <strong>（例如：keytool -certreq -alias  tomcat -file csr.txt -keystore chap8.keystore）</strong></p>
+            </blockquote>
+            <ol start="2" type="1">
+              <li>输入您之前设置的keystore的密码</li>
+              <li>您的CSR文件<strong>csr.txt</strong>将会创建在您当前的目录下，使用文本编辑器打开CSR文件，复制并粘贴内容（包括BEGIN和END标记）到CA网站订单表格，请小心保存keystore文件（chap8.keystore），因为您的证书稍后需要安装到它。</li>
+            </ol>
+            <p><strong>步骤3：怎样安装SSL证书</strong></p>
+            <ol start="1" type="1">
+              <li>从CA网站发送的邮件中下载您的证书文件，保存到您的keystore（chap8.keystore）所在的目录，这个证书必须安装到这个指定的keystore，如果您将其安装到其它的keystore，它将不起任何作用。您所下载的证书必须以正确的顺序安装到您的keystore，以便使您的证书可以被信任，如果安装顺序不正确，那么证书可能不能得到正确的认证。</li>
+              <li>安装根证书文件。<ul type="circle">
+                <li>每当您在keystore上安装证书时，您都需要输入keystore的密码，即您在生成CSR时所设置的密码。</li>
+                <li>输入以下命令来安装根证书文件：</li>
+              </ul>
+            </ol>
+            <blockquote>
+              <p><strong>keytool -import -trustcacerts -alias root  -file TrustedRoot.crt -keystore chap8.keystore</strong></p>
+              <p><strong>说明</strong>：如果看到提示“Certificate already exists in 
+				system-wide CA keystore under alias &lt;entrustsslca&gt; Do you still want to  add it to your own keystore? 
+				[no]:” ，请输入“Yes”，之后您或看到一个确认消息：“Certificate was added to keystore”。</p>
+            </blockquote>
+            <ol start="3" type="1">
+              <li>如果需要，请安装中间证书（请参阅CA提供的说明文档）</li>
+              <li>安装主证书文件：<ul type="circle">
+                <li>输入以下命令来安装主证书文件：</li>
+              </ul>
+            </ol>
+            <blockquote>
+              <p><strong>keytool -import -trustcacerts -alias tomcat  -file &lt;your_domain_name&gt;.crt -keystore chap8.keystore</strong><br />
+                </p>
+              <p>这个时候您会得到一个稍微不同的提示信息“Certificate reply was installed in keystore”，如果它提示您是否要信任证书，请输入“y”或者“yes”。您的证书将安装到您的 keystore文件（keystore.key），之后您所要做的就是配置您的服务器来使用这个keystore文件。</p>
+            </blockquote>
+            <p>&nbsp;</p>
+<p>&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+
+            <p><a name="build8000"></a><strong>对于EventLog Analyzer版本8.0（构建号8000）及之前的产品</strong></p>
+            <ul type="disc">
+              <li><a href="#Generating_valid_certificate"><strong>生成一个有效的证书</strong></a></li>
+              <li><strong><a href="#Disabling_HTTP">禁用HTTP</a></strong></li>
+              <li><strong><a href="#Enabling_HTPPS_SSL">启用HTPPS (SSL)</a></strong></li>
+              <li><strong><a href="#Verifying_SSL_Setup">验证SSL步骤</a></strong></li>
+              <li><strong><a href="#Configuring_HTTPS_Parameters_64_128_bit_encrypt">配置HTTPS 64位/128位加密参数</a></strong></li>
+              <li><strong><a href="#Use_existing_SSL_certificate">使用已有的SSL证书</a></strong></li>
+              <li><strong><a href="#ssl2">怎样为EventLog Analyzer安装证书</a></strong></li>
+            </ul>
+            <p>&nbsp;</p>
+            <h3><a name="Generating_valid_certificate" id="Generating_valid_certificate"></a>生成一个有效的证书</h3>
+            <p>如果服务器正在运行，请首先停止服务器。</p>
+			<p>参阅以下的说明来启用SSL。</p>
+            <p>如果您有一个keystore文件来使用HTTPS，请将其放置在<em>&lt;EventLog  Analyzer Home&gt;\server\default\conf</em> 
+			目录下并重命名为<strong>chap8.keystore</strong></p>
+            <h3><a name="Disabling_HTTP" id="Disabling_HTTP"></a>禁用HTTP</h3>
+            <p>当您启用SSL后，HTTP将还会使用web服务器端口（默认值8080），要禁用HTTP请参阅以下步骤：</p>
+            <ol start="1" type="1">
+              <li>编辑<em>&lt;EventLog Analyzer Home&gt;</em>/server/default/deploy/jbossweb-tomcat50.sar目录下的<strong>server.xml</strong>文件。</li>
+              <li>在以下内容的开始部分添加&lt;!-- 标记，在结尾部分添加 --&gt;       标记，注释掉HTTP的连接参数：</li>
+            </ol>
+            <table width="93%" border="1" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td><p><font face="Courier New, Courier, monospace">&lt;Connector port=&quot;8080&quot; address=&quot;${jboss.bind.address}&quot;<br />
+                  maxThreads=&quot;150&quot; minSpareThreads=&quot;25&quot;    maxSpareThreads=&quot;75&quot;<br />
+                  enableLookups=&quot;false&quot; redirectPort=&quot;8443&quot;    acceptCount=&quot;100&quot;<br />
+                connectionTimeout=&quot;20000&quot;    disableUploadTimeout=&quot;true&quot;/&gt; </font></p></td>
+              </tr>
+            </table>
+            <h3>&nbsp;</h3>
+            <h3><a name="Enabling_HTPPS_SSL" id="Enabling_HTPPS_SSL"></a>启用 HTPPS (SSL)</h3>
+            <ul type="disc">
+              <li>在同一文件中，启用HTTPS连接参数，请移除以下内容中的&lt;!-- 标记和       --&gt; 标记：</li>
+            </ul>
+            <table border="1" cellspacing="0" cellpadding="0" width="94%">
+              <tr>
+                <td><p><font face="Courier New, Courier, monospace">&lt;!--<br />
+                  &lt;Connector port=&quot;8443&quot;    address=&quot;${jboss.bind.address}&quot;<br />
+                  maxThreads=&quot;100&quot; minSpareThreads=&quot;5&quot;    maxSpareThreads=&quot;15&quot;<br />
+                  scheme=&quot;https&quot; secure=&quot;true&quot; clientAuth=&quot;false&quot;<br />
+                  keystoreFile=&quot;${jboss.server.home.dir}/conf/chap8.keystore&quot;<br />
+                  keystorePass=&quot;rmi+ssl&quot;    sslProtocol = &quot;TLS&quot; /&gt;<br />
+                  --&gt;</font></p></td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif" alt="Note" width="1" height="1" class="write" /></td>
+                <td width="95%" style="padding:10px"><strong>说明</strong>：当创建keystore文件时，您可以根据自身需求输入密码，但是您需要确保此密码也配置在了<strong>server.xml</strong>文件中，示例密码默认配置为<strong>rmi+ssl</strong>。</td>
+              </tr>
+            </table>
+            <h3>&nbsp;</h3>
+            <h3>验证SSL设置</h3>
+            <ol start="1" type="1">
+              <li>重新启动EventLog Analyzer服务器。</li>
+              <li>在EventLog Analyzer应用启动后，在命令窗口检查以下信息是否出现：</li>
+            </ol>
+            <table border="1" cellspacing="0" cellpadding="0" width="92%">
+              <tr>
+                <td><p class="codefont">Server started.<br />
+                Please connect your client at https://localhost:8500</p></td>
+              </tr>
+            </table>
+            <ol start="3">
+              <li>在浏览器中输入https://<em>&lt;hostname&gt;</em>:8500 ，其中<em>&lt;hostname&gt;</em>即运行服务器的机器的名称，验证是否可以打开客户端。</li>
+            </ol>
+<h3><a name="Configuring_HTTPS_Parameters_64_128_bit_" id="Configuring_HTTPS_Parameters_64_128_bit_"></a>
+配置HTTPS  64位/128位加密参数</h3>
+            <p>如果您想要配置HTTPS使用64位/128位加密参数，请在SSL/TLS连接器标记的结尾部分添加以下参数：<br />
+              SSLCipherSuite=&quot;SSL_RSA_WITH_3DES_EDE_CBC_SHA&quot;</p>
+            <table border="1" cellspacing="0" cellpadding="0" width="92%">
+              <tr>
+                <td><p class="codefont">&lt;!-- SSL/TLS Connector configuration using the admin devl guide    keystore --&gt;<br />
+                  &lt;Connector port=&quot;8443&quot; address=&quot;${jboss.bind.address}&quot;<br />
+                  maxThreads=&quot;100&quot; minSpareThreads=&quot;5&quot;    maxSpareThreads=&quot;15&quot;<br />
+                  scheme=&quot;https&quot; secure=&quot;true&quot; clientAuth=&quot;false&quot;<br />
+                  keystoreFile=&quot;${jboss.server.home.dir}/conf/chap8.keystore&quot;<br />
+                  keystorePass=&quot;rmi+ssl&quot;    sslProtocol = &quot;TLS&quot;<br />
+                <strong>SSLCipherSuite=&quot;SSL_RSA_WITH_3DES_EDE_CBC_SHA&quot;</strong>/&gt;</p></td>
+              </tr>
+            </table>
+            <h3>&nbsp;</h3>
+            <h3><a name="Use_existing_SSL_certificate" id="Use_existing_SSL_certificate"></a><strong>
+			使用已有的SSL证书</strong></h3>
+            <ul type="disc">
+              <li>您可以将通配符证书导出为一个<strong>.pfx</strong>文件，然后在EventLog 
+				Analyzer中执行以下配置</li>
+              <li>停止ManageEngine EventLog Analyzer服务</li>
+              <li>将<strong>.pfx</strong>文件复制到<em>&lt;EventLog Analyzer Home&gt;\server\default\conf</em>目录下</li>
+              <li>使用文本编辑器打开目录<em>&lt;EventLog Analyzer       Home&gt;\server\default\deploy\jbossweb-tomcat50.sar</em>下的文件<strong>server.xml</strong>，找到以下内容：</li>
+            </ul>
+            <table border="1" cellspacing="0" cellpadding="0" width="92%">
+              <tr>
+                <td><p class="codefont">&lt;!-- SSL/TLS Connector configuration using the admin devl guide    keystore --&gt;<br />
+                  &lt;Connector port=&quot;8443&quot; address=&quot;${jboss.bind.address}&quot;<br />
+                  maxThreads=&quot;100&quot; minSpareThreads=&quot;5&quot;    maxSpareThreads=&quot;15&quot;<br />
+                  scheme=&quot;https&quot; secure=&quot;true&quot; clientAuth=&quot;false&quot;<br />
+                  keystoreFile=&quot;${jboss.server.home.dir}/conf/chap8.keystore&quot;<br />
+                  keystorePass=&quot;rmi+ssl&quot;    sslProtocol = &quot;TLS&quot;<br />
+                SSLCipherSuite=&quot;SSL_RSA_WITH_3DES_EDE_CBC_SHA&quot;/&gt;</p></td>
+              </tr>
+            </table>
+            <ul type="disc">
+              <li>将文件名<em>chap8.keystore</em>替换为pfx文件的名称（<strong>&lt;pfx file name&gt;.pfx</strong>），并在文件名后输入<strong>keystoreType=&quot;pkcs12&quot;</strong> 
+				，同时将<strong>keystorePass</strong>的值“<em>rmi+ssl</em>”修改为 <strong>.pfx</strong> 
+				文件的密码。</li>
+            </ul>
+            <ul type="disc">
+              <li>所需修改内容示例如下：</li>
+            </ul>
+            <table border="1" cellspacing="0" cellpadding="0" width="92%">
+              <tr>
+                <td><p class="codefont">&lt;!-- SSL/TLS Connector configuration using the admin devl guide    keystore --&gt;<br />
+                  &lt;Connector port=&quot;8443&quot; address=&quot;${jboss.bind.address}&quot;<br />
+                  maxThreads=&quot;100&quot; minSpareThreads=&quot;5&quot;    maxSpareThreads=&quot;15&quot;<br />
+                  scheme=&quot;https&quot; secure=&quot;true&quot; clientAuth=&quot;false&quot;<br />
+                  keystoreFile=&quot;${jboss.server.home.dir}/conf/<strong>&lt;pfx file    name&gt;.pfx</strong>&quot; <strong>keystoreType=&quot;pkcs12&quot;</strong><br />
+                  keystorePass=&quot;&lt;<strong>password    for the .pfx file</strong>&gt;&quot; sslProtocol = &quot;TLS&quot;<br />
+                SSLCipherSuite=&quot;SSL_RSA_WITH_3DES_EDE_CBC_SHA&quot;/&gt;</p></td>
+              </tr>
+            </table>
+            <ul type="disc">
+              <li>重启EventLog Analyzer服务</li>
+            </ul>
+            <h3><a name="ssl2"></a></h3>
+            </td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../additional-utilities/additional-utils-intro.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../additional-utilities/configure-mssql-database.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

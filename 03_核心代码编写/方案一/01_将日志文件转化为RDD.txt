@@ -1,0 +1,30 @@
+package com.zhiyou100
+
+import org.apache.spark.{SparkConf, SparkContext}
+
+/**
+  * Created by lijike 2017/2/28.
+  */
+object LogApp {
+  def main(args: Array[String]): Unit = {
+    //1.创建SparkConf()并设置App名称
+    //setMaster("local")本地模式
+    val conf = new SparkConf().setAppName("log-app").setMaster("local")
+    //2.SparkContext
+    val sc = new SparkContext(conf)
+    //3.创建一个RDD
+    val logRDD = sc.textFile("hdfs://hadoop01:9000/nginx/log/access_" + yesterday + ".log").map(line => {
+      val pattern = new Regex("\".*?\"")
+      val str = (pattern findAllIn line).mkString("\t").replace("\"", "") +
+        "\t" + line.substring(line.lastIndexOf("\"") + 1, line.length).trim.split(" ").mkString("\t")
+      val $http_x_forwarded_for = str.substring(0, str.indexOf("\t")).split(",")(0).trim
+      val other_str = str.replace(str.substring(0, str.indexOf("\t")), "").trim
+      val $server = other_str.substring(0, other_str.indexOf("\t")).replace(",", "\t").trim
+      val other_sub_str = other_str.substring(other_str.indexOf("\t"), other_str.length).trim
+      $http_x_forwarded_for + "\t" + $server + "\t" + other_sub_str
+
+    }).map(line => line.split("\t"))
+
+    logRDD.foreach(println(_))
+  }
+}

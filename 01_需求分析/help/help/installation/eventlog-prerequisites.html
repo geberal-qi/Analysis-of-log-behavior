@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>前提条件 - EventLog Analyzer</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../installation/install-eventlog-analyzer.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../installation/start-eventlog-analyzer.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="setup-eventlog-analyzer.html"> 安装产品 </a> » 前提条件</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>前提条件</h1>
+            <hr />
+            <ul>
+							<li><a href="#build8010">对于EventLog Analyzer版本8 构建号8010及以后的版本</a></li>
+							<li><a href="#build8000">对于EventLog Analyzer版本8 构建号8000及以前的版本</a></li>
+			</ul>
+			<p><a name="build8010" id="build8010"></a></p>
+            <p><strong>对于EventLog Analyzer版本8 构建号8010及以后的版本</strong>            </p>
+            <p>在您的网络环境中运行EventLog Analyzer之前，请浏览以下信息：</p>
+            <ul>
+              <li><a href="#defaultPorts" title="EventLog Analyzer使用的端口">EventLog Analyzer使用的端口</a></li>
+              <li><a href="#change" title="怎样修改EventLog Analyzer使用的默认端口">怎样修改EventLog Analyzer使用的默认端口</a></li>
+              <li><a href="#postgresPermissionTroubleshoot">访问PostgreSQL执行故障检测的权限</a></li>
+            </ul>
+            <h3><a name="defaultPorts" id="defaultPorts"></a></h3>
+            <h3>EventLog Analyzer使用的端口</h3>
+            <p>EventLog Analyzer需要使用下面端口来运行web服务器和PostgreSQL、监听syslog：</p>
+            <table border="1" cellspacing="0" cellpadding="0" width="99%">
+              <tr>
+                <td width="10%"><p align="center"><strong>端口号</strong></p></td>
+                <td width="14%"><p align="center"><strong>端口用途</strong></p>
+				</td>
+                <td width="76%"><p align="center"><strong>描述</strong></p></td>
+              </tr>
+              <tr>
+                <td width="10%"><p align="center">8400</p></td>
+                <td width="14%">Web服务器端口</td>
+                <td width="76%"><p>这是EventLog Analyzer默认的web服务器端口，它用于通过web浏览器访问EventLog Analyzer。您可以在安装时<a href="#changewebserverport">更改这个端口</a>。</p></td>
+              </tr>
+              <tr>
+                <td width="10%"><p align="center">513、514</p></td>
+                <td width="14%">Syslog端口</td>
+                <td width="76%"><p>这些是默认的Syslog监听端口，请确保已<a href="../getting-started/adding-host.html">配置主机</a>向这些端口发送syslog。 </p></td>
+              </tr>
+              <tr>
+                <td width="10%"><p align="center">33335</p></td>
+                <td width="14%">PostgreSQL/MySQL 数据库端口</td>
+                <td width="76%"><p>这是EventLog Analyzer连接数据库使用的端口。</p></td>
+              </tr>
+            </table>
+            <p>EventLog Analyzer使用以下WMI、RPC和DCOM端口：&nbsp;</p>
+            <table border="1" cellspacing="0" cellpadding="0" width="99%">
+              <tr>
+                <td width="10%"><p align="center"><strong>端口号</strong></p></td>
+                <td width="14%"><p align="center"><strong>端口用途</strong></p></td>
+                <td width="76%"><p align="center"><strong>描述</strong></p></td>
+              </tr>
+              <tr>
+                <td width="10%"><p align="center">135、445、139</p></td>
+                <td width="14%">WMI、DCOM、RPC - 流量流入端口</td>
+                <td width="76%"><p>流量流入端口 - Windows服务DCOM、WMI、RPC将会使用这些端口，而EventLog Analyzer需要通过这些服务来从Windows主机收集日志（默认模式-事件日志模式）。</p></td>
+              </tr>
+              <tr>
+                <td width="10%"><p align="center">1024-65534</p></td>
+                <td width="14%">WMI、DCOM、RPC - 流量流出端口</td>
+                <td width="76%"><p>流量流出端口 - DCOM的回呼机制需要使用1024-65534之间的随机端口，因此请打开大于1024的端口</p></td>
+              </tr>
+            </table>
+            <p>EventLog Analyzer使用下面的端口来来代理进行UDP通信：</p>
+            <table border="1" cellspacing="0" cellpadding="0" width="99%">
+              <tr>
+                <td width="10%"><p align="center"><strong>端口号</strong></p></td>
+                <td width="14%"><p align="center"><strong>端口用途</strong></p></td>
+                <td width="76%"><p align="center"><strong>描述</strong></p></td>
+              </tr>
+              <tr>
+                <td width="10%"><p align="center">5000、5001</p></td>
+                <td width="14%">Eventlog Analyzer代理到服务器通信接口</td>
+                <td width="76%"><p>EventLog Analyzer使用这些端口和代理服务器进行内部通信。确保这些端口没有被其他程序占用，这些端口不需要在防火墙中打开。</p></td>
+              </tr>
+            </table>
+            <p><strong>对于IBM AS/400</strong></p>
+            <table border="1" cellspacing="0" cellpadding="0" width="99%">
+              <tr>
+                <td width="24%"><p align="center"><strong>端口号</strong></p></td>
+                <td width="76%"><p align="center"><strong>端口用途</strong></p></td>
+              </tr>
+              <tr>
+                <td width="24%"><p align="center">446-449、8470-8476、9470-9476</p></td>
+                <td width="76%"><p>保证这些端口打开以访问IBM AS/400机器。</p></td>
+              </tr>
+            </table>
+            <h3>&nbsp;</h3>
+            <h3>&nbsp;</h3>
+<h3><a name="change" id="change"></a>怎样修改EventLog Analyzer使用的默认端口</h3>
+<p><strong><a name="changewebserverport0" id="changewebserverport0"></a>更改默认web服务器端口的方法：</strong></p>
+            <ul>
+              <li>编辑<em>&lt;EventLog Analyzer Home&gt;/conf</em>目录下的<strong>server.xml</strong>文件。</li>
+            </ul>
+            <table width="93%" border="1" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td><p><font face="Courier New, Courier, monospace">&lt;Connector acceptCount=&quot;100&quot; connectionTimeout=&quot;20000&quot; <br />
+                  </font><font face="Courier New, Courier, monospace">debug=&quot;3&quot; disableUploadTimeout=&quot;true&quot; enableLookups=&quot;false&quot; <br />
+                    maxSpareThreads=&quot;75&quot; maxThreads=&quot;150&quot; minSpareThreads=&quot;25&quot; <br />
+                    <strong>port=&quot;8400&quot;</strong> redirectPort=&quot;8443&quot;/&gt; </font></p></td>
+              </tr>
+            </table>
+            <ul>
+              <li>将端口修改为您需要的端口：<strong>port=&quot;8400&quot;</strong></li>
+              <li>保存文件，重启服务器。</li>
+            </ul>
+            <p><strong>更改默认监听syslog的UDP端口的方法：</strong></p>
+            <p>默认情况下，EventLog Analyzer监听<strong>UDP</strong>的<strong>513</strong>和<strong>514</strong>端口来收集syslog。</p>
+            <ul>
+              <li>关闭EventLog Analyzer服务。</li>
+              <li>编辑<em>&lt;EventLog  Analyzer主目录&gt;\bin</em>中的<strong>runsec.bat</strong>文件。</li>
+              <li>在&quot;bin\SysEvtCol.exe  -loglevel 2 -port 513 514&quot;行中添加新的端口，删除不使用的端口。例如，你不再使用<strong>514</strong>端口，那么编辑后应该是&quot;bin\SysEvtCol.exe  -loglevel 2 -port 513&quot;。</li>
+              <li>如果你不要使用任意的默认监听端口，删除该行中的“-port”参数。</li>
+              <li>保存对<strong>runsec.bat</strong>文件的更改后重新启动EventLog Analyzer服务。</li>
+            </ul>
+            <strong>更改PostgreSQL默认端口的方法：</strong><ul>
+              <li>编辑<em>&lt;EventLog Analyzer Home&gt;\conf</em>目录下的<strong>database_params.conf</strong>文件。</li>
+              <li>将以下行中的端口号修改为您需要的端口号：<br />
+                url=jdbc:postgresql://localhost:<strong>33335</strong>/eventlog?stringtype=unspecified </li>
+              <li>保存文件，重启服务器。</li>
+            </ul>
+            <p><strong></strong><a name="postgresPermissionTroubleshoot" id="postgresPermissionTroubleshoot"></a></p>
+            <p><strong>访问PostgreSQL执行故障检测的权限</strong></p>
+            <ul>
+              <li>打开<em>&lt;EventLog Analyzer Home&gt;\pgsql\data</em>目录下的<strong>pg_hba.conf</strong>文件，添加以下行</li>
+            </ul>
+            <blockquote>
+              <p><strong>host all all &lt;用来检测故障的远程主机的IP地址&gt;/32 trust </strong>              </p>
+              <p>在以下行后，添加以上行</p>
+              <p><strong>host    all             all 127.0.0.1/32 trust</strong>              </p>
+              <p>保存文件，示例如下：</p>
+            </blockquote>
+            <ul>
+              <table width="90%" border="1" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="96%" height="39" class="Code"><p># TYPE  DATABASE        USER            ADDRESS                 METHOD</p>
+                    <p># IPv4 local connections:<br />
+                    </p>
+                    <p> <strong>host    all             all 127.0.0.1/32 trust</strong><br />
+                    </p>
+                    <p># IPv6 local connections:<br />
+                    </p>
+                    <p>host    all             all ::1/128 trust</p>
+                    <p>修改为：</p>
+                    <p># TYPE  DATABASE        USER            ADDRESS                 METHOD</p>
+                    <p># IPv4 local connections:<br />
+                    </p>
+                    <p><strong>host    all             all 127.0.0.1/32 trust</strong></p>
+                    <p><strong>host all all &lt;用来检测故障的远程主机的IP地址&gt;/32 trust</strong><br />
+                    </p>
+                    <p># IPv6 local connections:<br />
+                    </p>
+                    <p>host    all             all ::1/128 trust</p>
+                    <p></p></td>
+                </tr>
+              </table>
+              <p>&nbsp;</p>
+            </ul>
+            <p><a name="build8000" id="build8000"></a></p>
+            <p><strong>对于EventLog Analyzer版本8 构建号8000及以前的版本</strong></p>
+            <ul>
+              <li>上面所述的<a href="#defaultPorts">默认端口</a></li>
+              <li><a href="#change8000">更改默认端口</a></li>
+            </ul>
+            <p>&nbsp;</p>
+            <h2><a name="change8000" id="change8000"></a>更改默认端口</h2>
+            <p></p>
+            <strong>更改默认MySQL端口的方法：</strong><ul>
+              <li>打开<em>&lt;EventLog Analyzer主目录&gt;/server/default/deploy</em>中的<strong>mysql-ds.xml</strong>文件。</li>
+              <li>更新下面行中的端口号:<br />
+                &lt;connection-url&gt;jdbc:mysql://localhost:33335/eventlog&lt;/connection-url&gt; </li>
+              <li>保存该文件后重新启动服务器。</li>
+            </ul>
+<p><strong>更改默认web服务器端口的方法：</strong></p>
+            <ul>
+              <li>编辑<em>&lt;EventLog  Analyzer主目录&gt;/server/default/conf</em>中的<strong>sample-bindings.xml</strong>文件。</li>
+              <li>在下面行中更改你需要的端口号：<br />
+                &lt;binding port=&quot;8400&quot;/&gt;</li>
+              <li>保存该文件后重新启动服务器。</li>
+            </ul>
+<p>&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../installation/install-eventlog-analyzer.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../installation/start-eventlog-analyzer.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

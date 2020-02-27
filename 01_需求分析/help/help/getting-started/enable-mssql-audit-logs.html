@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Get the Files and Folder Changes - EventLog Analyzer</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../getting-started/configure-aws-instance-monitoring.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../getting-started/enable-ibm-as-400-audit-logs.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="100%"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+              <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="get-the-log-data.html">获取日志数据</a> » 如何启用MS SQL审计日志</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>如何启用MS SQL审计日志</h1>
+            <hr />
+            <p data-textformat="{'fw':'none','type':'text'}">使用EventLog Analyzer分析MS SQL日志，你需要先启用MS SQL服务器中的审计。</p>
+            <p data-textformat="{'fw':'none','type':'text'}">启用MS SQL服务器中的审计，需要：</p>
+            <ol>
+              <li>
+                <p><a href="#SQL_Server_Audit_Object">创建一个SQL服务器审计对象</a>用于审计</p>
+              </li>
+              <li>
+                <p><a href="#Server_Level_Audit_Specification">创建一个服务器审计规范</a></p>
+              </li>
+              <li>
+                <p><a href="#Enabling_Audit_object">启用审计对象</a></p>
+              </li>
+            </ol>
+            <p>一旦SQL服务器审计对象和服务器审计规范被创建并配置，EventLog Analyzer将开始收集分析MSSQL审计应用日志文件。</p>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" style="padding:5px"><span class="alertimg"></span></td>
+                <td width="95%" style="padding:10px">MS SQL审计日志文件仅支持MS SQL<strong>企业</strong>和<strong>数据中心</strong>版本。</td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><span class="notesimg"></span></td>
+                <td width="95%" style="padding:10px"><strong>注意</strong>: 确保MS SQL服务器作为主机加入到了EventLog Analyzer服务器。如果没有，<a href="adding-host.html">点击这里</a>添加主机。</td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+            <h2><a name="SQL_Server_Audit_Object" id="SQL_Server_Audit_Object"></a>创建一个SQL服务器审计对象</h2>
+            <p>进入MS SQL服务器管理工作室<strong>对象管理器的</strong>，创建一个SQL服务器审计对象：</p>
+            
+                                      <p align="center"></p>
+                                   
+                  <ul>
+                    <li>
+                      <p>在对象管理器中，依次选择<strong>安全</strong>以及安全节点<strong>审计</strong></p>
+                    </li>
+                    <li>
+                      <p>右击<strong>审计</strong>并选择<strong>新建审计</strong>打开<strong>创建新审计</strong>页面。<br />
+                      </p>
+                     
+                                <p align="center"><br />
+                                </p>
+                              
+                    </li>
+                  </ul>
+                  <ol>
+                    <li>
+                      <p>在<strong>审计名称</strong>内指定审计对象的名称。</p>
+                    </li>
+                    <li>                      在<strong>审计目标</strong>内选择<strong>应用日志</strong>类型                    </li>
+                  </ol>
+                  <p>点击是接受其他默认设置并保存新的审计规范。</p>
+               
+            <h2><strong><a name="Server_Level_Audit_Specification" id="Server_Level_Audit_Specification"></a>创建一个服务器审计规范</strong></h2>
+            <p>在对象管理器中，右击<strong>服务器审计规范</strong>并点击<strong>新建服务器审计规范</strong>打开<strong>创建服务器审计规范窗口</strong>。</p>
+           
+                              <p align="center"></p>
+                           
+                  <ol>
+                    <li>
+                      <p>在<strong>名称</strong>内指定服务器审计的名称。</p>
+                    </li>
+                    <li>
+                      <p>从<strong>审计</strong>下拉菜单中选择审计对象。</p>
+                    </li>
+                    <li>
+                      <p>在<strong>动作</strong>面板，从列表中选择<strong>审计动作类型</strong>。</p>
+                    </li>
+                  </ol>
+                  <blockquote>
+                    <ol>
+                      <ul>
+                        <li>FAILED_LOGIN_GROUP                            </li>
+                        <li>SUCCESSFUL_LOGIN_GROUP                            </li>
+                        <li>DATABASE_OBJECT_CHANGE_GROUP                            </li>
+                        <li>DATABASE_PRINCIPAL_CHANGE_GROUP                            </li>
+                        <li>SCHEMA_OBJECT_CHANGE_GROUP                            </li>
+                        <li>SERVER_PRINCIPAL_CHANGE_GROUP                            </li>
+                        <li>LOGIN_CHANGE_PASSWORD_GROUP                            </li>
+                        <li>SERVER_STATE_CHANGE_GROUP                            </li>
+                      </ul>
+                    </ol>
+                    <p>点击<strong>是</strong>保存服务器审计规范。</p>
+                  </blockquote>
+                </blockquote>
+              </blockquote>
+            </blockquote>
+            <h2><strong><a name="Enabling_Audit_object" id="Enabling_Audit_object"></a>启用审计对象</strong></h2>
+            <p data-textformat="{'fw':'none','type':'text'}">现在启用创建的审计对象，在<strong>对象管理器</strong>中点击<strong>审计</strong>，右击创建的审计对象，然后点击<strong>启动审计</strong>。审计将启动，
+              EventLog Analyzer将从作为主机加入到EventLog　Analyzer服务器的MS SQL服务器收集日志文件。     </p>         
+            <p>&nbsp;</p>
+            &nbsp;            </td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../getting-started/configure-aws-instance-monitoring.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../getting-started/enable-ibm-as-400-audit-logs.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016, <a href="http://www.zohocorp.com" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"<a href="http://www.manageengine.com" target=_blank>ManageEngine</div></div> </body>
+</html>

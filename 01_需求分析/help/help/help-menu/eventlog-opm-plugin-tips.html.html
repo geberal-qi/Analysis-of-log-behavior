@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer Support - Frequently Asked Questions</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+   	  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="help-intro.html" title="Help">帮助</a> &gt; EventLog Analyzer - OpManager插件</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td height="386" valign="top"><h1><a name="faq" id="faq"></a>EventLog Analyzer - OpManager插件</h1>
+            <hr />
+            <h2>安装EventLog Analyzer插件</h2>
+            <h4>&nbsp;</h4>
+            <h4>Windows和Linux的安装</h4>
+            <h2></h2>
+            <ol>
+              <li>
+                <p>在安装EventLog Analyzer时，停止OpManager服务。</p>
+                <p>安装完成后，启动OpManager服务时，EventLog Analyzer服务将自动启动。</p>
+              </li>
+              <li>
+                <p>安装EventLog Analyzer插件的时候建议不要更改其默认的安装路径。默认情况下，EventLog Analyzer与Opmanager的安装目录相同(<strong>默认路径:</strong> ManageEngine_EventLogAnalyzer_Plugin.exe\bin)。以防万一，如果你移动了Opmanager的安装目录到一个不同的目录中，那么需提供改变后的路径作为EventLog Analyzer插件的安装路径。</p>
+              linux的安装，你需要提供Opmanager的安装路径(<strong>默认路径:</strong>/opt/ManageEngine/OpManager)</li>
+            </ol>
+            <p align ="center" class="notes"><strong>注意：</strong>无论是Windows还是linux的安装，<strong>都不要改变EventLog Analyzer插件的安装目录</strong></p>
+            <ol start="3">
+              <li>
+                <p>一旦安装了EventLog Analyzer插件，你需要确保数据库的工作。查看<strong>&lt;OpManager_Home&gt;\Eventlog</strong>目录下的<strong>elaPluginDB.log </strong>文件。 </p>
+              </li>
+              <li>
+                <p>如果数据库安装结果是失败,你需要重新创建数据库，以管理员的身份在命令行中运行<strong>&lt;OpManager_Home&gt;\Eventlog\Troubleshooting\DBRecreation.bat/sh &lt;database name&gt; </strong>。</p>
+              </li>
+            </ol>
+            <p class="notes"><strong>注意：</strong>提供数据库名称作为命令的参数。例如,在命令中运行<strong>'DBRecreation.bat eventlog'</strong>，其中'eventlog' 就是数据库名。 <br />
+            </p>
+            <blockquote>
+              <p>重新创建数据库后，再次查看<strong>elaPluginDB.log</strong>文件确保数据库工作。如果数据库创建成功,然后启动OpManager服务。</p>
+            </blockquote>
+            <h3>配置</h3>
+            <ol start="5">
+              <li>
+                <p>OpManager服务器配置的<strong>“邮件服务器设置”</strong>将重新分配给EventLog Analyzer的电子邮件通知报表。这里没有单独配置EventLog Analyzer插件的邮件服务器设置。<br />
+                </p>
+              </li>
+              <li>
+                <p>一旦EventLog Analyzer服务器启动,它会自动同步OpManager用户。检查OpManager用户是否同步到EventLog Analyzer插件,点击</p>
+              </li>
+            </ol>
+            <p align="center"><strong>日志分析 &gt; 设置 &gt; 所有用户 </strong></p>
+            <blockquote>
+              <p align="left">如果用户没有自动同步，点击<strong>OpManager管理标签 &gt;同步EventLog</strong>来手动同步Opmanager和EventLog Analyzer插件的用户。</p>
+            </blockquote>
+            <ol start="7">
+              <li>
+                <p>检查EventLog Analyzer插件的许可状态,使用<strong>OpManager管理变强</strong>下的<strong>许可证管理选项</strong>。</p>
+              </li>
+              <li>
+                <p>安装OpManager之后，如果你改变Opmanager的HTTP协议为HTTPS协议，那么按照以下操作确保EventLog Analyzer插件的安全通信:</p>
+                <blockquote>
+                  <p align="left">i.进入<strong> &lt;OpManager_Home&gt;\EventLog\i18nScript</strong>，打开文件 <strong>server.xml</strong>并定位以下条目</p>
+                </blockquote>
+              </li>
+            </ol>
+            <blockquote>
+              <p align="left" class="notes"><strong>&lt;Connector port=&quot;8400&quot; SSLEnabled=&quot;true&quot; acceptCount=&quot;100&quot; address=&quot;0.0.0.0&quot; clientAuth=&quot;false&quot; compressableMimeType=&quot;text/html,text/xml&quot; compression=&quot;force&quot; compressionMinSize=&quot;1024&quot; connectionTimeout=&quot;20000&quot; disableUploadTimeout=&quot;true&quot; enableLookups=&quot;false&quot; keystoreFile=&quot;&lt;OpManager keystore file location&gt;&quot; keystorePass=&quot;&lt;password&gt;&quot; maxSpareThreads=&quot;75&quot; maxThreads=&quot;150&quot; minSpareThreads=&quot;25&quot; noCompressionUserAgents=&quot;gozilla, traviata&quot; protocol=&quot;HTTP/1.1&quot; scheme=&quot;https&quot; secure=&quot;true&quot; sslProtocol=&quot;TLS&quot; URIEncoding=&quot;UTF-8&quot;/&gt;</strong></p>
+              <blockquote>
+                <p align="left">ii. 提供OpManager keystore文件的位置和密码：<strong> 'keystoreFile' </strong>和<strong>'keystorePass'</strong></p>
+              </blockquote>
+              <p align="left" class="notes"><strong>Note:</strong> For example, in below line,<br />
+                &lt;Connector port=&quot;8400&quot; SSLEnabled=&quot;true&quot; acceptCount=&quot;100&quot; address=&quot;0.0.0.0&quot; clientAuth=&quot;false&quot; compressableMimeType=&quot;text/html,text/xml&quot; compression=&quot;force&quot; compressionMinSize=&quot;1024&quot; connectionTimeout=&quot;20000&quot; disableUploadTimeout=&quot;true&quot; enableLookups=&quot;false&quot; keystoreFile=&quot;D:/ManageEngine_OP/OpManager_latest/conf/OPMTrans.key&quot; keystorePass=&quot;opmanager&quot; maxSpareThreads=&quot;75&quot; maxThreads=&quot;150&quot; minSpareThreads=&quot;25&quot; noCompressionUserAgents=&quot;gozilla, traviata&quot; protocol=&quot;HTTP/1.1&quot; scheme=&quot;https&quot; secure=&quot;true&quot; sslProtocol=&quot;TLS&quot; URIEncoding=&quot;UTF-8&quot;/&gt;<br />
+                <br />
+                在上面的实例中, <strong>'D:/ManageEngine_OP/OpManager_latest/conf/OPMTrans.key'</strong> 是keystoreFile文件并且<strong>'opmanager'</strong>是密码</p>
+            </blockquote>
+            <ol start="9">
+              <li>如果EventLog Analyzerweb服务器端口连接是不可信的，那么你需要提供浏览器<strong>工具选项</strong>处理异常。</li>
+            </ol>
+            <blockquote>
+              <p align="left">下面是EventLog Analyzer Firefox浏览器的web服务端口"添加安全异常"的截图。在相应的web浏览器上执行<strong>添加安全异常</strong>操作。</p>
+            </blockquote>
+            <p align="center"></p>
+            <blockquote>
+              <p>EventLog Analyzer的web服务器端口号事件日志在<strong>&lt;EventLog Analyzer_Home&gt;/conf </strong>下的<strong>server.xml </strong>文件中。</p>
+            </blockquote>
+            <ol start="10">
+              <li>
+                <p>EventLog Analyzer使用OpManager的数据库存储日志数据。如果你改变了OpManager安装数据库位置,那么你需要执行以下程序手动迁移EventLog Analyzer的数据库。</p>
+              </li>
+            </ol>
+            <blockquote>
+              <p>在命令行中执行以下文件：</p>
+              <p><strong>'&lt;OpManager_Home&gt;\Eventlog\Troubleshooting'目录下的<strong>DBRecreation.bat/sh </strong>
+              	</strong>提供数据库名称作为参数上面的命令。例如，</p>
+              <p align="center"><strong>'DBRecreation.bat/sh eventlog'</strong></p>
+              <p align="left">其中'eventlog' 是数据库名称。</p>
+            </blockquote>
+            <ol start="11">
+              <li>
+                <p>迁移之前你必须把数据库备份数据库。按照以下操作备份你的数据库：</p>
+                <ul>
+                  <li>
+                    <p>以管理员身份运行命令提示符。 进入<strong>&lt;EventLog Analyzer_Home&gt;/tools/backUpDatabase.bat/sh</strong>备份当前的数据库并等待备份完成。</p>
+                  </li>
+                  <li>默认情况下，备份文件存储在<strong>&lt;EventLog Analyzer_Home&gt;/backup </strong>目录下，名称为 <strong>'backup_eventlog_&lt;Build_Number&gt;_MM_DD_YYYY_hh_mm.data'</strong></li>
+                </ul>
+              </li>
+              <li>如果你是迁移到MS SQL数据库,那么您需要从MS SQL服务器安装目录<strong>&lt;EventLog Analyzer_Home&gt;/mysqlbin </strong>文件夹下复制<strong>bcp.exe</strong>和<strong> bcp.rll</strong>文件</li>
+            </ol>
+            <p align="left" class="notes"><strong>注意：</strong> 如果你是从SQL（版本2005及以上）服务器中复制上述文件并且EventLog Analyzer 安装在另一台机器上，那么你需要按照每个SQL版本和EventLog Analyzer机器CPU类型来安装SQL本地客户端。</p>
+            <blockquote>
+              <blockquote>
+                <blockquote>
+                  <blockquote>
+                    <blockquote>
+                      <p align="left"><strong>MSSQL 2005 (32 bit)</strong><br />
+                        <a href="http://download.microsoft.com/download/4/4/d/44dbde61-b385-4fc2-a67d-48053b8f9fad/sqlncli.msi">http://download.microsoft.com/download/4/4/d/44dbde61-b385-4fc2-a67d-48053b8f9fad/sqlncli.msi</a><br />
+                        <strong>MSSQL 2005 (64 bit)</strong><br />
+                        <a href="http://download.microsoft.com/download/4/4/d/44dbde61-b385-4fc2-a67d-48053b8f9fad/sqlncli_x64.msi">http://download.microsoft.com/download/4/4/d/44dbde61-b385-4fc2-a67d-48053b8f9fad/sqlncli_x64.msi</a><br />
+                        <strong>MSSQL 2008 (32 bit)</strong><br />
+                        <a href="http://go.microsoft.com/fwlink/?LinkId=123717&amp;clcid=0x409">http://go.microsoft.com/fwlink/?LinkId=123717&amp;clcid=0x409</a><br />
+                        <strong>MSSQL 2008 (64 bit)</strong><br />
+                        <a href="http://go.microsoft.com/fwlink/?LinkId=123718&amp;clcid=0x409">http://go.microsoft.com/fwlink/?LinkId=123718&amp;clcid=0x409</a><br />
+                      </p>
+                    </blockquote>
+                  </blockquote>
+                </blockquote>
+              </blockquote>
+            </blockquote>
+            <br />
+            <ol start="13">
+              <li>默认情况下，EventLog Analyzer同步OpManager监视的所有Windows主机。监视特定的Opmanager主机：</li>
+            </ol>
+            <blockquote>
+              <p>i.设置<strong>日志分析设置 &gt; ELA配置</strong>下<strong>同步OpManager主机 </strong>选项为<strong>'False'</strong></p>
+              <p align ="center"><strong></strong></p>
+              <p align ="left">ii.从<strong>日志分析设置 &gt; 管理者主机 &gt;添加 &gt; OPM主机</strong>选项中选择想要添加到EventLog Analyzer插件的Opmanager主机。</p>
+              <p align ="center"></p>
+            </blockquote>
+            <ol start="14">
+              <li>如果你想监视syslog设备，那么需要在<a href="../getting-started/adding-host.html">添加主机</a>中选择syslog设备。</li>
+            </ol>
+            <p align="center"><span class="notes"><strong>注意：</strong>您需要提供OpManager服务器的IP地址的设备来发送syslog</span></p>
+            <blockquote>
+              <p align="left">EventLog Analyzer的syslog直通端口号是519。因此,配置设备通过这个端口发送syslog。如果端口被占用，你可以执行以下程序来改变syslog的默认UDP端口：</p>
+              <blockquote>
+                <ol type="i">
+                  <li>
+                    <p>停止EventLog Analyzer服务</p>
+                  </li>
+                  <li>
+                    <p>编辑<strong>&lt;EventLog Analyzer_Home&gt;/bin</strong>文件夹下的<strong>runsec.bat/sh</strong>文件。</p>
+                  </li>
+                  <li>
+                    <p>编辑(在notepad中)<strong>&quot;binSysEvtCol.exe -loglevel 2 -port 519&quot;</strong>，改变默认端口并删除不需要的端口。例如,如果您不希望默认端口为519,编辑如下所示:</p>
+                  </li>
+                  <li>
+                    <p><strong align="left">&quot;binSysEvtCol.exe -loglevel 2 -port 520&quot;</strong> -                改变520为你所想要的端口</p>
+                  </li>
+                  <li>
+                    <p> 在某些情况下,您不希望任何缺省端口监听Syslog,删除上面的&quot;-port&quot;行</p>
+                  </li>
+                  <li>
+                    <p>保存 <strong>runsec.bat/sh</strong>之后，重新启动EventLog Analyzer服务/服务器使变更生效。<br />
+                    </p>
+                  </li>
+                </ol>
+              </blockquote>
+            </blockquote>
+            <p class="notes"><strong>注意：</strong>OpManager接收syslog的默认UDP端口是514。<strong>Syslog服务器</strong>选项 (<strong>管理 &gt; Syslog规则</strong> <strong>&gt;</strong>选择者<strong>动作下拉 &gt; </strong>选择<strong>Syslog服务器) </strong>帮助你检测OpManager是否有收到syslog       </p>
+          <tr>
+          
+                 
+      </table>
+      </td>
+  </tr>
+  <tr>
+
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016, <a href="http://www.zohocorp.com" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"<a href="http://www.manageengine.com" target=_blank>ManageEngine</div></div> </body>
+</html>

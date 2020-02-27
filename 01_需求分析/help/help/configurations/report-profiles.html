@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer - Configurations - Report Profiles</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../configurations/archive-logs.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../configurations/alerts.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="configurations-intro.html" title="Configurations">配置</a> &gt; 报表配置文件</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>报表配置文件</h1>
+            <hr />
+            <p>在使用EventLog Analyzer生成事件报表，您需要首先创建一个报表配置文件，要创建报表配置文件，可通过以下菜单实现：</p>
+            <ul>
+              <li><strong>设置</strong>页签 &gt; <strong>报表配置文件</strong> &gt; 
+				<strong>添加</strong></li>
+            </ul>
+            <p>要创建报表配置文件，请参阅“怎样创建自定义报表”部分的步骤。</p>
+            <p><strong>怎样编辑报表配置文件？</strong><br />
+              编辑/删除菜单将会将您到到<strong>我的报表</strong>明细页面，在这里您可以查看所有创建的报表配置文件，每个报表配置文件都有它对应的编辑图标。</p>
+            <p align="center"><img src="../images/edit-delete-report.png"  alt="Edit Delete Report Profile" /></p>
+            <ol start="3">
+              <li>点击编辑图标即可编辑选择的报表配置文件。</li>
+            </ol>
+            <p align="center"> </p>
+            <p><strong>怎样删除报表配置文件？</strong></p>
+            <ol start="1">
+              <li>
+                <p>选择要删除的报表配置文件对应的复选框。</p>
+              </li>
+              <li>
+                <p>点击删除菜单链接即可删除所选的配置文件。</p>
+              </li>
+            </ol>
+            <p><strong>我的报表</strong><br />
+            在我的报表页面，您可以查看报表配置文件的名称、指派的主机、上次计划报表生成的时间、指派的计划信息，您还可以执行为配置文件添加新计划操作。</p>
+            <p><a name="schedule" id="schedule"></a></p>
+            <h2>计划</h2>
+            <p>
+			当创建了一个报表配置文件后，您可以为此报表配置文件配置周期性自动生成并分发。您可以选择“只一次”，报表配置文件将创建为无计划模式，您可以在之后为其设置一个计划。如果已经为配置配置文件设置了计划，那么新设置的计划将会替代之前的计划。</p>
+            <p>要为报表配置文件创建计划，可通过以下菜单实现：</p>
+            <ul>
+              <li><strong>设置</strong>页签 &gt; <strong>报表配置文件</strong> &gt; 计划：<strong>添加</strong></li>
+            </ul>
+            <p>要创建一个计划，请参阅下面的步骤：</p>
+            <p align="center"><img src="../images/add-new-schedule.png"  alt="Create Schedule" /> </p>
+
+            <ol>
+                <li>
+                  <p>输入计划的名称。</p>
+                </li>
+                <li>
+                  <p>选择计划要关联的报表配置文件。</p>
+                </li>
+                <li>
+                  <p>输入生成的报表要分发到的邮件地址。</p>
+                </li>
+                <li>
+                  <p>如果未配置邮件服务器，请先配置邮件服务器设置。</p>
+                </li>
+                <li>
+                  <p>选择报表生成的周期（每小时、没天、每周、每月或只一次）。</p>
+                </li>
+                <li>
+                  <p>设置第一次报表生成的日期和时间。</p>
+                </li>
+                <li>
+                  <p>选择要生成报表的时间段。</p>
+                </li>
+            </ol>
+            <p>&nbsp;</p>
+            <p><strong>怎样编辑计划？</strong></p>
+            <p align="center"><img src="../images/edit-delete-schedule.png"  alt="Edit, Delete Schedule" /></p>
+            <p>编辑/删除菜单将会将您带到计划页面，在这里您将会看到所有创建的计划。<br />
+              <strong>怎样禁用/启用计划？</strong></p>
+            <ul>
+              <li>使用启用/禁用图标来启用或禁用计划。</li>
+            </ul>
+            <p><strong>怎样编辑计划？</strong><br />
+              在每个计划行，都对应有一个编辑图标。</p>
+            <ul>
+              <li>点击编辑图标编辑对应的计划明细。</li>
+            </ul>
+            <p><strong>怎样删除计划？</strong></p>
+            <ul>
+              <li>点击删除图标即可删除对应的计划。</li>
+            </ul>
+            <p><strong>计划</strong><br />
+              在计划页面，您可以查看所有的计划明细，如计划的名称、关联的报表配置文件、计划的类型以及按每个计划生成的报表信息，还可以执行启用/禁用、编辑、删除操作。</p>
+            <p></p>
+<p>&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../configurations/archive-logs.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../configurations/alerts.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

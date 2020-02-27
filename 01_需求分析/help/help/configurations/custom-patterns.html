@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer - Configurations - Custom Log Parsing Patterns</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../configurations/export-import-profiles.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../configurations/file-monitoring.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="configurations-intro.html" title="Configurations">配置</a> &gt; 自定义模式</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>日志分析的自定义模式            </h1>
+            <hr />
+            <ul>
+              <li><a href="#editPattern" title="怎么编辑自定义模式？">怎么编辑自定义模式？</a></li>
+              <li><a href="#deletePattern" title="怎么删除自定义模式？">怎么删除自定义模式？</a></li>
+              <li><a href="#assignLogType" title="怎么将一种日志类型指派为另一种日志类型？">怎么将一种日志类型指派为另一种日志类型？</a></li>
+              <li><a href="#addOpenAttribute" title="怎么添加开放的属性？">怎么添加开放的属性？</a></li>
+              <li><a href="#editOpenAttribute" title="怎样编辑、删除开放的属性？">怎样编辑、删除开放的属性？</a></li>
+              <li><a href="#markIdentityRule" title="怎样将自定义模式标记为对应用户定义的日志类型的判断规则？">怎样将自定义模式标记为对应用户定义的日志类型的判断规则？</a></li>
+              <li><a href="#allPatterns" title="所有模式">所有模式</a></li>
+            </ul>
+            <p></p>
+<h2><strong><a name="editPattern" id="editPattern"></a>怎么编辑自定义模式？</strong></h2>
+            <p>点击编辑/删除菜单将会打开<strong>自定义模式的明细</strong>页面，这里将会显示出所有创建的模式。</p>
+            <p align="center"><img src="../images/edit-custom-pattern.png"  alt="Edit custom pattern" /></p>
+            <p>&nbsp;</p>
+            <p>当您将鼠标放置到字段名上时，编辑图标将会显示出来，您可以点击此图标编辑字段的名称。</p>
+            <ol>
+              <li>点击字段编辑图标编辑字段的名称。</li>
+            </ol>
+            <p>可以编辑日志类型的显示名称。</p>
+            <ol start="2">
+              <li>点击日志类型编辑图标来编辑日志类型的显示名称。</li>
+            </ol>
+            <p align="center"><img src="../images/edit-log-type-name.png"  alt="Edit Log Tpye Name" /></p>
+<h2><strong><a name="deletePattern" id="deletePattern"></a>怎么删除自定义模式？</strong></h2>
+<p align="center"><img src="../images/delete-custom-pattern.png"  alt="Delete custom pattern" /></p>
+            <p>              当您将鼠标放置到字段名或模式上时，删除图标将会显示出来。</p>
+            <ol>
+              <li>
+                <p>点击日志类型删除图标将会删除新的日志类型，删除日志类型会删除特定日志类型的解析规则。</p>
+              </li>
+              <li>
+                <p>点击字段删除图标将会删除新的字段。</p>
+              </li>
+              <li>
+                <p>点击模式删除图标将会删除新的模式。</p>
+              </li>
+            </ol>
+            <p align="left"></p>
+            <h2 align="left"><a name="assignLogType" id="assignLogType"></a>怎么将一种日志类型指派为另一种日志类型？</h2>
+            <p align="left">一种日志类型可以指派为另一种日志类型，这种情况下，将不会显示和应用真实日志类型的解析规则，这里将会显示和应用被指派的日志类型的解析规则。请参阅以下产品截图，了解如何指派日志类型：</p>
+            <p align="center"><img src="../images/assign-log-type-menu.png"  alt="Assign Log Type menu option" /></p>
+            <p align="center">&nbsp;</p>
+            <p align="center"><img src="../images/assign-log-type.png"  alt="Assign new log type to existing log type" /></p>
+            <h2><a name="addOpenAttribute" id="addOpenAttribute"></a>怎么添加开放的属性？</h2>
+            <p>如果没有为新的字段添加开放的属性，您可以在这里添加。请参阅以下产品截图，了解如何添加开放的属性：</p>
+            <p align="center"><img src="../images/add-open-attribute.png" alt="Add Open Attribute" /></p>
+            <h2 align="left"><a name="editOpenAttribute" id="addOpenAttribute2"></a>怎样编辑、删除开放的属性？</h2>
+            <p align="center"><img src="../images/edit-delete-open-attribute.png"  alt="Edit, Delete Open Attribute" /></p>
+            <h2>&nbsp;</h2>
+<h2><strong><a name="markIdentityRule" id="markIdentityRule"></a>怎样将自定义模式标记为对应用户定义的日志类型的判断规则？</strong></h2>
+            <p align="center"><strong><img src="../images/mark-identity-pattern.png"  alt="Mark custom pattern as identity rule for the respective user defined log type" /></strong></p>
+            <p align="left">
+			自定义模式（解析规则）可以标记或取消标记为用户自定义日志类型的判断规则，您可以为指定用户定义的日志类型标记多个自定义模式。如果这里没有为用户定义的日志类型定义判断模式，那么消息“此日志类型无可用的判断规则，请标记至少一个模式作为判断条件”将会显示在自定义模式的明细页面。如果您将鼠标防止在模式字段上，菜单选项将会显示出来，您执行标记为判断规则或删除操作。</p>
+<h2><strong><a name="allPatterns" id="allPatterns"></a>所有模式</strong></h2>
+            <p>
+			在自定义模式的明细页面，所有创建的模式将会显示出来。这里您可以看到模式所属的日志类型，应用模式需匹配的条件，字段名称及其编辑和删除选项，以及模式的删除选项。</p>            <p>&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../configurations/export-import-profiles.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../configurations/file-monitoring.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

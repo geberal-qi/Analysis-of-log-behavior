@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer - View Top Hosts Reports</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="eventlog-reports-intro.html"> 事件报表</a> » 排行和趋势报表</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>排行和趋势报表</h1>
+            <hr />
+            <p>使用下列菜单选项查看主机排行报表：</p>
+            <ul>
+              <li><strong>报表</strong>&gt; <strong>排行和趋势</strong></li>
+            </ul>
+<p><strong>排行和趋势报表</strong>栏在<strong>报表</strong>标签下，列表有：主机排行、用户排行、生成重要事件的进程排行。你可以点击<strong> 查看全部</strong>，在一个单独的页面查看该栏中的全部报表。</p>
+<p><a href="#top_n_reports"><strong>报表名</strong></a></p>
+            <ul>
+              <li><a href="#host_user_access" title="Top Hosts by User Access"> 主机排行 - 用户访问</a></li>
+              <li><a href="#user_login" title="Top Users by Login">用户排行 - 登录</a></li>
+              <li><a href="#interactive_login" title="Top Interactive Login"> 交互登录排行</a></li>
+              <li><a href="#host_event_severity" title="Top Hosts by Event Severity">主机排行 - 事件的重要度</a></li>
+              <li><a href="#process_event_severity" title="Top Processes by Event Severity">进程排行 - 事件的重要度</a></li>
+            </ul>
+            <p><strong><a href="#trend_reports">趋势报表</a></strong></p>
+            <p>趋势报表帮你分析一段时间内主机基于特定的性能指标。趋势监测有助于历史分析你的网络Windows和UNIX主机的性能。  </p>
+            <p>您可以根据事件严重程度、事件类型或警报触发监视在主机生成的事件的趋势。EventLog Analyzer所有的趋势报表都会显示当前的趋势并与历史趋势做比较。趋势报表可定为：每小时(时间分成一小时)和每周(时间分成一天)。同时还可以查看可用工作时间,非工作时间,完成时间趋势报表。</p>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><span class="notesimg"></span></td>
+                <td width="95%" style="padding:10px"><strong>注意</strong>: 查阅'<a href="../system-settings/working-hour-settings.html" title="Configure Working Hours">配置工作时间</a>'了解更多关于配置工作小时的情况。</td>
+              </tr>
+            </table>
+            <p>在每一个图，点击<strong>显示明细</strong>链接显示对应图的表格数据。</p>
+            <ul>
+              <li><a href="#event_severity_trend" title="Event Severity Trend Reports">不同重要度的事件趋势</a></li>
+              <li><a href="#event_category_trend" title="Event Type/Category Trend Reports"> 不同分类的事件趋势</a></li>
+              <li><a href="#alert_trend" title="Alerts Trend Reports">告警的趋势</a></li>
+            </ul>
+<p>&nbsp;</p>
+            <h2><a name="top_n_reports" id="top_n_reports"></a>报表名</h2>
+<p><a name="host_user_access" id="host_user_access"></a></p>
+            <h3> 主机排行 - 用户访问</h3>
+            <p> 查看尝试登录成功，登录失败最多的主机 </p>
+            <p align="center"></p>
+            <p>前者是旨在跟踪主机的使用趋势,后者是重要的在分析哪些主机受到安全漏洞的最多。 </p>
+            <p>对某些主机您可以使用此报表决定是否安全策略需要改变,或通过网络加强安全措施。</p>
+<p><a name="user_login" id="user_login"></a> </p>
+            <h3>用户排行 - 登录</h3>
+            <p>查看尝试登录成功，登录失败最多的用户 </p>
+            <p align="center"></p>
+            <p>这份报表告诉你哪个用户登录到主机,使用密码和用户是否成功。如果用户已经访问几个主机的用户名和密码,这个报表将告诉你哪些主机被使用。如果用户试图登录,但是不成功,本报表将告诉你用户有多少次是不成功的,用户尝试哪些主机。           </p>
+<p>您可以使用此报表来识别网络上的用户,并设置安全策略来跟踪这些用户。</p>
+            <p><a name="interactive_login" id="interactive_login"></a> </p>
+            <h3> 交互登录排行</h3>
+            <p>在这份报表中,登录只有通过用户界面交互地完成。这份报表显示了用户成功登录的最大数量,以及用户提供最大数量的失败的登录尝试。这份报表告诉你哪个用户登录到主机,使用密码和用户是否成功。            </p>
+            <p align="center"></p>
+            <p>如果用户已经访问几个主机的用户名和密码,这个报表将告诉你哪些主机被使用。如果用户试图登录,但是不成功,本报表将告诉你多少次用户是不成功的,在哪些主机用户尝试过。            </p>
+            <p>您可以使用此报表来识别网络上的用户,并设置安全策略来跟踪这些用户。</p>
+            <p><a name="host_event_severity" id="host_event_severity"></a> </p>
+            <h3>主机排行 - 事件的重要度</h3>
+            <p>报表将收到的主机事件日志按严重程度分类，并显示每隔事件严重程度的排名值。报表中你可以一眼就看出那些主机产生的临界事件、警告时间等等更多。默认情况下，<strong>查看严重性</strong> 设置为 <strong>所有</strong>，可以查看主机上生成的所有事件的严重性。你可以查看生成事件数量更多的主机排名。     </p>
+            <p align="center"></p>
+            <p>您可以使用此报表的快速识别主机可能正存在这问题,从而加快故障排除过程。       </p>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><span class="notesimg"></span></td>
+                <td width="95%" style="padding:10px"><strong>注意</strong>:有些事件严重性仅仅适用于Unix主机</td>
+              </tr>
+            </table>
+            <h3>&nbsp;</h3>
+            <h3><a name="process_event_severity" id="process_event_severity"></a></h3>
+            <h3>进程排行 - 事件的重要度</h3>
+            <p>查看生成严重、警告事件最多的进程。默认情况下，<strong>查看严重性</strong> 设置为 <strong>所有</strong>，可以查看主机上生成的所有事件的严重性。你可以查看生成事件数量更多的主机排名。</p>
+            <p align="center"></p>
+<p>您可以使用此报表来识别过程的问题,调查可疑行为的关键主机,确定是否有网络蠕虫或病毒攻击,也看到哪些主机受到影响,从而减少网络停机时间。</p>
+            <p>&nbsp;</p>
+            <h2><a name="trend_reports" id="trend_reports"></a>趋势报表</h2>
+            <p><a name="event_severity_trend" id="event_severity_trend"></a></p>
+            <h3> 不同重要度的事件趋势</h3>
+            <p>这一趋势报表可以看到主机组已经生成的事件严重性。当前和历史趋势以每小时、每天显示。你可以在<strong>查看严重性</strong>的十个严重程度中选择，或者查看所有严重程度的趋势。</p>
+            <h3>&nbsp;</h3>
+            <h3>&nbsp;</h3>
+            <p align="center"></p>
+            <p>&nbsp;</p>
+            <p><a name="event_category_trend" id="event_category_trend"></a> </p>
+            <h3> 不同分类的事件趋势</h3>
+            <p>这一趋势报表可以看到基于不同类型的事件严重性 - 应用、系统或安全。你可以从<strong>查看类型</strong>中选择，或者查看所有时间类型的趋势。当前和历史趋势以每小时、每天显示。</p>
+            <p align="center"></p>
+            <h3><a name="alert_trend" id="alert_trend"></a></h3>
+            <h3>告警的趋势</h3>
+            <p>这一类型的趋势报表显示每小时、每天触发警告的当前和历史趋势。 </p>
+            <p align="center"></p>
+            <p>&nbsp;</p>
+            <p></p>
+<p>&nbsp;</p>
+          <p>&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016, <a href="http://www.zohocorp.com" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"<a href="http://www.manageengine.com" target=_blank>ManageEngine</div></div> </body>
+</html>

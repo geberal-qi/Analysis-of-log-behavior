@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer Distributed Edition - Managed Server - Frequently Asked Questions</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../distributed-managed-server/install-managed-server.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../support/support-intro.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="distributed-managed-server-intro.html" title="EventLog Analyzer - Distributed Edition - Managed Server">EventLog Analyzer - 分布式版本 - 被管服务器</a> &gt; 常见问题</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>常见问题 - EventLog Analyzer 分布式版本 - 被管服务器 </h1>
+<hr />
+<ul>
+  <li><a href="#general" title="General">常规</a></li>
+  <li><a href="#secureCommunication" title="Secure Communication">安全通信</a></li>
+  <li><a href="#licensing" title="Licensing">许可</a></li>
+</ul>
+<h2><strong><a name="general" id="general"></a>常规</strong></h2>
+            <ol>
+              <li><strong>什么样的企业需要EventLog Analyzer  - 分布式部署（分布式版本）？</strong></li>
+            </ol>
+            <blockquote>
+              <p> 我们推荐您使用分布式安装：</p>
+            </blockquote>
+            <ul>
+              <ul>
+                <li> 
+				如果您所要管理的是一个<strong>大型企业</strong>，拥有大量不在同一地理位置的安全设备（如Windows主机、Linux主机、服务器）、交换机和路由器需要管理。</li>
+                <li> 如果您是一个<strong>安全服务提供商</strong>，有大量基于地理位置划分的客户。</li>
+              </ul>
+            </ul>
+            <ol start="2">
+              <li><strong>一个管理服务器可以管理多少个被管服务器？</strong></li>
+            </ol>
+            <blockquote>
+              <p> 一个管理服务器在设计上可以对50台服务器进行管理，在我们实验室进行的模拟实验数据中，它可以毫不费力的管理20台被管服务器。</p>
+            </blockquote>
+            <ol start="3">
+              <li><strong>在安装管理服务器时，提示要求代理服务器明细，在什么样的情况下我需要配置它呢？</strong><br />
+                <br />
+                如果您需要通过<strong>代理服务器</strong>来与<strong>被管服务器</strong>建立通信，那么您在安装<strong>管理服务器</strong>期间，需要配置代理服务器明细。<br />
+              </li>
+            </ol>
+            <ol start="4">
+              <li><strong>我能不能将现有的独立安装版EventLog Analyzer转换为分布式？</strong><br />
+                <br />
+                可以，您需要首先确认现有的安装版本是否为<strong>EventLog Analyzer 6000</strong>或以上版本。在转换之前，您需要下载EventLog Analyzer 6.0 
+				或以上的exe/bin文件并安装为<strong>管理服务器</strong>，然后您可以开始将现有的EventLog Analyzer 6.0或以上独立安装的版本转换为<strong>被管服务器</strong>，请参阅以下内容，了解有关转换的步骤。</li>
+            </ol>
+            <blockquote>
+              <p><strong><a href="http://www.manageengine.com/products/eventlog/distributed-monitoring/help-adminserver/additional-utilities/convert-standalone-managed-server.html" title="Procedure to convert existing Standalone Edition EventLog Analyzer installation to Distributed Edition Managed Server" target="_new">将现有的EventLog Analyzer独立安装版转换为分布式版本-被管服务器的步骤</a></strong></p>
+            </blockquote>
+            <ol start="5">
+              <li> <strong>我从管理服务器删除了被管服务器，我怎么重新添加它呢？</strong></li>
+            </ol>
+            <blockquote>
+              <p>如果您删除了<strong>被管服务器</strong>后，想要重新添加它，请参阅以下步骤：</p>
+            </blockquote>
+            <ul>
+              <ul>
+                <li>重新初始化被管服务器</li>
+                <li>重新在管理服务器上注册被管服务器，执行<em>&lt;EventLog Analyzer Home&gt;\troubleshooting\</em><strong>registerWithAdminServer.bat/sh</strong> 
+				文件</li>
+                <li>重启被管服务器</li>
+              </ul>
+            </ul>
+            <ol start="6">
+              <li><strong>采集的日志存到了哪里，在管理服务器的数据库中，还是在管理服务器和被管服务器两者的数据库中？ </strong> </li>
+            </ol>
+            <ul>
+              <p>
+				所有被管服务器采集的日志都只存在被管服务器的数据库中，对于归档，这里规定将日志发送到管理服务器，但是不会将其存到管理服务器的数据库中。</p>
+            </ul>
+            <h2><strong><a name="secureCommunication" id="secureCommunication"></a>安全通信模式（HTTPS）</strong></h2>
+            <ol>
+              <li><strong>在管理服务器和被管服务器之间的通信模式是什么？</strong><br />
+                <br />
+                缺省状态下，通信模式是<strong>HTTP</strong>，您也可以将其变更为安全通信模式<strong>HTTPS</strong>， 
+				请参阅<a href="../additional-utilities/eventlog-ssl-support.html" title="to setup secure communication mode between Admin and Managed Server" target="_new">如何在管理和被管服务器之间设置安全通信模式</a>。</li>
+            </ol>
+            <ol start="2">
+              <li><strong> 我在安装后将被管服务器的通信模式修改为了HTTPS，怎么在管理服务器中更新这个信息？</strong></li>
+            </ol>
+            <blockquote>
+              <p>在<em>管理服务器用户界面</em>，点击<strong>设置标签  &gt; 被管服务器设置</strong>，点击指定的管理服务器对应的<strong>编辑</strong>图标， 
+				选择合适的协议并配置Web服务器端口信息。</p>
+            </blockquote>
+            <h2><strong><a name="licensing" id="licensing"></a>许可</strong></h2>
+            <ol>
+              <li><strong>EventLog Analyzer分布式版本的许可是怎样的？</strong></li>
+            </ol>
+            <blockquote>
+              <p>EventLog Analyzer分布式版本许可需要在管理服务器上应用， 
+				而购买的主机/应用的许可数量，会用于被管服务器。您可以在各个被管服务器上添加主机/应用，直到到达购买的许可的总数量。您可以在<a href="http://www.manageengine.com/products/eventlog/distributed-monitoring/help-adminserver/configurations/managed-server-settings.html" title="Managed Server Settings" target="_new">被管服务器设置</a>页面查看每个被管服务器管理的主机/应用的数量。</p>
+              <p>
+				如果注册的被管服务器管理的主机/应用的数量超过了购买的许可的数量，在管理服务器上将会显示一个告警消息。在这种情况下，你可以执行：</p>
+              <ul>
+                <li>为附加的主机/应用购买许可</li>
+                <li>除此之外，您可以在<a href="http://www.manageengine.com/products/eventlog/distributed-monitoring/help-adminserver/configurations/managed-server-settings.html" title="Managed Server Settings" target="_new">被管服务器设置</a>页面查看每个被管服务器管理的主机/应用的数量。<ul>
+                    <li>在单个被管服务器下，手动管理许可，移除不必要的主机/应用，使管理的主机/应用数量小于或等于许可的数量。</li>
+                    <li>您还可以在管理服务器下移除一个注册的被管服务器，使管理的主机/应用数量小于或等于许可的数量。</li>
+                  </ul>
+                </li>
+              </ul>
+            </blockquote>
+            <ol start="2">
+              <li><strong>在被管服务器界面，没有应用许可的选项，我怎么将许可应用到被管服务器呢？</strong><br />
+                <br />
+                在<strong>被管服务器</strong>下，我们不提供应用许可的选项。在<strong>管理服务器</strong>中应用的许可，会自动移植到所有的<strong>被管服务器</strong>。</li>
+            </ol>
+            <ol start="3">
+              <li><strong>即便我在被管服务器中对多余的设备取消了管理，但是在管理服务器中仍然显示许可受限的告警，这是为什么？</strong></li>
+            </ol>
+            <blockquote>
+              <p>状态为管理/未管理的设备会在被管服务器与管理服务器的数据采集期间进行同步，默认每5分钟执行一次。</p>
+            </blockquote></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../distributed-managed-server/install-managed-server.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../support/support-intro.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer Search Logs</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../search-logs/extract-new-fields.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../alerts/alerts-intro.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="search-logs-intro.html">搜索日志</a>&gt;标签</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>标记工具</h1>
+            <hr />
+            <p data-textformat="{'fw':'none','bgc':'rgba(0, 0, 0, 0)','type':'text'}" data-tabpoints="[{'id':'0','point':'0.026041666666666664in','align':'0','leader':'0'}]">EventLog Analyzer为你提供了一个方便的'<strong>标签</strong>'工具，可以更简单、更有效的搜索日志。</p>
+            <p data-textformat="{'fw':'none','bgc':'rgba(0, 0, 0, 0)','type':'text'}" data-tabpoints="[{'id':'0','point':'0.026041666666666664in','align':'0','leader':'0'}]">'<strong>标签</strong>'工具可以标记你的日志，并且当你下次搜索这些日志的时候只需搜索它们的标记名称而不用输入搜索来查询。</p>
+            <p data-textformat="{'fw':'none','bgc':'rgba(0, 0, 0, 0)','type':'text'}" data-tabpoints="[{'id':'0','point':'0.026041666666666664in','leader':'0','align':'0'}]">它可以灵活的将多个标准关联到相同的标签。这使得日志的搜索变得更容易，仅通过返回一个标签的多个标准的搜索结果。</p>
+            <p data-textformat="{'fw':'none','bgc':'rgba(0, 0, 0, 0)','type':'text'}" data-tabpoints="[{'id':'0','point':'0.026041666666666664in','leader':'0','align':'0'}]">例如，你需要查看所有的登录到不同系统比如UNIX、Windows和Oracle 应用程序的日志，那么你可以将它们关联到一个标签中。这个标签返回所有登录信息。</p>
+            <p data-textformat="{'fw':'none','bgc':'rgba(0, 0, 0, 0)','type':'text'}" data-tabpoints="[{'id':'0','point':'0.026041666666666664in','leader':'0','align':'0'}]">标签特性还提供了添加/编辑搜索标准的功能，能够使你更精确的搜索。</p>
+            <p data-textformat="{'fw':'none','bgc':'rgba(0, 0, 0, 0)','type':'text'}" data-tabpoints="[{'id':'0','point':'0.026041666666666664in','leader':'0','align':'0'}]">你还可以添加故障排除技巧或标签笔记，可以提供信息帮助其它用户分析这些日志。</p>
+            <blockquote>
+              <blockquote>
+                <ul>
+                  <li>                    <a href="#Create_Tag">如何创建标签</a>                  </li>
+                  <li>                    <a href="#Edit_Tag">如何编辑标签</a><br />
+                  </li>
+                  <li>                    <a href="#Search_Tag">如何使用标签执行日志搜索</a>                  </li>
+                  <li>                    <a href="#Delete_Tag">如何删除标签</a>                  </li>
+                </ul>
+              </blockquote>
+            </blockquote>
+            <h2><a name="Create_Tag" id="Create_Tag"></a>如何创建标签</h2>
+            <p>进入'搜索'面板创建标签：</p>
+            
+                      <p align="center"><br />
+                      </p>
+                   
+              <ol>
+                <li>指定搜索条件返回所需要的日志
+                  <p align="center"></p>
+                </li>
+                <li>
+                  <p>在日志消息旁边<strong>域提取图标</strong>下面，你会看到<strong>分配标签</strong>的图标</p>
+                </li>
+                <li>
+                  <p>点击<strong>分配标签</strong>图标打开<strong>指派标签UI</strong></p>
+                  
+                            <p align="center"><br />
+                            </p>
+                          
+                    <ol>
+                      <li type="a">
+                        <p>In the <strong>Assign Tag UI</strong>, provide the name of the tag</p>
+                      </li>
+                      <li type="a">
+                        <p>从预定义列表选择标签标准。根据搜索结果,预定义列表搜索条件。如果预定义列表中没有要查找的字段，那么配置这些字段使用<strong>右上角的搜索结果框</strong>的<strong>列选择器</strong>。</p>
+                      </li>
+                      <li type="a">
+                        <p>使用<strong>添加笔记</strong>，你可以添加故障排除技巧/笔记到标签上。有助于分析和解释标记的结果</p>
+                      </li>
+                      <li type="a">
+                        <p>指定用户名。默认情况下，当前用户(登录EventLog Analyzer web客户端)将显示在<strong>用户名</strong>栏。</p>
+                      </li>
+                    </ol>
+                  </blockquote>
+                  <ol start="4">
+                    <li>给定所有适当的值后点击"应用"保存标签</li>
+                  </ol>
+                </li>
+              </ol>
+            </blockquote>
+            <h2><a name="Edit_Tag" id="Edit_Tag"></a>如何编辑标签<br />
+            </h2>
+            <p>可以编辑标签的标准通过：</p>
+            <p><strong>设置</strong> &gt;  <strong>编辑/删除</strong>。了解更多关于如何使用这个选项编辑标签标准请参考<a href="../configurations/tags.html">如何编辑和设置标签标准选项</a></p>
+            <p>搜索标签的结果页面 &gt; 点击标签名称旁边的<strong>编辑图标</strong>       </p>
+            
+              <p align="center"></p>
+           
+            <p>使用这个选项，可以：</p>
+            <blockquote>
+              <ul>
+                <li>
+                  <p>修改标签标准</p>
+                </li>
+                <li>                  
+                  <p>添加/删除笔记                 </p>
+                </li>
+                <li>                  改变标签相关联的用户名                </li>
+              </ul>
+            </blockquote>
+            <h2><a name="Search_Tag" id="Search_Tag"></a>如何使用标签执行日志搜索</h2>
+            
+                  <p align="center"><br />
+                  </p>
+               
+            搜索标签，你需要在标签之前加前缀<strong>'#'</strong>
+            <p>在输入标签名称的第一个字符后，EventLog Analyzer会<strong>自动提示</strong>可供选择的标签</p>
+            <h2><a name="Delete_Tag" id="Delete_Tag"></a>如何删除标签<br />
+            </h2>
+            <br />
+            <p>删除标签：</p>
+            <p><strong>设置&gt; 标签 &gt; 编辑/删除</strong></p>
+            <p><br />
+            </p>
+            <br />
+            <p>点击名称标签所对应<strong>删除图标</strong>。</p>
+            <p>&nbsp;</p>
+                     
+            
+            <table width="97%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="3%" height="116" style="padding:5px">
+                <span class="notesimg"></span>
+                </td>
+                
+                <td width="97%" style="padding:10px"> 
+                 <strong>注意</strong>:<p> a. 添加到标签的标签名称和注释应该只包含字母数字字符<br />
+            b. 标签标准只能被创建它的用户编辑，该EventLog Analyzer用户拥有管理员权限<br />
+            c. EventLog Analyzer任何用户都可以添加笔记到标签中，无论是否为标签的创建者            </p></td>
+              </tr>
+            </table>
+            
+            
+        </td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../search-logs/extract-new-fields.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../alerts/alerts-intro.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016, <a href="http://www.zohocorp.com" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"<a href="http://www.manageengine.com" target=_blank>ManageEngine</div></div> </body>
+</html>

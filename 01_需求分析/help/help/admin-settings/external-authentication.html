@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer Admin Settings - External Authentication</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../admin-settings/db-storage-settings.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../system-settings/system-settings-intro.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="admin-settings-intro.html" title="Admin Settings">管理设置</a> 
+				&gt; 外部认证设置</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>外部认证设置</h1>
+            <hr />
+            <p>EventLog Analyzer提供与本地认证不同的两种外部用户认证方式，它们是<a href="#adConfig" title="Active Directory"><strong>活动目录</strong></a>认证和<strong><a href="#radiusConfig" title="Remote Authentication Dial-in User Service (RADIUS)">远程用户拨号认证服务（RADIUS） </a></strong>
+			认证。 </p>
+            <h2><strong><a name="adConfig" id="adConfig"></a>活动目录认证的配置 </strong></h2>
+            <p>要访问活动目录认证配置，可通过以下菜单实现：</p>
+            <ul>
+              <li><strong>设置</strong>页签 &gt; 管理设置：外部认证设置 &gt; AD：<strong> 导入计划/开启</strong></li>
+            </ul>
+            <p> <strong>怎样导入用户、计划用户导入、启用活动目录认证？</strong></p>
+            <p align="center"><img src="../images/active-directory-configurations.png"  alt="Active Directory configuration" /></p>
+            <ol>
+              <li>
+                <p>在EventLog  Analyzer中导入活动目录用户，请参考用户管理部分的相关表述。</p>
+              </li>
+              <li>
+                <p>要在EventLog Analyzer中同步当前的活动目录用户，或周期性的导入用户，请选择导入计划，设置间隔时间，并保存。</p>
+              </li>
+              <li>
+                <p>启用或禁用活动目录认证，可点击<strong>启用</strong>/<strong>禁用</strong>按钮</p>
+              </li>
+            </ol>
+            <h2><a name="radiusConfig" id="radiusConfig"></a></h2>
+            <h2><strong>RADIUS服务器配置 </strong></h2>
+            <p>要访问RADIUS服务器配置，可通过以下菜单实现：</p>
+            <ul>
+              <li><strong>设置</strong>页签 &gt; 管理设置：外部认证设置 &gt;<strong> </strong>
+				RADIUS：<strong> 认证</strong></li>
+            </ul>
+            <p><strong>怎样配置RADIUS服务器认证？</strong></p>
+            <p align="center"><img src="../images/radius-server-configurations.png"  alt="RADIUS server configuration" /></p>
+            <p>RADIUS服务器认证可以设置为EventLog Analyzer的默认认证方式。</p>
+            <ol start="1" type="1">
+              <li>
+                <p>输入RADIUS服务器所在的主机的IP地址</p>
+              </li>
+              <li>
+                <p>输入RADIUS服务器认证用户所使用的端口</p>
+              </li>
+              <li>
+                <p>选择认证用户使用的协议</p>
+              </li>
+              <li>
+                <p>输入RADIUS服务器密码</p>
+              </li>
+              <li>
+                <p>选择用户认证失败可以重试的次数</p>
+              </li>
+            </ol>
+          <p>点击<strong>保存</strong>按钮，完成RADIUS服务器的配置。</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../admin-settings/db-storage-settings.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../system-settings/system-settings-intro.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

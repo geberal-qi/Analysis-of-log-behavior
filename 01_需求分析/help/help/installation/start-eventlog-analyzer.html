@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>启动和关闭 - EventLog Analyzer</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../installation/eventlog-prerequisites.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../installation/web-eventlog-analyzer.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="setup-eventlog-analyzer.html"> 安装产品 </a> » 启动和关闭</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>如何启动和关闭EventLog Analyzer</h1>
+            <hr />
+            <p>当你成功安装了EventLog Analyzer后，可以按照下面的步骤来启动EventLog Analyzer服务器。</p>
+            <ul>
+              <li><a href="#startELA" title="如何启动EventLog Analyzer服务/服务器？">如何启动EventLog Analyzer服务/服务器？</a></li>
+              <li><a href="#shutdownELA" title="如何关闭EventLog Analyzer服务/服务器？">如何关闭EventLog Analyzer服务/服务器？</a></li>
+            </ul>
+            <h2><strong><a name="startELA" id="startELA"></a></strong></h2>
+            <h2><strong>如何启动？</strong></h2>
+<p><strong>Windows程序：</strong></p>
+<ul>
+  <li>选择<strong>启动&gt; 所有程序 &gt; ManageEngine EventLog Analyzer &lt;版本号&gt; &gt;  EventLog Analyzer</strong>来启动服务器。</li>
+  <li>或者，打开<em>&lt;EventLog  Analyzer主目录&gt;\bin</em>，运行<strong>run.bat</strong>文件。</li>
+</ul>
+<p><strong>Windows服务：</strong></p>
+<p>确保EventLog Analyzer已经安装为Windows服务了。如果通过“一键安装”，默认安装成为了Windows服务。如果在“高级安装”的时候没有安装为Windows服务，按照<a href="../help-menu/eventlog-faq.html#15_2">转换产品为Windows服务</a>中的步骤来操作。</p>
+<p>当软件安装为服务之后，按照下面的步骤来启动Window服务：</p>
+<ul>
+  <li>打开Windows的<strong>控制面板</strong><strong> &gt; </strong><strong>管理工具 &gt; 服务</strong>。右击<strong>ManageEngine  EventLog Analyzer &lt;版本号&gt; </strong>，选择<strong>启动</strong>。</li>
+</ul>
+<p><strong>Linux程序：</strong></p>
+<ul>
+  <li>打开<em>&lt;EventLog Analyzer主目录&gt;/bin</em>，运行<strong>run.sh</strong>文件。</li>
+</ul>
+<p>当<strong>run.sh</strong>运行后，在命令行窗口中显示EventLog Analyzer个模块的启动信息。当所有模块启动后，将显示下面的信息：</p>
+<p>Server started. <br />
+  Please connect your client at  http://localhost:8400 </p>
+<p>根据你指定的<a href="eventlog-prerequisites.html">Web服务器端口</a>，8400将替换为你指定的端口。</p>
+<table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+  <tr>
+    <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif" alt="Note" width="1" height="1" class="write" /></td>
+    <td width="95%" style="padding:10px"><strong>说明</strong>：如果EventLog Analyzer默认的<a href="eventlog-prerequisites.html#listener-ports">syslog监听端口</a>被占用，登录后将显示&quot;<a href="../help-menu/eventlog-tips.html#4_1">不能绑定端口：&lt;端口号&gt;</a>&quot;信息。</td>
+  </tr>
+</table>
+<p><strong>Linux服务：</strong></p>
+<p>确保EventLog Analyzer已经安装为Linux服务了。如果通过“一键安装”，默认安装成为了Linux服务。如果在“高级安装”的时候没有安装为Linux服务，按照<a href="../help-menu/eventlog-faq.html#15_3">转换产品为Linux服务</a>中的步骤来操作。</p>
+<p>当软件安装为服务之后，按照下面的步骤来启动Linux服务：</p>
+<p>运行命令：</p>
+<p>/etc/init.d/eventloganalyzer  start</p>
+<p>查看EventLog Analyzer服务运行状态，运行命令：<br />
+  <br />
+  /etc/init.d/eventloganalyzer  status</p>
+  <p>显示状态为：</p>
+<p>ManageEngine  EventLog Analyzer 8.0 is running (&lt;进程ID&gt;)。</p>
+<p>&nbsp;</p>
+<h2><a name="shutdownELA" id="shutdownELA"></a>如何关闭？</h2>
+<p>按照下面的步骤来关闭EventLog Analyzer服务器。说明：当服务器成功关闭后，MySQL数据库连接将自动关闭，Eventlog Analyzer<a href="eventlog-prerequisites.html#port">占用的所有端口</a>将被释放。</p>
+<p><strong>Windows程序：</strong></p>
+<ul>
+  <li>打开<strong>开始 &gt;  所有程序 &gt; ManageEngine EventLog Analyzer &lt;版本号&gt;</strong>， 选择<strong>Shut Down  EventLog Analyzer</strong>。</li>
+  <li>或者打开<em>&lt;EventLog  Analyzer主目录&gt;\bin</em>，运行<strong>shutdown.bat</strong>文件。确认后就可以关闭Evenglog Analyzer服务器了。</li>
+</ul>
+<p><strong>Windows服务：</strong></p>
+<p>如果安装并运行为Windows服务。<br />
+  按照下面步骤停止Windows服务：</p>
+<ul>
+  <li>打开Windows的<strong>控制面板</strong><strong> &gt; </strong><strong>管理工具 &gt; 服务</strong>。右击<strong>ManageEngine  EventLog Analyzer &lt;版本号&gt; </strong>，选择<strong>关闭</strong>。</li>
+</ul>
+<p><strong>Linux程序：</strong></p>
+<ul>
+  <li>打开<em>&lt;EventLog Analyzer主目录&gt;/bin</em>，执行<strong>shutdown.sh</strong>文件。</li>
+</ul>
+<p>确认后就可以关闭Evenglog Analyzer服务器了。</p>
+<p><strong>Linux服务：</strong></p>
+<p>如果安装并运行为Linux服务。<br />
+  运行以下命令停止Linux服务：<br />
+  <br />
+  /etc/init.d/eventloganalyzer  stop<br />
+  <br />
+  输出信息：<br />
+  Stopping  ManageEngine EventLog Analyzer &lt;版本号&gt;...<br />
+  Stopped ManageEngine EventLog Analyzer &lt;版本号&gt;</p>
+<p>检查服务状态，运行命令：<br />
+  <br />
+  /etc/init.d/eventloganalyzer  status</p>
+  <p>输出信息：</p>
+<p>  ManageEngine EventLog Analyzer &lt;version number&gt; is not running.</p>
+<p>&nbsp;</p>
+<p><br />
+</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../installation/eventlog-prerequisites.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../installation/web-eventlog-analyzer.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

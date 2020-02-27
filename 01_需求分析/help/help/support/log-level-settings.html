@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer Support - Log Level Settings</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../support/reset-log-collector.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+</tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="support-intro.html" title="Support">技术支持</a> &gt; 日志级别设置 </p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>日志级别设置 - EventLog Analyzer</h1>
+            <hr />
+            <p>日志级别设置用于设置EventLog Analyzer服务器日志采集的级别，这些日志是支持信息文件（SIF）的组成部分，生成之后可以发送给ZOHO公司，用来检测EventLog Analyzer服务器的问题。设置日志级别，请参阅以下内容：            </p>
+            <p>在<strong>设置日志级别</strong>页面</p>
+            <ol>
+              <li>
+				<span style="color: rgb(0, 0, 0); font-family: 'Lucida Sans Unicode', Verdana, Arial, 'Lucida Grande', Helvetica, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: -webkit-left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; display: inline !important; float: none;">
+				<strong>服务器的日志过滤设置</strong>，从下拉列表中选择需要的值（有效值为2到5）</span></li>
+              <li>从下拉列表中选择<strong>要存储的日志级别</strong>，您可以设置的值有：<ol type="a">
+                  <li>全部</li>
+                  <li>最精细</li>
+                  <li>较精细</li>
+                  <li>精细</li>
+                  <li>配置</li>
+                  <li>信息</li>
+                  <li>警告</li>
+                  <li>严重的</li>
+                  <li>关闭</li>
+                </ol>
+              </li>
+              <li>从列表中选择<a href="#LoggerName"><strong>记录器名称</strong></a>，可用的记录器请参阅以下列表。对于每个可用的记录器或记录器的设置，您可以设置相应的过滤级别和日志级别。</li>
+              <li>点击<strong>保存设置</strong>按钮可以保存级别设置，页面会显示保存设置的描述。点击<strong>取消</strong>按钮可以取消日志级别设置动作。</li>
+            </ol>
+            <p><a name="LoggerName" id="LoggerName"></a>可用的记录器：</p>
+            <ol>
+              <ol>
+                <li>com.adventnet.la </li>
+                <li>com.adventnet.la.RSDatasetModel </li>
+                <li>com.adventnet.la.DepartmentUtil </li>
+                <li>com.adventnet.la.DefaultDataFormatter </li>
+                <li>com.adventnet.la.GLinkGenerator </li>
+                <li>com.adventnet.la.HtmlTimePack </li>
+                <li>com.adventnet.la.RunQuery </li>
+                <li>com.adventnet.la.SQLConstructor </li>
+                <li>com.adventnet.la.SyslogQueryHandlerImpl </li>
+                <li>com.adventnet.la.TableDatasetModel </li>
+                <li>com.adventnet.la.GraphTag </li>
+                <li>com.adventnet.la.ReportDS </li>
+                <li>com.adventnet.la.QueryHandlerImpl </li>
+                <li>com.adventnet.la.DefaultToolTipGenerator </li>
+                <li>com.adventnet.la.store.DBHashMap </li>
+                <li>com.adventnet.la.TableTag </li>
+                <li>com.adventnet.la.webclient.SupportAction </li>
+                <li>com.adventnet.la.webclient.ScheduleUtil </li>
+                <li>com.adventnet.la.SQLGenerator </li>
+                <li>com.adventnet.la.LaUtil </li>
+                <li>com.adventnet.la.util.MetaTableCache </li>
+                <li>com.adventnet.la.util.DNSResolverThread </li>
+                <li>com.adventnet.la.util.SimulateRecords </li>
+                <li>com.adventnet.la.util.ResourceCheckerUtil </li>
+                <li>com.adventnet.la.util.dm.DMConfigurationPopulator </li>
+                <li>com.adventnet.la.util.dm.DMTask </li>
+                <li>com.adventnet.la.util.dm.ErrHostProcessHandler </li>
+                <li>com.adventnet.la.util.dm.DMPreProcessHandler </li>
+                <li>com.adventnet.la.util.dm.TblMgmtTask </li>
+                <li>com.adventnet.la.util.dm.ExceptionCreator </li>
+                <li>com.adventnet.la.util.dm.MssqlProcessHandler </li>
+                <li>com.adventnet.la.util.dm.SiblingPreProcessor </li>
+                <li>com.adventnet.la.util.dm.DMProcessor </li>
+                <li>com.adventnet.la.util.dm.MetaTableCacheProcessor </li>
+                <li>com.adventnet.la.util.dm.DMContext </li>
+                <li>com.adventnet.la.util.dm.DMTaskGroup </li>
+                <li>com.adventnet.la.util.dm.AppPreProcessor </li>
+                <li>com.adventnet.la.util.dm.DataManagement </li>
+                <li>com.adventnet.la.util.dm.DMTaskGroupConfig </li>
+                <li>com.adventnet.la.util.dm.DMProcessHandler </li>
+                <li>com.adventnet.la.util.FixedHashMap </li>
+                <li>com.adventnet.la.util.QueryUtil </li>
+                <li>com.adventnet.la.util.TransactionHandler </li>
+                <li>com.adventnet.la.ReportTask </li>
+                <li>com.adventnet.la.ReportExporter </li>
+                <li>com.adventnet.la.ExportCleanup </li>
+                <li>com.adventnet.la.SupportZipUtil </li>
+                <li>com.adventnet.la.ReportUtil </li>
+                <li>com.adventnet.sa.webclient.AddScheduleActionSa </li>
+                <li>com.adventnet.sa.webclient.ViewReport </li>
+                <li>com.adventnet.sa.webclient.util.SaUtil </li>
+                <li>com.adventnet.sa.webclient.EditFilterAction </li>
+                <li>com.adventnet.sa.util.dm.LuceneIndexProcessor </li>
+                <li>com.adventnet.sa.SyslogReportTask </li>
+                <li>com.adventnet.sa.server.DomainDiscovery </li>
+                <li>com.adventnet.sa.server.imp.ImportDMCrunch </li>
+                <li>com.adventnet.sa.server.imp.ImportAppLogManager </li>
+                <li>com.adventnet.sa.server.imp.ImportSysEvtLogManager </li>
+                <li>com.adventnet.sa.server.imp.FTPUtil </li>
+                <li>com.adventnet.sa.server.imp.ImportAppLogTask </li>
+                <li>com.adventnet.sa.server.imp.ImportLogManager </li>
+                <li>com.adventnet.sa.server.alert.MailAlert </li>
+                <li>com.adventnet.sa.server.parser.RecordWriter </li>
+                <li>com.adventnet.sa.server.parser.DbUtil </li>
+                <li>com.adventnet.sa.server.ELSInitializer </li>
+                <li>com.adventnet.sa.server.EAService </li>
+                <li>com.adventnet.logsearch.search.BatchSearch </li>
+                <li>com.adventnet.logsearch.index.api.ArchiveIndex </li>
+                <li>com.adventnet.logsearch.index.api.LogIndexingAPI </li>
+                <li>com.adventnet.logsearch.index.util.DBUtil </li>
+              </ol>
+            </ol>
+            <p></p>
+<p>&nbsp;</p>
+          <p>&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../support/reset-log-collector.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

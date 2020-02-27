@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer提取新字段</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../search-logs/how-to-search.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../alerts/alerts-intro.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="search-logs-intro.html" title="Search Logs">搜索日志</a> &gt; 提取新字段</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>提取新字段来分析和索引日志</h1>
+            <hr />
+            <p>网络管理员总是需要从他们的日志中获取更多的信息。那么有的时候管理员需要定位到他们关心的字段来索引需要的信息。新的字段可以帮助你从日志中索引更多有用的信息，使得日志分析和创建的安全报表更加有效。</p>
+            <p>EventLog  Analyzer可以让管理员从原始日志中提取创建新的字段。通过交互式的字段提取页面创建正则表达式的模式来识别、分析新系统和应用日志中的新字段。</p>
+           <!-- <p align="center"><iframe width="560" height="315" src="http://www.youtube.com/embed/_qoAtT7kCIw" frameborder="0" allowfullscreen></iframe></p>-->
+            <p><strong>提取新字段的步骤</strong></p>
+            <p>打开搜索页面，选择主机或主机组，如果不确定，可以不选择，那么就会在所有主机中搜索。然后选择你要提取新字段的日志类型。在搜索文本框中输入搜索的字符，如果没有输入，将列出所有日志条目。点击<strong>执行</strong>按钮列出搜索结果。点击你要创建新字段所在日志后面的<strong>扳手</strong>图标。</p>
+            <p><strong>第1步：查看日志类型和已经存在的字段</strong></p>
+<p>&nbsp;</p>
+            <p align="center"><img src="../images/extract-field-step-1.png" /></p>
+            <ol>
+              <li>
+                <p>对于非默认的日志类型，<strong>日志类型</strong>处就会显示导入的日志文件名或主机/端口。</p>
+              </li>
+              <li>
+                <p>查看<strong>该日志类型的已有字段及其值</strong>，通过点击<strong>显示</strong>和<strong>显示全部</strong>链接来查看详情。</p>
+              </li>
+            </ol>
+            <p>&nbsp;</p>
+<p><strong>第2步：选择需要的字段值并输入详细信息</strong></p>
+<p align="left">&nbsp;</p>
+<p align="center"><img src="../images/extract-field-step-2.png" /></p>
+            <p align="left">&nbsp;</p>
+            <ol>
+              <li>
+                <p>在消息中选择并点击要提取的值。</p>
+              </li>
+              <li>
+                <p>提供该值的字段名。指定字段值的前后缀。</p>
+              </li>
+              <li>
+                <p>点击<strong>创建模式</strong>来生成分析规则和正则表达式的模式。</p>
+              </li>
+            </ol>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif"width="1" height="1" class="write" /></td>
+                <td width="95%" style="padding:10px"><strong>说明</strong>：选择字段值的前面和后面的字符就是其先后缀。可是是的字段定位更加的准确。前后缀可以是一个静态的值（准确匹配）或者动态的值（这表达式的模式），也可以忽略。</td>
+              </tr>
+            </table>
+            <p><strong>前后缀的静态和动态值示例</strong></p>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td>如有日志： 	Successful Network <em>Logon</em>:     User Name: sylvian     Domain: ADVENTNET <em>Logon</em> ID: (0x0,0x6D51131) <strong><em>Logon</em> <em>Type</em></strong>: 3 <em>Logon</em> Process: NtLmSsp      Authentication Package: NTLM     Workstation Name: SYLVIAN <em>Logon</em> GUID: -     Caller User Name: -     Caller Domain: -     Caller <em>Logon</em> ID: -     Caller Process ID: -     Transited Services: -     <strong>Source Network Address</strong>: 192.168.113.97 Source Port: 0    	22873</td>
+              </tr>
+            </table>
+            <p>前缀<strong>Logon Type</strong>可以是<strong>静态</strong>值，因为大部分的日志都有<strong>Logon Type</strong>字样。而对于<strong>Source Network Address</strong>可以是<strong>动态</strong>的，因为日志中可能使用不同的描述，如Source IP Address、Source Address，而这些描述都可以使用一个正则表达式模式。</p>
+            <p>当然，如果前后缀都使用准确匹配，那么字段提取就会更加精准。 </p>
+            <p align="left"><strong>第3步：验证模式并保存为新的字段</strong>            </p>
+<p align="left">&nbsp;</p>
+            <p align="center"><img src="../images/extract-field-step-3.png" /></p>
+            <p align="left">&nbsp;</p>
+            <ol>
+              <li>
+                <p>在上步中创建了字段后生成了规则模式。</p>
+              </li>
+              <li>
+                <p><strong>验证</strong>链接用来在上次搜索结果中测试生成的正则表达式模式。通过“匹配的日志消息”和“未匹配的日志消息”来检查该正则表达式模式是否可用。</p>
+              </li>
+            </ol>
+            <p align="center"><strong>验证结果如下图：</strong></p>
+            <p align="center"><img src="../images/extract-field-step-4.png" /></p>
+            <p align="left"></p>
+            <ol start="3">
+              <li>                
+                <p>在验证结果中，如果你发现该模式并不满足你的需要，如果你对正则表达式精通的话，可以手动修改。否则可以从<strong>选择其他模式</strong>选择一个其他的模式。（如下图）</p>
+              </li>
+            </ol>
+            <blockquote>
+              <p align="center"><img src="../images/extract-field-step-5.png" /></p>
+              <p align="left"></p>
+<p>你还可以给这个字段添加开放性的属性。如下图所示：</p>
+            </blockquote>
+            <p align="center"><img src="../images/add-open-attribute.png"/></p>
+            <p>&nbsp;</p>
+            <ol start="4">
+              <li>
+                <p>另外，对于特殊的日志类型，你可以给任意已有的字段定义匹配条件。</p>
+              </li>
+              <li>
+                <p><a name="identityPattern" id="identityPattern"></a>保存模式后，EventLog Analyzer就会在新的系统和应用日志中开始识别、分析和索引这些定制的字段。</p>
+              </li>
+            </ol>
+            <blockquote>
+              <!--<p align="center"><img src="../images/save-identity-pattern.png" /></p>-->
+              <p align="left">定制的模式（分析规则）可以标记（或取消标记）为用户定义日志类型的识别规则。多个定制模式可以同时标记为某一个具体的用户定义日志类型的识别规则。</p>
+              <p align="left"><strong>设置</strong>标签中<strong>自定义模式</strong>列出所有已经保存的模式。</p>
+            </blockquote>
+            <ol start="6">
+              <li>
+                <p>如果你要从Evenglog Analyzer的技术支持那里获得更多帮助，请点击<strong>要求支持</strong>链接。</p>
+              </li>
+            </ol>
+          <p align="left">&nbsp;</p>
+          <p align="left">&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../search-logs/how-to-search.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../alerts/alerts-intro.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

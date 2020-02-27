@@ -1,0 +1,11 @@
+1.上传日志文件到hdfs系统
+2.将spark任务打包nginx_log_job.jar
+3.使用spark-submit提交任务
+
+  /usr/local/spark-1.6.1-bin-hadoop2.6/bin/spark-submit \
+--class com.zhiyou100.LogApp \
+--master spark://hadoop01:7077 \
+--executor-memory 1G \
+--driver-memory  1G \
+--total-executor-cores 3 \
+/upload/log_app-1.0-SNAPSHOT.jar

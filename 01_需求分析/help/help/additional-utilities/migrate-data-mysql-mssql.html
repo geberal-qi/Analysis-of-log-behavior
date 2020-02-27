@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer Additonal Utilities - Migrate data from MySQL to MSSQL database</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../additional-utilities/migrate-data-pgsql-mssql.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../additional-utilities/migrate-data-mssql-mysql.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> »  <a href="additional-utils-intro.html" title="Additonal Utilities">附加工具</a> &gt; 把数据从MySQL迁移到MSSQL</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>将EventLog Analyzer数据从MySQL迁移到MSSQL数据库</h1>
+            <hr />
+            <p>注意：此部分的信息，仅适用于EventLog Analyzer版本8.0（构建号8000）及之前的产品。</p>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="4%" style="padding:5px"><img src="../images/spacer.gif" alt="Warning" width="1" height="1" class="tips" /></td>
+                <td width="96%" style="padding:10px"><p><strong>对于被管服务器修改数据库后的设置</strong></p>
+                  <p>当安装被管服务器后，它会在管理服务器上注册为以MySQL为数据库的被管服务器。<br />
+                    如果被管服务器的数据库从MySQL变更为MSSQL，那么它需要在管理服务器上重新注册为以MSSQL为数据库的被管服务器。<br />
+                    在修改完数据库之后，当被管服务器作为应用移动时，它会提示用户需重新注册到管理服务器。</p>
+				如果修改数据库之后，被管服务器作为服务启动，那么它将不会提示用户来重新注册，用户需要确保被管服务器已注册到了管理服务器。</td>
+              </tr>
+            </table>
+            <p>EventLog Analyzer支持用户将MySQL数据库中现有的EventLog Analyzer数据移动到MSSQL数据库。</p>
+            <p>以下步骤仅适用于<strong>您已经使用以MySQL为数据库的EventLog Analyzer，且您想要将数据库变更为MSSQL</strong>。 <br />
+              如果您想要在全新安装EventLog Analyzer服务器时使用MSSQL数据库，请参阅<a href="configure-mssql-database.html" title="Configuring MSSQL Database"><strong>配置MSSQL数据库</strong></a>章节的相关步骤。</p>
+            <p>要迁移数据库库，请参阅以下步骤：</p>
+            <ol start="1" type="1">
+              <li>
+                <p>停止Eventlog Analyzer服务器/服务。</p>
+              </li>
+              <li>
+                <p>在命令行中调用<em>&lt;Eventlog Analyzer Home&gt;\tools\</em><strong>backUpDatabase.bat</strong> 
+				，它用于备份MySQL数据库中现有可用的数据，请等待数据备份进程结束。默认备份文件将会存储在<em>&lt;Eventlog Analyzer Home&gt;\backup</em> 
+				目录下，文件名称将会表示为<strong>backup_eventlog_&lt;Build_Number&gt;_MM_DD_YYYY_hh_mm.data</strong>。</p>
+              </li>
+              <li>
+                <p>从安装的MS SQL服务器，复制文件<strong>bcp.exe</strong>和<strong>bcp.rll</strong>到<em>&lt;Eventlog Analyzer Home&gt;\mysql\bin</em>文件夹。</p>
+              </li>
+            </ol>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif" alt="Note" width="1" height="1" class="write" /></td>
+                <td width="95%" style="padding:10px"><strong>说明</strong>：如果您要复制文件的MSSQL服务器（2005及以上）与EventLog Analyzer不在同一台机器上，请按SQL版本和CPU类型从以下链接下载并安装SQL本地客户端到EventLog Analyzer所在的机器。
+                  <p><strong>MSSQL 2005 (32 位)</strong><br />
+                    <a href=http://download.microsoft.com/download/4/4/d/44dbde61-b385-4fc2-a67d-48053b8f9fad/sqlncli.msi>http://download.microsoft.com/download/4/4/d/44dbde61-b385-4fc2-a67d-48053b8f9fad/sqlncli.msi</a></p>
+                  <p><strong>MSSQL 2005 (64 位)</strong><br />
+                    <a href=http://download.microsoft.com/download/4/4/d/44dbde61-b385-4fc2-a67d-48053b8f9fad/sqlncli_x64.msi>http://download.microsoft.com/download/4/4/d/44dbde61-b385-4fc2-a67d-48053b8f9fad/sqlncli_x64.msi</a></p>
+                  <p><strong>MSSQL 2008 (32 位)</strong><br />
+                    <a href=http://go.microsoft.com/fwlink/?LinkId=123717&amp;clcid=0x409>http://go.microsoft.com/fwlink/?LinkId=123717&amp;clcid=0x409</a> </p>
+                  <p><strong>MSSQL 2008 (64 位)</strong><br />
+                    <a href=http://go.microsoft.com/fwlink/?LinkId=123718&amp;clcid=0x409>http://go.microsoft.com/fwlink/?LinkId=123718&amp;clcid=0x409</a></p></td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+            <ol start="4" type="1">
+              <li>
+                <p>在命令行中调用<em>&lt;Eventlog Analyzer Home&gt;\tools\</em><strong>changeDBServer.bat</strong> 
+				，它用于配置MSSQL服务器的凭证信息，如主机名称、端口、用户名和密码。</p>
+              </li>
+              <li>
+                <p><strong>数据库设置向导</strong> 窗口打开。</p>
+              </li>
+              <li>
+                <p>在向导窗口，选择<strong>服务器类型</strong>为<em>SQL Server</em>，<strong>可用的SQL服务器实例（Available SQL Server Instances）</strong>为服务器可用的实例列表，输入SQL实例所在的服务器的<strong>主机名</strong>和<strong>端口</strong></p>
+              </li>
+              <li>
+                <p>选择认证选项</p>
+              </li>
+              <li>
+                <p>这些选项为</p>
+              </li>
+              <ol start="1" type="a">
+                <li>
+                  <p>Windows认证（Windows Authentication）</p>
+                </li>
+              </ol>
+              <blockquote>
+                <p>对于Windows认证，输入<strong>域名称</strong>、<strong>用户名</strong>和<strong>密码</strong>。请确保EventLog Analyzer服务器和SQL Server位于同一域中，且登录使用的是同一域管理员帐户。&nbsp; </p>
+              </blockquote>
+            </ol>
+            <ol start="1" type="1">
+              <ol start="2" type="a">
+                <li>SQL Server认证（SQL Server Authentication ）</li>
+              </ol>
+              <blockquote>
+                <p>对于SQL Server认证，输入<strong>用户名</strong>和<strong>密码</strong>。</p>
+              </blockquote>
+            </ol>
+            <ol start="7" type="1">
+              <li>
+                <p>点击<strong>测试（Test）</strong>按钮检查凭证是否正确，如果测试失败，那么表示输入的凭证可能错误，请检查后再次输入并测试。</p>
+              </li>
+              <li>
+                <p>点击<strong>保存（Save）</strong>按钮来保存MSSQL服务器配置，这需要几分钟来配置MSSQL数据库的设置，请耐心等待。</p>
+              </li>
+              <li>
+                <p>在命令行中运行 <em>&lt;Eventlog Analyzer Home&gt;\bin\</em><strong>run.bat</strong> 
+				，启动Eventlog Analyzer服务器。</p>
+              </li>
+              <li>
+                <p>在服务器完全启动之后，在命令行中终止 <strong>run.bat</strong> 以停止服务器，或调用 <em>&lt;Eventlog Analyzer Home&gt;\bin\</em><strong>shutdown.bat</strong>。</p>
+              </li>
+              <li>
+                <p>调用<em>&lt;Eventlog Analyzer Home&gt;\tools\</em><strong>restoreDatabase.bat</strong>，浏览并选择创建的备份文件，点击<strong>确定（OK）</strong> 
+				并等待数据库完全恢复。 </p>
+              </li>
+            </ol>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="4%" style="padding:5px"><img src="../images/spacer.gif" alt="Warning" width="1" height="1" class="tips" /></td>
+                <td width="96%" style="padding:10px"><p>执行<strong>restoreDatabase.bat</strong>将会删除现有的数据。</p></td>
+              </tr>
+            </table>
+            <ol start="12" type="1">
+              <li>
+                <p>启动Eventlog Analyzer服务器/服务。</p>
+              </li>
+            </ol>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif" alt="Note" width="1" height="1" class="write" /></td>
+                <td width="95%" style="padding:10px"><strong>说明</strong>：您也可以修改备份的目录，只需在命令行中执行备份数据库的批处理文件时，将备份文件要存储到的位置的绝对路径作为参数即可，例如：<br />
+                <em>&lt;Eventlog Analyzer Home&gt;\tools:\&gt;</em><strong>backUpDatabase.bat</strong> <strong><em>D:\Mysql</em></strong></td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+          <p>&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../additional-utilities/migrate-data-pgsql-mssql.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../additional-utilities/migrate-data-mssql-mysql.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

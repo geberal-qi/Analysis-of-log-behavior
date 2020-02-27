@@ -1,0 +1,73 @@
+/* CSS Document */
+html, body{ height:100%;}
+body{background:url(images/tile.gif) repeat; font:normal 12px Verdana, Geneva, sans-serif; color:#000;}
+a{ text-decoration:none;}
+a{ color:#028cc5;}
+img{ border:none;}
+ul li{ font:normal 12px Verdana, Geneva, sans-serif;}
+body,html,#leftmenu ul,.topnav,h1,h2,h3,h4,ul li,ol li{ margin:0px; padding:0px;}
+.marginLeft5,.searchbox{ margin-left:5px;}
+.marginLeft15,.topnav li{ margin-left:15px;}
+.marginLeft25,#leftmenu,.logo{ margin-left:25px;}
+.marginTop5,.logo,#leftmenu,h1,h3{ margin-top:5px;}
+.marginTop10,.searchbox{ margin-top:10px;}
+.padding5{ padding:5px;}
+.padding10{ padding:10px;}
+.paddingLeft25{ padding-left:25px;}
+.paddingRight25{ padding-right:25px;}
+.alignC{ text-align:center;}
+.alignLeft{ text-align:left;}
+.alignRight{ text-align:right;}
+.floatLeft,ul.topnav li{ float:left;}
+.floatRight,.topnav{ float:right;} 
+.txtbold,#leftmenu ul li{ font-weight:bold;}
+.imptxtbold{ font-weight:bold !important;}
+.bdrradius6,.searchbox{ border-radius:6px; -moz-border-radius:6px; -webkit-border-radius:6px; -khtml-border-radius:6px;}
+.boxshadow,.searchbox{ box-shadow: inset 0px 0px 8px rgba(0,0,0,0.1);}
+.logo,.shadow,.searchbtn,.write,.tips,.download,.website,.forum,.demo,.leftnav,.homenav,.rightnav{ background:url(images/icons.png) no-repeat;}
+.bdr{ border-top:1px solid #ccc;}
+.graycolor{ color:#9a9999;}
+hr{ border:none;border-top:1px solid #ccc; }
+.ctxt,p{ font: normal 12px Verdana, Geneva, sans-serif; line-height:22px;}
+.title,h1{ font: 24px Arial,verdana;}
+.font11,.topnav,.graycolor{ font-size:12px;}
+h3,.table tr:first-child{ font-size:12px;}
+.headerbg{ background:url(images/banner_bg.png) repeat-x;}
+.fade{ background:url(images/fade.png) repeat-x top fixed;}
+.download{ width:14px; height:13px; background-position:-57px -27px;}
+.website{ width:14px; height:15px; background-position:-119px -28px;}
+.forum{ width:14px; height:14px; background-position:-150px -27px;}
+.demo{ width:14px; height:11px; background-position:-87px -30px; }
+.hdrtxt{ color:#b8b2ae;}
+.topnav{list-style-type:none;}
+.topnav a{ color:#b8b2ae;}
+.logo{ width:170px; height:36px; background-position:-10px -170px; }
+.shadow{ background-position:right -30px;} 
+#leftmenu{ width:305px; height:100%; min-height:100%; }
+.search{ width:280px; height:15px; clear:both; margin-bottom:15px; position:relative;}
+.clsNodes{border-bottom:1px solid #d4d9d9; font-family:Verdana, Geneva, sans-serif; }
+.searchbox{ width:210px; height:18px; border:1px solid #c6c9cb; background-color:#d8d9da; color:#797474;  padding:5px 25px 5px 10px; outline-color:#bdbdbd;}
+.searchbtn{ background-position:-18px -27px; width:17px; height:16px; position:absolute; top:18px; right:40px; cursor:pointer;}
+.table tr:first-child { background-color:#e3e3e3; height:38px; font-weight:bold;}
+.table tr td{vertical-align:top; padding:10px 15px; border-top:1px solid #d7d7d7;}
+ul.list li{ list-style-type:circle; list-style-position:inside;}
+ul.list li:first-child{ font-weight:bold; list-style-type:none;}
+ol.ol_list li,ul li,ul.list li{ line-height:22px;}
+.notes{ background-color:#efe9b2; padding:5px 15px;}
+.write{ width:42px; height:42px; background-position:-10px -55px;}
+.tips{ width:34px; height:34px; background-position:-12px -114px;} 
+.leftnav,.homenav,.rightnav{ width:10px; padding:4px; background-color:#bdbdbd; height:10px; border-radius:2px; -moz-border-radius:2px; -webkit-border-radius:2px; -khtml-border-radius:2px;}
+.leftnav{ background-position:-201px -28px;}
+.homenav{ background-position:-201px -56px;}
+.rightnav{ background-position:-201px -88px;}
+.navigation{ margin-right:15px;}
+.edition{ font-size:12px; color:#FFF; text-shadow: 1px 1px 1px #000;}
+.codefont{font:"Courier New", Courier, monospace}
+@-moz-document url-prefix() { #leftmenu{ height:100%;}   }
+#leftmain{ margin:0px; padding:0px; min-height:100%;}
+.leftmenunew{ width:300px;   margin-left:5px; padding-top:25px; } 
+.notesimg{ background:url(images/icons.png) no-repeat; background-position:-10px -58px; padding:13px 20px; line-height:43px;}
+.tipsimg{ background:url(images/icons.png) no-repeat; background-position:-14px -112px; padding:13px 16px; line-height:43px;} 
+.notesimg{ background:url(images/icons.png) no-repeat; background-position:-10px -58px; padding:13px 20px; line-height:43px;}
+.tipsimg{ background:url(images/icons.png) no-repeat; background-position:-14px -112px; padding:13px 16px; line-height:43px;} 
+.alertimg{ background:url(images/icons.png) no-repeat; background-position:-83px -115px; padding:13px 16px; line-height:43px;}

@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer - Create Alert Profile</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../alerts/alerts-intro.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../alerts/create-ibm-iseries-alerts.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> »  <a href="alerts-intro.html" title="Log Alerts">事件告警</a> » 创建告警配置文件</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>怎样创建告警配置文件</h1>
+            <hr />
+            <p>要在用户界面创建告警配置文件，可通过以下菜单实现：</p>
+            <ul>
+              <li><strong>告警</strong>页签 &gt; <strong>告警配置文件</strong> &gt; <strong>+</strong></li>
+              <li>标签：<strong>+添加</strong> &gt; <strong>告警</strong></li>
+              <li><strong>设置</strong>页签 &gt; <strong>告警</strong> &gt; <strong>添加</strong>            </li>
+            </ul>
+            <p>请参阅下面的步骤来创建告警配置文件。</p>
+            <p>&nbsp;</p>
+            <p align="center"><img src="../images/create-alert-profile.png"  alt="Create alert profile" /></p>
+            <p>&nbsp;</p>
+            <ol>
+              <li>
+                <p id="security_event_alert">输入告警配置文件的名称。</p>
+              </li>
+              <li><p>指定此报表配置文件生成的告警的严重性级别，可选项包括<strong>高</strong>、<strong>中</strong>和<strong>低</strong>。</p>
+              </li>
+              <li>
+                <p>选择要生成告警的主机和主机组。</p>
+              </li>
+              <li>
+                <p>使用预设的告警条件来快速配置告警。如果您的告警需求不在预设的条件中，请使用自定义告警条件。如果您有合规性告警需求，那么请使用合规性告警条件进行设置。</p></li>
+            </ol>
+            <blockquote>
+              <p><strong>预定义告警</strong></p>
+            </blockquote>
+            <p align="center"> <strong></strong><img src="../images/predefined-alert-criteria.png"  alt="Predefined alert criteria" /></p>
+            <ul>
+              <ol type="a">
+                <li>选择预定义告警来定义告警条件。</li>
+                <li>选择一个预定义的告警条目。</li>
+                <li>当选择了一个预定义的告警条目后，这里将会将会自动填充对应的安全/事件ID、日志类型和消息，且这些字段不可编辑，这样可以快速创建告警配置文件。</li>
+                <li>
+				您可以控制告警的生成，将出现一次事件生成一次告警配置为，在特定时间段内出现N次事件生成一次告警。您需要设置事件出现的次数，以及事件出现的时间限制。</li>
+              </ol>
+            </ul>
+            <blockquote>
+              <p id="compliance_alert"><strong>合规性告警</strong></p>
+            </blockquote>
+            <p align="center"><img src="../images/compliance-alert-criteria.png"  alt="Compliance alert criteria" /></p>
+            <ol>
+              <ol type="a">
+                <li>
+                  <p>选择合规性告警设置。</p>
+                </li>
+                <li>
+                  <p>当选择和合规性告警设置之后，下面将会列出支持的合规性列表，它们是<strong>FISMA</strong>、<strong>PCI</strong>、<strong>HIPAA</strong>、<strong>SOX</strong>和<strong>GLBA</strong>。</p>
+                </li>
+                <li>                  
+				您可以控制告警的生成，将出现一次事件生成一次告警配置为，在特定时间段内出现N次事件生成一次告警。您需要设置事件出现的次数，以及事件出现的时间限制。</li>
+              </ol>
+            </ol>
+            <blockquote>
+              <p><strong>自定义告警</strong></p>
+            </blockquote>
+            <p align="center"><img id="imported_log_alerts" src="../images/custom-alert-criteria.png"  alt="Custom alert criteria" /></p>
+            <ol>
+              <ol type="a">
+                <li>
+                  <p>选择自定义告警设置。</p>
+                </li>
+                <li>
+                  <p>从列表中选择日志的类型，缺省值为<strong>任意</strong>。如果要选择多个日志类型，可以使用<strong>+ 
+					更多</strong>链接，告警将会在出现此类型时生成。</p>
+                </li>
+                <li>
+                  <p>从列表中选择重要度，缺省值为<strong>任意</strong>。 如果要选择多个重要度，可以使用<strong>+ 
+					更多</strong>链接，告警将会在出现此重要度时生成。如果选择了事件ID，请输入事件ID，或使用事件ID来选择指定消息的事件ID。</p>
+                </li>
+                <li>
+                  <p>使用<strong>日志消息包含</strong>字段定义在日志消息中出现指定的词组或短语时，触发告警，使用<strong>除外</strong>字段定义当日志消息中存在指定的词组或短语时，不触发告警。</p>
+                </li>
+                <li>
+                  <p>对于以上两种字段，在<strong>高级</strong>设置下，您可以配置对于多个字段的匹配选项设置。</p>
+                </li>
+                <li>
+                  <p>
+					您可以控制告警的生成，将出现一次事件生成一次告警配置为，在特定时间段内出现N次事件生成一次告警。您需要设置事件出现的次数，以及事件出现的时间限制。</p>
+                </li>
+              </ol>
+            </ol>
+            <ol start="5">
+              <li>生成的告警可以通过邮件、短信进行通知，也可以通过运行程序，在生成告警时执行一个脚本或程序。设置告警通知选项。</li>
+            </ol>
+            <blockquote>
+              <blockquote>
+                <p><strong>设置通过邮件发送告警通知</strong></p>
+                <p>输入邮件发送告警通知的明细信息。</p>
+                <p align="center"><img src="../images/email-alert-notify.png"  alt="Email alert notification" /> </p>
+                <ol type="a">
+                  <li>
+                    <p>输入邮件的地址。多个邮件地址请使用逗号隔开（,）。 </p>
+                  </li>
+                  <li>
+                    <p>输入邮件通知的主题，您可以将告警参数附加到主题行。请从旁边的参数列中选择参数。</p>
+                  </li>
+                  <li>
+                    <p>您可以为邮件通知添加备注信息，最大字节数限制为250个字符，这个信息将会附加到邮件通知的内容中。</p>
+                  </li>
+                </ol>
+                <p align="center"><img src="../images/mail-server-set.png"  alt="Mail server configuration prompt" /></p>
+                <p>如果在EventLog Analyzer中尚未配置邮件服务器，当选择了通过邮件发送通知选项时，您会看到邮件配置的提醒信息。<br />
+                </p>
+                <p><strong>设置通过运行程序通知告警</strong></p>
+                <p>输入运行脚本或程序的明细信息。</p>
+                <p align="center"><img src="../images/run-program-on-alert.png"  alt="Run program on alert generation" /> </p>
+                <ol type="a">
+                  <li>
+                    <p>输入EventLog Analyzer客户端机器中脚本文件的路径和名称，或者通过<strong>浏览</strong>按钮选择脚本文件。</p>
+                  </li>
+                  <li>
+                    <p>设置要传送到脚本的告警参数，从列表中选择需要的参数。您可以选择的参数包括告警的来源、主机名和重要度</p>
+                  </li>
+                </ol>
+                <p><strong>设置通过短信通知告警</strong></p>
+                <p>输入短信的明细信息。</p>
+                <p align="center"><img src="../images/sms-alert-notify.png"  alt="SMS alert notification" /> </p>
+                <ol type="a">
+                  <li>
+                    <p>输入接收短信通知的移动电话号码。</p>
+                  </li>
+                  <li>
+                    <p>输入短信通知的消息内容，您也可以将告警参数附加到这里。请从旁边的列表中选择要附加的参数。</p>
+                  </li>
+                </ol>
+                <p align="center"><img src="../images/sms-server-set.png"  alt="SMS server configuration prompt" /></p>
+              </blockquote>
+            </blockquote>
+            <blockquote>
+              <blockquote>
+                <p>如果在EventLog Analyzer中尚未配置短信设置，当选择了通过短信通知选项时，您会看到配置短信的提醒信息。</p>
+              </blockquote>
+            </blockquote>
+            <p align="center"></p>
+            <ol start="6">
+              <li>点击<strong>添加告警配置文件</strong>按钮完成告警配置文件的创建，所有创建的告警配置文件将会列在<strong>告警配置文件明细</strong>页面，在那里您可以启用、禁用、修改和删除配置文件。</li>
+            </ol>
+<p>&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../alerts/alerts-intro.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../alerts/create-ibm-iseries-alerts.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

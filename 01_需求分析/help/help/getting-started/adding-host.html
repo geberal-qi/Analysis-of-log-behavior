@@ -1,0 +1,463 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>添加主机</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../getting-started/get-the-log-data.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../getting-started/analyzing-application-logs.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="get-the-log-data.html">开始使用</a> » 添加主机</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>添加主机</h1>
+            <hr />在Web客户端中通过以下方法之一添加主机：<ul>
+              <li><strong>主页</strong>页签 &gt; <strong>主机</strong> &gt; <strong>+主机</strong></li>
+              <li>下拉菜单<strong>+添加</strong> &gt; <strong>主机</strong></li>
+              <li><strong>设置</strong>页签 &gt;管理主机：<strong>新建</strong></li>
+            </ul>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif"width="1" height="1" class="write" /></td>
+                <td width="95%" style="padding:10px"><strong>说明</strong>：默认的主机类型有Windows、UNIX、IBM AS/400、Cisco Device和Syslog Device。如果要添加新的主机类型，点击“<strong>+</strong>”图标，然后输入新的类型名称。</td>
+              </tr>
+            </table>
+            <ul>
+              <li><a href="#windows">添加Windows主机</a><br />
+                </li>
+              <li><a href="#unix">添加UNIX主机</a></li>
+              <li><a href="#unix">添加思科设备（交换机和路由器）、Hypervisor和VMware，或其他Syslog设备</a><br />
+              </li>
+              <li><a href="#addIBMiSeries">添加IBM iSeries (AS/400)主机</a><br />
+                </li>
+              <li><a href="#addVMware">添加VMware主机</a><br />
+                </li>
+              <li><a href="#addOracle">添加Oracle主机</a><br />
+                </li>
+              <li><a href="#addPrint">添加打印机服务器</a><br />
+                </li>
+              <li><a href="#syslogUnix">在UNIX主机上配置Syslog服务</a><br />
+                </li>
+              <li><a href="#syslogHP">在HP-UX/Solaris/AIX主机上配置Syslog服务</a><br />
+                </li>
+              <li><a href="#syslog_vmware">在VMWare上配置Syslog服务</a></li>
+              <li><a href="#syslogCiscoSwitches">在思科交换机上配置Syslog服务</a></li>
+            </ul>
+            <h2><strong><a name="windows" id="windows"></a>添加Windows主机</strong></h2>
+<p>确认在Windows主机上启用了WMI和DCOM；格模块/对象启用了日志。如果要把Windows事件日志转发成Syslog格式，要使用第三方工具，如SNARE。</p>
+<p>&nbsp;</p>
+<p align="center"><img src="../images/add-host-windows.gif" /></p>
+<p>&nbsp;</p>
+            <ol>
+              <li>
+                <p>选择主机类型为Windows。获取使用“<strong>+</strong>”图标创建新的主机类型。</p>
+              </li>
+              <li>
+                <p>输入主机名称。使用英文逗号分隔多个主机名称。<strong>提示</strong>：你可以从文本文件复制用英文逗号分隔的主机名称到这里来。</p>
+              </li>
+              <li>
+                <p>如果你使用管理员权限登录，你会看到<strong>选择主机</strong>链接。使用这个链接可以从工作组或者域中选择主机。</p>
+              </li>
+              <li>
+                <p>选择主机组。或者使用“<strong>+</strong>”图标来创建新的主机组。</p>
+              </li>
+              <li>
+                <p>如果主机位于本地工作组，<strong>域名</strong>是可选择的。否则要手动输入。如果使用<strong>选择主机</strong>链接选择的主机，<strong>域名</strong>会被自动填写。</p>
+              </li>
+              <li>
+                <p>输入<strong>登录名</strong>（就是用户名称）和<strong>密码</strong>以访问主机。用户应该有管理员权限，才能获取日志。使用<strong>验证登录</strong>链接来验证凭证是否正确。如果同时添加多个主机，确保凭证对所有主机有效。</p>
+              </li>
+              <li>
+                <p>输入<strong>监视间隔</strong>来配置Evenglog Analyzer从主机上获取日志的频率。默认值是10，也是最小值。</p>
+              </li>
+              <li>
+                <p>点击<strong>保存</strong>按钮来添加主机。使用<strong>保存并新建</strong>按钮来添加更多主机。</p>
+              </li>
+            </ol>
+            <p><strong><a name="pick" id="pick"></a>选择主机</strong></p>
+            <p>&nbsp;</p>
+            <p align="center"><img src="../images/pick-host-windows.gif" /></p>
+            <p>&nbsp;</p>
+            <p align="center"> </p>
+            <ol>
+              <li>
+                <p>选择你要添加主机所在的域或工作组。</p>
+              </li>
+              <li>
+                <p>使用<strong>选择全部</strong>来选择列出工作组或域中的所有主机。或者使用搜索栏来搜索主机，从搜索结果中选择你要的主机。</p>
+              </li>
+              <li>
+                <p>选中<strong>作为域用户登录</strong>来通过域凭证来访问所有选择的主机。</p>
+              </li>
+              <li>
+                <p>点击<strong>更新</strong>按钮来添加选择的主机。</p>
+              </li>
+              <li>
+                <p>如果列出的域或工作组中没有你要的主机，点击<strong>重新扫描域或工作组</strong>链接来扫描选择的工作组或域。</p>
+              </li>
+              <li>
+                <p>如果没有列出你要的主机、域、组织单位或工作组，点击<strong>重新扫描全部网络</strong>链接来扫描整个网络。</p>
+              </li>
+            </ol>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" style="padding:5px"><img src="../images/spacer.gif"width="1" height="1" class="tips" /></td>
+                <td width="95%" style="padding:10px"><strong>注意</strong>：如果EventLog Analyzer安装到了Linux机器上，是不能从Windows机器上收集事件日志的。这样的话，你就需要使用第三方工具来把事件日志转换成Syslog，然后转发给EventLog Analyzer。</td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif"width="1" height="1" class="write" /></td>
+                <td width="95%" style="padding:10px"><strong>说明</strong>：<br /><strong>收集历史日志</strong>：如果你要收集Windows事件浏览器中的历史日志，点击<strong>添加主机</strong>页面右上角的<strong>收集日志</strong>的文件夹图标，打开<strong>收集日志</strong>弹出窗口，选中“<strong>收集事件浏览器中所有的日志</strong>”来收集历史日志。选中了之后，EventLog Analyzer就会收集Windows事件浏览器中所有的历史日志。如果没有选择，就会只收集过去1小时的日志。<strong>注意</strong>：历史日志收集会占用大量的CPU和内存资源，请谨慎使用。</td>
+              </tr>
+            </table>
+            <p><br />
+              <a name="unix" id="unix"></a><br clear="all" />
+            </p>
+            <h2><strong>添加UNIX主机/思科设备/Syslog设备</strong></h2>
+            <p>配置UNIX/Linux主机发送Syslog到EventLog Analyzer，使用默认的Syslog端口（<strong>513</strong>和<strong>514</strong>），不需要在Evenglog Analyzer中添加UNIX主机，Evenglog Analyzer在收到日志后自动在主机列表中显示出UNIX主机。</p>
+            <p><strong>如果UNIX/Linux主机没有自动列出来，参考下面的方法来排除故障：</strong></p>
+            <ul>
+              <li>检查EventLog Analyzer服务器和UNIX/Linux主机的网络连接。使用“<strong>ping</strong>”命令检查Eventlog Analyzer服务器和UNIX/Linux主机之间是否可达。</li>
+              <li>登录到EventLog Analyzer，点击<strong>显示监听端口明显</strong>来检查513、514端口是否打开正在监听。</li>
+              <li>如果端口不可用，说明端口被其他程序占用。这样的话，转发syslog到其他可用端口，<a href="../installation/eventlog-prerequisites.html#change">在EventLog Analyzer中添加监听端口</a>。或者停止占用这些端口的程序。</li>
+              <li>检查在UNIX/Linux主机上是否通过默认的513、514端口转发日志，或者是否使用其他的端口。</li>
+              <li>检查是否防火墙（Windows防火墙或其他防火墙软件）阻止了这些端口的数据。<br clear="none" />
+              </li>
+              <li>如果问题还是存在，使用抓包工具，如Wireshark或Ethereal，检查UNIX/Linux机器是否发出了syslog数据包。</li>
+            </ul>
+            <p>对于<strong>思科设备（交换机和路由器）</strong>、<strong>Hypervisor</strong>、<strong>VMware</strong>或<strong>任意其他syslog设备</strong>，你要首先配置其发送syslog到EventLog Analyzer，然后在主机管理中添加。</p>
+<p align="center"><img src="../images/add-host-linux.gif" /></p>
+            <p>&nbsp;</p>
+            <ol>
+              <li>
+                <p>选择主机类型。获取使用“<strong>+</strong>”图标创建新的主机类型。</p>
+              </li>
+              <li>
+                <p>输入主机名称。使用英文逗号分隔多个主机名称。<strong>提示</strong>：你可以从文本文件复制用英文逗号分隔的主机名称到这里来。</p>
+              </li>
+              <li>
+                <p>选择主机组。或者使用“<strong>+</strong>”图标来创建新的主机组。</p>
+              </li>
+              <li>
+                <p>输入Syslog监听端口。</p>
+              </li>
+              <li>
+                <p>点击<strong>保存</strong>按钮来添加主机。使用<strong>保存并新建</strong>按钮来添加更多主机。</p>
+              </li>
+            </ol>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif"width="1" height="1" class="write" /></td>
+                <td width="95%" style="padding:10px"><strong>说明</strong>：在Linux主机中，确保syslog守候进程正在运行，并检查其端口是否和Evenglog Analyzer中一致。</td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+            <p><strong>使用主机组</strong></p>
+            <p>添加了主机后，可以把它关联到主机组中。默认的主机组有Windows和UNIX。你也可以创建自己的主机组。</p>
+            <p>&nbsp;</p>
+            <h2><strong><a name="addIBMiSeries" id="addIBMiSeries"></a>添加IBM iSeries (AS/400)主机</strong></h2>
+            <p>在Evenglog Analyzer上打开446-449、8470-8476、9470-9476端口用来接收IBM AS/400机器日志。</p>
+            <p>&nbsp;</p>
+            <p align="center"><img src="../images/add-host-ibm-as400.png" /></p>
+            <p>&nbsp;</p>
+            <ol>
+              <li>
+                <p>在添加主机页面中选择<strong>主机类型</strong>为<strong>IBM AS/400</strong>。</p>
+              </li>
+              <li>
+                <p>在主机名中输入单个或多个用英文逗号分开的主机名称。</p>
+              </li>
+              <li>
+              </li>
+                <p>选择要添加到的<a href="../configurations/manage-hosts.html#AddHostGroups">主机组</a>。点击“<strong>+</strong>”图标来添加新的主机组。</p>
+              <li>
+                <p>输入选择主机的管理员登录名和密码。在<strong>密码</strong>框后有<strong>验证登录</strong>链接，点击该链接检查用户凭证是否可用。</p>
+              </li>
+              <li>
+                <p>输入<strong>监视间隔</strong>，配置EventLog Analyzer从IBM  AS/400机器上获取日志的频率。默认值是10，也是最小值。</p>
+              </li><li><p>选择<strong>日志格式</strong>和<strong>日志中日期格式的分隔符</strong>。这个日期格式就是收集的IBM AS/400日志中的日期格式。</p>
+              </li>
+            </ol>
+				<p>点击<strong>保存</strong>按钮来添加主机。使用<strong>保存并新建</strong>按钮来添加更多主机。</p>            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="4%" style="padding:5px"><img src="../images/spacer.gif"width="1" height="1" class="tips" /></td>
+                <td width="96%" style="padding:10px">这个用户帐户是Evenglog Analyzer用来登录到AS400，必须有<strong>50</strong>的<strong>authority level</strong>。否则就不能登录获取历史日志。</td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+            <h2><strong><a name="addVMware" id="addVMware"></a>添加VMware主机</strong>
+            </h2>
+            <ol>
+              <li>
+                <p>在添加主机页面中选择<strong>主机类型</strong>为<strong>UNIX</strong>，按照上面<a href="#unix">添加UNIX主机</a>的步骤进行添加。<br />
+                </p>
+              </li>
+              <li>
+                <p>按照<a href="#syslog_vmware">这些步骤</a>来配置WMWare的syslog。</p>
+              </li>
+              <li>
+                <p>在EventLog Analyzer开始接收VMware主机的syslog之后，按照下面的步骤把主机类型改为Hypervisor:
+                </p>
+                <ul>
+                  <li>点击WMWare主机的<strong>编辑主机信息</strong>图标，打开编辑主机信息页面。</li>
+                  <li>选择<strong>Hypervisor</strong>作为<strong>主机类型</strong>。</li>
+                  <li>保存后该主机就是WMWare主机了。</li>
+                </ul>
+              </li>
+            </ol>
+            <p>&nbsp;</p>
+            <h2><strong><a name="addOracle" id="addOracle"></a>添加Oracle应用</strong> </h2>
+            <p>按照下面的步骤来配置要监视的Oracle：
+            </p>
+            <ul>
+              <li>在<strong>添加主机</strong>页面中</li>
+            </ul>
+            <blockquote>
+              <p>按照<a href="#windows">这里的步骤</a>添加<strong>Oracle应用</strong>服务器为<strong>Windows主机</strong>（如果Oracle应用运行在Windows机器上）或者按照<a href="#unix">这里的步骤</a>添加为<strong>Linux主机</strong>（如果Oracle应用运行在Linux机器上）。</p>
+            </blockquote>
+            <ul>
+              <li>在<strong>设置</strong>页面中</li>
+            </ul>
+            <blockquote>
+              <p>在添加了Widnows或Linux主机后，到<strong>设置</strong> &gt; 配置：管理应用：新建<strong>Oracle</strong>，就打开了<strong>配置Oracle主机</strong>页面。在<strong>添加主机</strong>文本框中输入Oracle应用服务器的主机名。点击<strong>保存</strong>图标。已有的主机列出在<strong>已有的主机</strong>的下面。</p></blockquote>
+<p>&nbsp;</p>
+            <h2><strong><a name="addPrint" id="addPrint"></a>添加打印机服务器            </strong></h2>
+            <p>按照下面的步骤来配置要监视的打印机服务器：
+            </p>
+            <ul>
+              <li>在<strong>添加主机</strong>页面中</li>
+            </ul>
+            <blockquote>
+              <p>按照<a href="#windows">这里的步骤</a>添加<strong>打印机</strong>服务器为<strong>Windows主机</strong></p>
+            </blockquote>
+            <ul>
+              <li>在<strong>设置</strong>页面中</li>
+            </ul>
+            <blockquote>
+              <p>在添加了Widnows主机后，到<strong>设置</strong> &gt; 配置：管理应用：新建<strong>打印机</strong>，就打开了<strong>配置打印机服务器</strong>页面。在<strong>添加主机</strong>文本框中输入打印机服务器的主机名。点击<strong>保存</strong>图标。已有的主机列出在<strong>已有的主机</strong>的下面。</p></blockquote>
+<p>在EventLog Analyzer中配置了打印机服务器之后，在打印服务器中进行以下配置。</p>
+            <p><strong>打印服务器配置</strong></p>
+<p><strong>启用打印服务器日志</strong></p>
+            <p>打开<strong>事件查看器</strong> &gt; <strong>应用和服务日志</strong> &gt; <strong>打印服务</strong>，右击选择“<strong>启用日志</strong>”。这将启用“Admin”、“Debug”或“Operational”相应处理的日志。日志将显示在事件查看器中。<br />
+            </p>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif"width="1" height="1" class="write" /></td>
+                <td width="95%" style="padding:10px"><p><strong>说明</strong>：如果打印服务器是64位的Windows操作系统（例如：Windows Vista及以上），进行如下配置：</p>
+                  <ul type="disc">
+                    <li>通过运行“<strong>regedit</strong>”打开注册表编辑器。</li>
+                    <li>打开<em>计算机\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\</em></li>
+                    <li>右击<em>eventlog</em>，点击新建&gt; 项并创建<strong>Microsoft-Windows-PrintService/Operational or Admin or Debug</strong></li>
+                  </ul>
+                <p>这将转变日志类型为可管理的，然后我们才能在Evenglog Analyzer中查询日志。</p>
+                <p>对于32位的Windows操作系统，不需要进行这些配置。</p></td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+<br clear="all" />
+<h3><a name="syslogUnix" id="syslogUnix"></a>在UNIX主机上配置Syslog服务 </h3>
+<ol>
+  <li>
+    <p>以root用户登录，编辑<strong>/etc</strong>目录下的<strong>syslog.conf</strong>文件。</p>
+  </li>
+  <li>
+    <p>在最后添加一行：<strong>*.*&lt;空格或制表符（按tab键）&gt;@<em>&lt;服务器名&gt;</em></strong>，<em><strong>&lt;服务器名&gt;</strong></em>就是运行EventLog Analyzer的机器。</p>
+  </li>
+  <li>
+    <p>保存并退出编辑器。</p>
+  </li>
+  <li>
+    <p>编辑<strong>/etc</strong>目录中的<strong>services</strong>文件。</p>
+  </li>
+  <li>
+    <p>更改syslog服务端口为<strong>514</strong>，514是EventLog Analyzer的<a href="../getting-started/adding-host.html#ports">默认端口</a>之一。如果你使用其他端口，在Evenglog Analyzer<a href="../getting-started/adding-host.html#unix">添加主机</a>的时候输入你的端口。</p>
+  </li>
+  <li>
+    <p>保存并退出编辑器。</p>
+  </li>
+  <li>
+    <p>重新启动syslog服务，命令为：<br />
+      <strong>/etc/rc.d/init.d/syslog restart</strong></p>
+  </li>
+  </ol>
+<blockquote>
+  <p>在Linux主机上配置<a name="syslog-ng" id="syslog-ng"></a><strong>syslog-ng</strong>守候进程，要在at the end of <strong>/etc/syslog-ng/syslog-ng.conf</strong>的最后添加：</p>
+  <p><em>destination eventloganalyzer { udp(&quot;<em>&lt;主机名&gt;</em>&quot;                   port(514)); }; <br />
+    log { source(src); destination(eventloganalyzer); };</em></p>
+  <p><em><strong>&lt;主机名&gt;</strong></em>处输入运行EventLog Analyzer主机的IP地址。 </p>
+</blockquote>
+<h3><a name="syslogHP" id="syslogHP"></a>在HP-UX/Solaris/AIX主机上配置syslog服务</h3>
+<ol>
+  <li>
+    <p>以root用户登录。</p>
+  </li>
+  <li>编辑<strong>/etc</strong>目录中的<strong>syslog.conf</strong>文件，添加以下一行：<br />
+  </li>
+  </ol>
+<blockquote>
+  <p>*.emerg;*.alert;*.crit;*.err;*.warning;*.notice;*.info;*.debug            &lt;tab-separation&gt;@&lt;server_name&gt;<br />
+    </p>
+</blockquote>
+<table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+  <tr>
+        <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif"width="1" height="1" class="write" /></td>
+        <td width="95%" style="padding:10px"><strong>说明</strong>：对于Solaris主机，要在<strong>syslog.conf</strong>文件中添加*.debug&lt;制表符（按tab键）&gt;@&lt;服务器名&gt;就可以了。</td>
+        </tr>
+    </table>
+  
+
+    <blockquote>
+      <p>  <em><strong>&lt;服务器名&gt;</strong></em>就是运行EventLog Analyzer的机器。确保在*.debug和@&lt;服务器名&gt;之间只有一个<strong>制表符（按一次tab键）</strong>。<br />
+      </p>
+    </blockquote>
+    <ol start="3">
+      <li>
+        <p>保存并推出编辑器。</p>
+      </li>
+      <li>
+        <p>编辑<strong>/etc</strong>目录中的<strong>services</strong>文件。</p>
+      </li>
+      <li>
+    <p>更改syslog服务端口为<strong>514</strong>，514是EventLog Analyzer的<a href="../getting-started/adding-host.html#ports">默认端口</a>之一。如果你使用其他端口，在Evenglog Analyzer<a href="../getting-started/adding-host.html#unix">添加主机</a>的时候输入你的端口。</p>
+      </li>
+      <li>        执行下面命令来启动syslog守候进程：<br />
+          /sbin/init.d/syslogd {start|stop}<br />
+        </li>
+    </ol>
+    <blockquote>
+      <p>具体命令：<br />
+        (HP-UX) <strong>/sbin/init.d/syslogd start</strong><br />
+        (Solaris) <strong>/etc/init.d/syslog start</strong><br />
+        (Solaris 10) <strong>svcadm -v restart svc:/system/system-log:default</strong><br />
+        (IBM AIX) <strong>startsrc -s syslogd</strong></p>
+    </blockquote>
+<p>&nbsp;</p>
+<h3><a name="syslog_vmware" id="syslog_vmware"></a>在VMWare上配置Syslog服务 </h3>
+<p>所有的ESX和ESXi主机都运行着一个syslog服务(syslogd)，来着VMkernel和其他系统组件都通过它来记录。</p>
+<p><strong>配置ESX主机的syslog</strong>:</p>
+<p>可以使用vSphere客户端或者vicfg-syslog来配置ESX主机上syslog的特性。要配置ESX主机的syslog服务，必须编辑<em>/etc/<strong>syslog.conf</strong></em>文件。</p>
+<p><strong>配置ESXi主机的syslog</strong>:</p>
+<p> 在ESXi主机上，你可以使用vSphere客户端或vSphere命令行命令vicfg-syslog配置如下选项：
+</p>
+<ul>
+  <li><strong>日志文件目录</strong>：指定所有保存syslogd消息文件的路径。<br />
+  </li>
+  <li><strong>远程主机</strong>：指定syslog消息转发到的远程主机。为了收集到转发的syslog消息，你的远程主机上必须安装了syslog服务。<br />
+  </li>
+  <li><strong>远程端口</strong>：远程主机接收syslog消息所使用的端口。</li>
+</ul>
+<p><strong>使用vSphere命令行命令配置syslog</strong>：
+</p>
+<blockquote>
+  <p>参考vicfg-syslog的资料：<a href="http://www.vmware.com/pdf/vsphere4/r40_u1/vsp_40_u1_vcli.pdf" target="_new">vSphere命令行接口安装和参考手册</a>。</p>
+</blockquote>
+<p><strong>使用vSphere客户端配置syslog</strong>：
+</p>
+<ol>
+  <li>
+    <p> 在vSphere客户端目录中点击主机。<br />
+    </p>
+  </li>
+  <li>
+    <p>点击<strong>配置</strong>标签。<br />
+    </p>
+  </li>
+  <li>
+    <p>点击<strong>软件</strong>下的<strong>高级设置</strong>。<br />
+    </p>
+  </li>
+  <li>
+    <p>在树形控制台中选择<strong>Syslog</strong>。<br />
+    </p>
+  </li>
+  <li>
+    <p>在<em>Syslog.Local.DatastorePath</em>文本框中输入syslog消息的数据存储路径。如果没有指定路径，将使用默认路径<em>/var/log/messages</em>。</p>
+  </li>
+</ol>
+<p> 数据存储路径格式为[&lt;datastorename&gt;]   &lt;文件路径&gt;路径是相对路径。</p>
+<p><strong>例如</strong>：数据存储路径[storage1] var/log/messages对应为/vmfs/volumes/storage1/var/log/messages。</p>
+<ol start="6">
+  <li>
+    <p>在<em>Syslog.Remote.Hostname</em>文本框中输入syslog转发的远程主机名称，如果没有转发将不会转发数据。<br />
+    </p>
+  </li>
+  <li>
+    <p>在<em>Syslog.Remote.Port</em>文本框中输入上面远程主机的端口。默认的<em>Syslog.Remote.Port</em>设置为<strong>514</strong>，是UDP端口。对<em>Syslog.Remote.Port</em>的更改只有在配置了<em>Syslog.Remote.Hostname</em>后才有效。<br />
+    </p>
+  </li>
+  <li>
+    <p>最后确定。</p>
+  </li>
+</ol>
+<h3><a name="syslogCiscoSwitches" id="syslogCiscoSwitches"></a>在思科交换机上配置Syslog服务</h3>
+<ol>
+  <li>
+    <p>登录到设备。</p>
+  </li>
+  <li>
+    <p>转为配置模式。</p>
+  </li>
+  <li>
+    <p>执行下面的配置（这里已<em>Catalyst 2900</em>交换机为例）把日志发送到EventLog Analyzer服务器：<br />
+      <br />
+      &lt;Catalyst2900&gt;# <em>config       terminal</em> <br />
+      &lt;Catalyst2900&gt;(config)# <em>logging &lt;EventLog       Analyzer IP&gt;</em><br />
+      <br />
+      对于较新的catalyst交换机：<br />
+      <br />
+      Catalyst6500(config)# <em>set logging       &lt;EventLog Analyzer IP&gt;</em><br />
+      <br />
+      当然还可以配置facility、trap通知等等其他选项。如：<br />
+      <br />
+      Catalyst6500(config)# <em>logging       facility local7</em><br />
+      Catalyst6500(config)# <em>logging trap notifications</em></p>
+  </li>
+</ol>
+<table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+  <tr>
+    <td width="5%" height="52" style="padding:5px"><img src="../images/spacer.gif"width="1" height="1" class="write" /></td>
+    <td width="95%" style="padding:10px"><strong>说明</strong>：<strong>同样的命令也可以应用到思科路由器上。</strong> <br />
+      请参考Cisco<sup>®</sup>文档中对于各种交换机路由器的详细syslog配置步骤。如果你的思科设备的syslog格式和Eventlog Analyzer支持的标准syslog格式不一样，请联系我们。</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../getting-started/get-the-log-data.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../getting-started/analyzing-application-logs.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

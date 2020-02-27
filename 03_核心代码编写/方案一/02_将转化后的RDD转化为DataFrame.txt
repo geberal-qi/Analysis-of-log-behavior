@@ -1,0 +1,41 @@
+ //通过StructType直接指定每个字段的schema
+    val schema = StructType(
+      List(
+        StructField("http_x_forwarded_for", StringType, true),
+        StructField("server_addr", StringType, true),
+        StructField("server_name", StringType, true),
+        StructField("remote_addr", StringType, true),
+        StructField("remote_user", StringType, true),
+        StructField("time_local", StringType, true),
+        StructField("request", StringType, true),
+        StructField("status", IntegerType, true),
+        StructField("body_bytes_sent", DoubleType, true),
+        StructField("http_referer", StringType, true),
+        StructField("http_user_agent", StringType, true),
+        StructField("request_time", DoubleType, true),
+        StructField("request_length", DoubleType, true)
+
+      )
+    )
+    //    //将RDD映射到rowRDD
+    val rowRDD = logRDD.map(p => Row(
+      p(0),
+      p(1),
+      p(2),
+      if ("-".equals(p(0))) p(3) else p(0),
+      p(5),
+      p(6),
+      p(7),
+      p(8).toInt,
+      p(9).toDouble,
+      p(10),
+      p(11),
+      p(12).toDouble,
+      p(13).toDouble)
+
+    )
+    //转换成dataFrame
+    val sqlContext = new SQLContext(sc)
+    //将schema信息应用到rowRDD上
+    val logDataFrame = sqlContext.createDataFrame(rowRDD, schema)
+    //logDataFrame.show()

@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer - Configurations - Hosts</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../configurations/configurations-intro.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../configurations/manage-applications.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="configurations-intro.html" title="Configurations">配置</a> &gt; 管理主机</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>管理主机</h1>
+            <hr />
+            <p>在这个部分，您可以管理EventLog Analyzer监视的主机，您可以在这里执行添加、编辑、删除和查看主机操作。</p>
+            <ul>
+              <li><a href="#manageHosts" title="Manage Hosts">管理主机</a></li>
+              <li><a href="#AddHostGroups" title="Manage Host Groups">管理主机组</a></li>
+            </ul>
+            <h2><a name="manageHosts" id="manageHosts"></a>主机</h2>
+            <p><strong>怎样添加一个主机？</strong><br />
+            要添加主机，请参阅<a href="../getting-started/adding-host.html" title="Add Hosts">添加主机</a>部分。</p>
+            <p align="center"><img src="../images/edit-delete-hosts.png"  alt="Edit, Delete Hosts" /></p>
+            <p><strong>怎样编辑一个主机？</strong></p>
+            <p>编辑/删除菜单将会将您带到<strong>所有主机</strong>页面，在这里您可以看到所有添加的主机。</p>
+            <ol start="3">
+              <li>将鼠标移动到指定主机的行上，将会显示最近10个事件、编辑、立即扫描和启用（如果主机已禁用）菜单图标，点击编辑图标来编辑对应的主机。</li>
+            </ol>
+<p><strong>怎样删除一个主机？</strong></p>
+            <blockquote>
+              <p>                1a. 选择要删除的主机对应的复选框。</p>
+              <p>1b. 点击动作菜单中的删除选项删除选择的主机。</p>
+            </blockquote>
+            <p><strong>怎样禁用、启用一个主机？</strong></p>
+            <blockquote>
+              <p> 1a. 选择主机对应的复选框。</p>
+              <p>1c. 点击动作菜单中的禁用、启用选项来禁用或启用所选的主机。</p>
+            </blockquote>
+            <p><strong>其它主机操作</strong></p>
+<p>将鼠标移动到指定主机的行上，将会显示最近10个事件、编辑、立即扫描和启用（如果主机已禁用）菜单图标。</p>
+            <ol start="2">
+              <li>
+                <p>要查看指定主机的最近的10个事件，点击“显示最近10个事件”图标。</p>
+              </li>
+              <li>
+                <p>点击编辑图标可以编辑指定的主机。</p>
+              </li>
+              <li>
+                <p>要测试主机的连通性，使用“立即扫描”图标。</p>
+              </li>
+              <li>
+                <p>如果主机已禁用，点击“启用”图标，反之，点击“禁用”图标禁用主机。</p>
+              </li>
+            </ol>
+            <p>要搜索一个特定的主机，修改要显示的列。</p>
+            <p><strong>所有主机</strong></p>
+<p>在所有主机页面，您可以查看所有EventLog  Analyzer监视的主机，以及它们对应的严重度和事件统计、日志访问状态、上次日志收集时间和主机所在的主机组。</p>
+<p><a name="AddHostGroups" id="AddHostGroups"></a></p>
+            <h2>主机组</h2>
+            <p><strong>怎样添加一个主机组？</strong><br />
+              在用户界面添加一个主机组，可通过以下菜单实现：</p>
+            <ul>
+              <li><strong>设置</strong>页签 &gt; <strong>配置</strong> &gt; 组：<strong>添加</strong></li>
+              <li><strong>设置</strong>页签 &gt; <strong>配置</strong> &gt;<strong> 
+				所有组</strong> &gt; <strong>添加</strong></li>
+            </ul>
+            <p align="center"> <br />
+            <img src="../images/add-host-group.gif"  alt="Add new host group" /></p>
+            <ol>
+              <li>
+                <p>输入主机组的名称。</p>
+              </li>
+              <li>
+                <p>输入主机组的描述信息。</p>
+              </li>
+              <li>
+                <p>选择主机添加到组。从左侧的可用的主机列表，将主机移动到右侧的选择的主机列表下将主机添加到组，从选择的主机列表移动主机到可用的主机列表将主机从组中移除。</p>
+              </li>
+              <li>
+                <p>点击<strong>添加</strong>按钮完成主机组的添加操作。</p>
+              </li>
+            </ol>
+            <p>&nbsp;</p>
+<p align="center"><img src="../images/edit-delete-group.png"  alt="Edit, Delete host groups" /></p>
+            <p><strong>怎样编辑一个主机组？</strong><br />
+              编辑/删除菜单将会将您带到<strong>主机组</strong>页面，在这里将会列出所有的主机组。将鼠标放置到指定主机组的行上，你可以看到编辑、删除菜单出现。 
+			点击编辑图标来编辑指定的主机组。</p>
+            <p><strong>怎样删除一个主机组？</strong><br />
+              将鼠标放置到指定主机组的行上，你可以看到编辑、删除菜单出现。点击删除图标来删除指定的主机组。</p>
+            <p><strong>主机组</strong>            </p>
+            <p>在主机组明细页面，您可以查看所有EventLog Analyzer的主机组，以及它们对应的主机数量，执行编辑和删除操作。</p>
+            <p></p>
+<p>&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../configurations/configurations-intro.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../configurations/manage-applications.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>

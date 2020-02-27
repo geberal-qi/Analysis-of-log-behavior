@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Get the Files and Folder Changes - EventLog Analyzer</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../getting-started/enable-mssql-audit-logs.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../file-monitoring/fim.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77&" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="get-the-log-data.html">获取日志数据</a> » 如何启用IBM AS400/iSeries日志审计</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>如何启用IBM AS400/iSeries日志审计</h1>
+            <hr />
+            <p data-textformat="{'fw':'none','type':'text'}">要分析审计IBM AS400/iSeries日志，你首先需要在这些系统中启用审计。</p>
+            <p data-textformat="{'fw':'none','type':'text'}">启用AS400/i Series日志审计，你需要</p>
+            <ol>
+              <li>
+                <p><a href="#Create_Journal_Receiver">创建一个日志接收器</a></p>
+              </li>
+              <li>
+                <p><a href="#Attach_Journal_Receiver">日志接收器关联到日志</a></p>
+              </li>
+              <li><a href="#Specify_logs">                指定存储在日志接收器的审计日志              </a></li>
+            </ol>
+            <p>一旦日志接收器被创建并且指定的日志被收集，EventLog Analyzer将获取监视日志、生成报表和告警通知</p>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><span class="notesimg"></span></td>
+                <td width="95%" style="padding:10px"><strong>注意</strong>:对于设置AS400/iSeries机器的安全审计，你必须拥有*AUDIT特殊权限</td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+            <h2><strong><a name="Create_Journal_Receiver" id="Create_Journal_Receiver"></a>创建一个日志接收器</strong><br />
+          </h2>
+            <br />
+            <p>使用下列命令，在选择的库中创建一个日志接收器：</p>
+            <table border="2" align="center">
+              <tr>
+                <td><p data-textformat="{'fw':'bold','type':'text'}"><strong>CRTJRNRCV  JRNRCV(JRNLIB/AUDRCV0001) +           </strong></p>
+                  <p data-textformat="{'fw':'bold','type':'text'}"><strong>THRESHOLD(100000) AUT(*EXCLUDE)   +           </strong></p>
+                  <p data-textformat="{'fw':'bold','type':'text'}"><strong>TEXT('Auditing Journal Receiver')</strong><br /></p></td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><span class="notesimg"></span></td>
+                <td width="95%" style="padding:10px"><strong>注意</strong>: 事例使用的是<strong>JRNLIB</strong>库创建日志接收器</td>
+              </tr>
+            </table>
+            <blockquote>
+              <blockquote>
+                <ul>
+                <li>
+                  <p>你可以将日志接收器放在选择的任意库中，但确保不是放在Qsys库中，因为这是一个系统库器其包含审计日志。</p>
+                  </li>
+                  <li>
+                    <p>为日志接收器选择一个名称，这样该会议也可以为以后的日志接收器使用(eg.AUDRCV0001)。这种类型的命名约定是有用的，当系统管理变化，日志接收器被实施。</p>
+                  </li>
+                  <li>
+                    <p>如果想改变日志接收器继续使用惯例命名，使用*GEN选项</p>
+                  </li>
+                  <li>
+                    <p>指定适合你的系统大小和活动的阀值级别，选择的大小应该根据你的系统交易数目和要审计的动作数目。对于系统改变日志管理支持，阀值最少为5000KB</p>
+                  </li>
+                  <li>
+                    <p>限制访问存储在日志中的信息， 在AUT中指定* EXCLUDE参数</p>
+                  </li>
+                </ul>
+              </blockquote>
+            </blockquote>
+            <h2><a name="Attach_Journal_Receiver" id="Attach_Journal_Receiver"></a>日志接收器关联到日志<br />
+            </h2>
+            <br />
+            <p>使用下列命令，创建QSYS/QAUDJRN日志：</p>
+            <table width="323" border="2" align="center">
+              <tr>
+                <td><p><strong>CRTJRN JRN(QSYS/QAUDJRN)+          </strong></p>
+                  <p><strong>JRNRCV(JRNLIB/AUDRCV0001)+</strong></p>
+                  <p><strong>MNGRCV(*SYSTEM)DLTRCV(*NO)+       </strong></p>
+                  <strong>                  AUT(*EXCLUDE)    TEXT('Auditing Journal)</strong></td>
+              </tr>
+            </table>
+            <blockquote>
+              <blockquote>
+                <ul>
+                  <li>日志名称必须使用<strong>QSYS/QAUDJRN</strong></li>
+                </ul>
+              </blockquote>
+            </blockquote>
+            <table width="100%" border="0" cellspacing="0" class="notes" cellpadding="0">
+              <tr>
+                <td width="5%" height="52" style="padding:5px"><span class="notesimg"></span></td>
+                <td width="95%" style="padding:10px"><strong>注意</strong>: 创建这个日志你必须拥有添加对象到QSYS的权限</td>
+              </tr>
+            </table>
+            <blockquote>
+              <blockquote>
+                <ul>
+                  <li>
+                    <p>指定你在<strong>JRNRCV</strong>参数中创建的日志接收器的名称</p>
+                  </li>
+                  <li>
+                    <p>在<strong>AUT</strong><strong>中指定*EXCLUDE</strong>参数限制访问存储在日志中的信息</p>
+                  </li>
+                  <li>
+                    <p><strong>(*SYSTEM)</strong>作为管理接收器<strong>(MNGRCV)</strong>的参数来传递。因此，当连接日志接收器达到阈值的大小时，系统本身分离这个接收器和创建并附加一个新的日志接收器</p>
+                  </li>
+                  <li>
+                    <p>使用<strong>CHGJRN</strong>命令，将避免自动分离接收器和创建并附加新的接收器</p>
+                  </li>
+                  <li>
+                    <p>要保存分离的日志接收器，应指定<strong>DLTRCV</strong>参数为<strong> (*NO)</strong>。这将防止分离的接收器被系统自动删除</p>
+                  </li>
+                  <li>                    <strong>QAUDJRN</strong>接收器是安全审计路径，所以确保它们足够的存档</li>
+                </ul>
+              </blockquote>
+            </blockquote>
+            <h2><a name="Specify_logs" id="Specify_logs"></a>指定存储在日志接收器的审计日志</h2>
+            <p>使用下列命令，指定存储在日志接收器的审计日志：<br />
+            </p>
+            <table width="347" border="2" align="center">
+              <tr>
+                <td width="335" height="60"><p align="center" data-textformat="{'ff':'arial,helvetica,sans-serif','type':'text','size':'11'}"><strong>CHGSECAUD QAUDCTL(*ALL) QAUDLVL(*ALL)</strong></p></td>
+              </tr>
+            </table>
+<br />
+<br />
+            <blockquote>
+              <blockquote>
+                <ul>
+                  <li>
+                    <p>指定系统中所有用户的哪些操作都被记录到审计日中，你需要使用<strong>WRKSYSVAL</strong>命令设置审计级别<strong>QUDLVL</strong>系统的值。</p>
+                  </li>
+                  <li>
+                    <p>使用<strong>CHGUSRAUD</strong>命令可以设置特定用户的审计动作和对象。</p>
+                  </li>
+                  <li>
+                    <p>使用<strong>CHGOBJAUD</strong>和<strong>CHGDLOAUD</strong>命令可以按照自己的要求设置特点对象的对象审计。</p>
+                  </li>
+                  <li>
+                    <p>设置<strong>QAUDENDACN</strong>系统值，有助于在不能写进审计日志时判断系统的操作。</p>
+                  </li>
+                  <li>
+                    <p>利用<strong>QAUDFRCLVL</strong>系统参数，可以控制记忆中的审计记录转移到辅助存储</p>
+                  </li>
+                  <li>设置<strong>QAUDCTL</strong>系统为任意值而不是<strong>*NONE</strong>，开始审计</li>
+                </ul>
+              </blockquote>
+            </blockquote>
+            <p>一旦安全审计建立完成后，EventLog Analyzer会自动读取被监视的ASA400/iSeries日志接收器所收集到的日志。如果ASA400/iSeries没有添加到EventLog Analyzer服务器，<a href="adding-host.html#addIBMiSeries">点击这里</a>添加IBM iSeries (AS/400)主机。</p>
+            <blockquote>
+              <blockquote>&nbsp;            </blockquote>
+</blockquote></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../getting-started/enable-mssql-audit-logs.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../file-monitoring/fim.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016, <a href="http://www.zohocorp.com" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"<a href="http://www.manageengine.com" target=_blank>ManageEngine</div></div> </body>
+</html>

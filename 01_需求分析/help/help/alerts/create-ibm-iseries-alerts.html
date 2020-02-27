@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EventLog Analyzer - Create IBM iSeries (AS/400) Alert Profile</title>
+<link rel="stylesheet" type="text/css" href="../eventloganalyzer.css"/>
+</head>
+
+<body>
+<table BORDER=0 WIDTH="100%" class="navigator" bgcolor="#d4d5d6" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" class=navigator>
+<a href="../alerts/create-alert-profile.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../alerts/view-alerts.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<table width="100%" border="0" height="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="77%" class="paddingLeft25 paddingRight25 fade" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="35"><p class="font11"><a href="../index.html" target="_top">主页</a> » <a href="alerts-intro.html" title="Log Alerts">事件告警</a> » 创建IBM iSeries (AS/400)告警配置文件</p></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td valign="top"><h1>怎样创建IBM iSeries (AS/400)告警配置文件</h1>
+            <hr />
+            <p>首先，请确保在您的EventLog Analyzer中已至少添加了一台IBM iSeries (AS/400)主机。要创建IBM iSeries (AS/400)告警配置文件，可通过以下菜单实现：</p>
+            <ul>
+              <li><strong>告警</strong>页签 &gt; 告警配置文件： <strong>+</strong></li>
+              <li><strong>设置</strong>页签 &gt; 告警：<strong>AS/400</strong></li>
+              <li>标签： <strong>+添加</strong> &gt; <strong>AS/400告警</strong></li>
+            </ul>
+            <p></p>
+<p>请参照下面的步骤来创建IBM iSeries告警配置文件。</p>
+            <p>&nbsp;</p>
+            <p align="center"><img src="../images/create-ibm-alert-profile.gif"  alt="Create custom IBM report" /></p>
+            <p>&nbsp; </p>
+            <ol>
+              <li>
+                <p>输入告警配置文件的名称。</p>
+              </li>
+              <li>
+                <p>指定此报表配置文件生成的告警的严重性级别，可选项包括<strong>高</strong>、<strong>中</strong>和<strong>低</strong>。</p>
+              </li>
+              <li>
+                <p>选择要生成告警的IBM iSeries主机和主机组。</p>
+              </li>
+              <li>
+                <p>定义告警的条件，从列表选择日志的严重性。告警将会在出现所选的严重性能级别的消息时生成，输入指定的iSeries消息ID，输入指定的iSeries 
+				Job 名称。</p>
+              </li>
+              <li>
+                <p>使用<strong>日志消息包含</strong>字段定义在日志消息中出现指定的词组或短语时，触发告警，使用<strong>除外</strong>字段定义当日志消息中存在指定的词组或短语时，不触发告警。</p>
+              </li>
+              <li>
+                <p>对于以上两种字段，在<strong>高级</strong>设置下，您可以配置对于多个字段的匹配选项设置。</p>
+              </li>
+              <li>
+                <p>
+				您可以控制告警的生成，将出现一次事件生成一次告警配置为，在特定时间段内出现N次事件生成一次告警。您需要设置事件出现的次数，以及事件出现的时间限制。</p>
+              </li>
+              <li>
+                <p>生成的告警可以通过邮件、短信进行通知，也可以通过运行程序，在生成告警时执行一个脚本或程序。设置告警通知选项。</p>
+              </li>
+              <li>
+                <p>点击<strong>添加告警配置文件</strong>按钮完成告警配置文件的创建，所有创建的告警配置文件将会列在<strong>告警配置文件明细</strong>页面，在那里您可以启用、禁用、修改和删除配置文件。</p>
+              </li>
+            </ol>
+          <p>&nbsp;</p></td>
+        </tr>
+        
+        
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+      </table>
+      </td>
+  </tr>
+  <tr>
+    <td valign="bottom">
+    </td>
+  </tr>
+</table>
+<table BORDER=0 WIDTH="100%" class=navigator>
+<tr>
+<td ALIGN=RIGHT class=navigator>
+<a href="../alerts/create-alert-profile.html"><img SRC="../images/nav_prev.gif" border=0></a>
+<a href="../index.html" target=_top><img SRC="../images/nav_home.gif" border=0 ></a>
+<a href="../alerts/view-alerts.html"><img SRC="../images/nav_next.gif" border=0></a>
+</td></tr></table>
+<div style="font:12px arial; padding:3px; color:#666666;"> <div style="float:left;">Copyright &#169; 2016，<a href="http://www.zohocorp.com.cn" target=_blank>ZOHO Corp</a>。版权所有。</div> <div style="float:right;"><a href="http://www.zohocorp.com.cn/manageengine/index.html" target=_blank>ManageEngine</div></div> </body>
+</html>
